@@ -59,11 +59,11 @@ def test_notebooks_are_structured_as_tutorials() -> None:
     assert {path.name for path in notebook_dir.glob("*.ipynb")} == expected_names
 
     required_sections = (
-        "Learning goals",
-        "Implementation",
-        "Experiment",
-        "Result analysis",
-        "Takeaways",
+        "학습 목표",
+        "구현",
+        "실험",
+        "결과 해석",
+        "핵심 정리",
     )
 
     for notebook_path in sorted(notebook_dir.glob("*.ipynb")):
