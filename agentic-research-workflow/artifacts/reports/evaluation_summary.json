@@ -1,16 +1,16 @@
 [
   {
     "system": "agent_workflow",
-    "answer_correctness": 0.419,
+    "answer_correctness": 0.347,
     "retrieval_hit_rate": 1.0,
     "grounding_pass_rate": 1.0,
     "abstain_precision": 1.0,
-    "latency": 0.002,
+    "latency": 0.001,
     "average_steps": 9.0
   },
   {
     "system": "baseline",
-    "answer_correctness": 0.478,
+    "answer_correctness": 0.356,
     "retrieval_hit_rate": 1.0,
     "grounding_pass_rate": 0.0,
     "abstain_precision": 0.0,

@@ -1,10 +1,10 @@
 {
-  "session_id": "063ab773-d722-4e35-9cb1-6460cf7403a7",
+  "session_id": "69afddf3-8978-4f30-b271-90a2ca92d089",
   "user_query": "Who is the current CEO of the company?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "Who is the current CEO of the company?"
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Who is the current CEO of the company?"
         },
-        "latency": 5e-06
+        "latency": 2e-06
       },
       "inputs": {
         "user_query": "Who is the current CEO of the company?"
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Who is the current CEO of the company?"
       },
-      "latency": 5e-06
+      "latency": 2e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Who is the current CEO of the company?"
@@ -33,7 +33,7 @@
           "query_type": "insufficient_evidence_risk",
           "requires_tools": false
         },
-        "latency": 5e-06
+        "latency": 3e-06
       },
       "inputs": {
         "normalized_query": "Who is the current CEO of the company?"
@@ -42,11 +42,11 @@
         "query_type": "insufficient_evidence_risk",
         "requires_tools": false
       },
-      "latency": 5e-06
+      "latency": 3e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk"
@@ -58,7 +58,7 @@
             "abstain if grounding is weak"
           ]
         },
-        "latency": 2e-06
+        "latency": 0.0
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk"
@@ -70,11 +70,11 @@
           "abstain if grounding is weak"
         ]
       },
-      "latency": 2e-06
+      "latency": 0.0
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Who is the current CEO of the company?",
@@ -90,7 +90,7 @@
             "governance_update.txt"
           ]
         },
-        "latency": 0.000801
+        "latency": 0.000528
       },
       "inputs": {
         "normalized_query": "Who is the current CEO of the company?",
@@ -106,11 +106,11 @@
           "governance_update.txt"
         ]
       },
-      "latency": 0.000801
+      "latency": 0.000528
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Who is the current CEO of the company?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.6e-05
+        "latency": 2.2e-05
       },
       "inputs": {
         "normalized_query": "Who is the current CEO of the company?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.6e-05
+      "latency": 2.2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",
@@ -180,7 +180,7 @@
             }
           ]
         },
-        "latency": 0.000163
+        "latency": 0.000146
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk",
@@ -204,11 +204,11 @@
           }
         ]
       },
-      "latency": 0.000163
+      "latency": 0.000146
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -221,7 +221,7 @@
             "Evidence only covers part of the request."
           ]
         },
-        "latency": 8.5e-05
+        "latency": 7.2e-05
       },
       "inputs": {
         "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -234,11 +234,11 @@
           "Evidence only covers part of the request."
         ]
       },
-      "latency": 8.5e-05
+      "latency": 7.2e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",

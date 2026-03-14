@@ -155,18 +155,31 @@ def _trace_cell(value: Any, max_length: int = 120) -> str:
 
 
 def trace_to_frame(trace: list[dict[str, Any]]) -> pd.DataFrame:
+    previous_timestamp: datetime | None = None
     rows: list[dict[str, str | int]] = []
     for index, entry in enumerate(trace, start=1):
+        current_timestamp = None
+        raw_timestamp = str(entry.get("timestamp", ""))
+        if raw_timestamp:
+            try:
+                current_timestamp = datetime.fromisoformat(raw_timestamp.replace("Z", "+00:00"))
+            except ValueError:
+                current_timestamp = None
+        latency = entry.get("latency")
+        if not isinstance(latency, (int, float)) and previous_timestamp is not None and current_timestamp is not None:
+            latency = round((current_timestamp - previous_timestamp).total_seconds(), 6)
+        previous_timestamp = current_timestamp or previous_timestamp
         rows.append(
             {
                 "step": index,
                 "node": str(entry.get("node", "")),
+                "latency": round(float(latency), 6) if isinstance(latency, (int, float)) else None,
                 "inputs": _trace_cell(entry.get("inputs", {})),
                 "outputs": _trace_cell(entry.get("outputs", entry.get("payload", {}))),
-                "timestamp": str(entry.get("timestamp", "")),
+                "timestamp": raw_timestamp,
             }
         )
-    return pd.DataFrame(rows, columns=["step", "node", "inputs", "outputs", "timestamp"])
+    return pd.DataFrame(rows, columns=["step", "node", "latency", "inputs", "outputs", "timestamp"])
 
 
 def display_trace(trace: list[dict[str, Any]], render: bool = True) -> pd.DataFrame:

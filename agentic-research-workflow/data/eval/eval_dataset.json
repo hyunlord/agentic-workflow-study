@@ -6,7 +6,9 @@
     "question_type": "simple_lookup",
     "type": "simple_lookup",
     "expected_status": "answered",
-    "expected_sources": ["workspace_policy_refresh.md"]
+    "expected_sources": [
+      "workspace_policy_refresh.md"
+    ]
   },
   {
     "id": "q2",
@@ -15,7 +17,10 @@
     "question_type": "comparison",
     "type": "comparison",
     "expected_status": "answered",
-    "expected_sources": ["leadership_faq.txt", "ops_rollout_plan.md"]
+    "expected_sources": [
+      "leadership_faq.txt",
+      "ops_rollout_plan.md"
+    ]
   },
   {
     "id": "q3",
@@ -38,7 +43,9 @@
     "question_type": "multi_hop",
     "type": "multi_hop",
     "expected_status": "answered",
-    "expected_sources": ["ops_rollout_plan.md"]
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
   },
   {
     "id": "q5",
@@ -47,7 +54,10 @@
     "question_type": "multi_hop",
     "type": "multi_hop",
     "expected_status": "answered",
-    "expected_sources": ["governance_update.txt", "support_metrics.txt"]
+    "expected_sources": [
+      "governance_update.txt",
+      "support_metrics.txt"
+    ]
   },
   {
     "id": "q6",
@@ -56,7 +66,9 @@
     "question_type": "simple_lookup",
     "type": "simple_lookup",
     "expected_status": "answered",
-    "expected_sources": ["ops_rollout_plan.md"]
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
   },
   {
     "id": "q7",
@@ -74,7 +86,9 @@
     "question_type": "multi_hop",
     "type": "multi_hop",
     "expected_status": "answered",
-    "expected_sources": ["ops_rollout_plan.md"]
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
   },
   {
     "id": "q9",
@@ -83,7 +97,10 @@
     "question_type": "simple_lookup",
     "type": "simple_lookup",
     "expected_status": "answered",
-    "expected_sources": ["leadership_faq.txt", "workspace_policy_refresh.md"]
+    "expected_sources": [
+      "leadership_faq.txt",
+      "workspace_policy_refresh.md"
+    ]
   },
   {
     "id": "q10",
@@ -92,7 +109,9 @@
     "question_type": "simple_lookup",
     "type": "simple_lookup",
     "expected_status": "answered",
-    "expected_sources": ["ops_rollout_plan.md"]
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
   },
   {
     "id": "q11",
@@ -101,7 +120,9 @@
     "question_type": "simple_lookup",
     "type": "simple_lookup",
     "expected_status": "answered",
-    "expected_sources": ["workspace_policy_refresh.md"]
+    "expected_sources": [
+      "workspace_policy_refresh.md"
+    ]
   },
   {
     "id": "q12",
@@ -110,7 +131,9 @@
     "question_type": "comparison",
     "type": "comparison",
     "expected_status": "answered",
-    "expected_sources": ["governance_update.txt"]
+    "expected_sources": [
+      "governance_update.txt"
+    ]
   },
   {
     "id": "q13",
@@ -119,7 +142,9 @@
     "question_type": "summary",
     "type": "summary",
     "expected_status": "answered",
-    "expected_sources": ["workspace_policy_refresh.md"]
+    "expected_sources": [
+      "workspace_policy_refresh.md"
+    ]
   },
   {
     "id": "q14",
@@ -128,7 +153,9 @@
     "question_type": "simple_lookup",
     "type": "simple_lookup",
     "expected_status": "answered",
-    "expected_sources": ["leadership_faq.txt"]
+    "expected_sources": [
+      "leadership_faq.txt"
+    ]
   },
   {
     "id": "q15",
@@ -137,7 +164,9 @@
     "question_type": "multi_hop",
     "type": "multi_hop",
     "expected_status": "answered",
-    "expected_sources": ["technical_retrieval_notes.txt"]
+    "expected_sources": [
+      "technical_retrieval_notes.txt"
+    ]
   },
   {
     "id": "q16",
@@ -146,6 +175,289 @@
     "question_type": "summary",
     "type": "summary",
     "expected_status": "answered",
-    "expected_sources": ["product_assistant_overview.md"]
+    "expected_sources": [
+      "product_assistant_overview.md"
+    ]
+  },
+  {
+    "id": "q17",
+    "question": "What must each team maintain under the refreshed policy?",
+    "gold_answer": "each team must maintain a single canonical knowledge base page",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md"
+    ]
+  },
+  {
+    "id": "q18",
+    "question": "Which note says the chunks are intentionally small?",
+    "gold_answer": "the technical retrieval notes say the chunks are intentionally small so learners can inspect search quality changes",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": [
+      "technical_retrieval_notes.txt"
+    ]
+  },
+  {
+    "id": "q19",
+    "question": "How do the policy refresh and support metrics describe onboarding consistency differently?",
+    "gold_answer": "the policy refresh treats onboarding consistency as a goal of the refresh, while the support metrics memo explains that shared policy and FAQ ownership makes onboarding answers easier to find",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md",
+      "support_metrics.txt"
+    ]
+  },
+  {
+    "id": "q20",
+    "question": "Compare the focus of the product assistant overview with the technical retrieval notes.",
+    "gold_answer": "the product overview focuses on employee-facing help and escalation, while the retrieval notes focus on lightweight local search and inspectable ranking behavior",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "product_assistant_overview.md",
+      "technical_retrieval_notes.txt"
+    ]
+  },
+  {
+    "id": "q21",
+    "question": "How is ownership described differently in the governance update and the support metrics memo?",
+    "gold_answer": "the governance update assigns the canonical policy and shared FAQ to the central enablement team while regional operations leads own local training, and the support metrics memo explains that this ownership model reduces duplicate documents and makes onboarding answers easier to find",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "governance_update.txt",
+      "support_metrics.txt"
+    ]
+  },
+  {
+    "id": "q22",
+    "question": "Compare Phase 1 and Phase 2 of the rollout plan.",
+    "gold_answer": "Phase 1 trains policy leads and office managers, while Phase 2 launches the scheduling template and escalation form",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
+  },
+  {
+    "id": "q23",
+    "question": "How do the policy goals differ from the success measures in the workspace refresh document?",
+    "gold_answer": "the goals are to reduce operating cost, standardize hybrid guidance, and improve onboarding consistency, while the success measures track fewer ad-hoc support requests, faster onboarding, and less duplicated documentation",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md"
+    ]
+  },
+  {
+    "id": "q24",
+    "question": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+    "gold_answer": "the FAQ says keyword extraction helps with broad summaries and date calculations help with schedule questions, while the retrieval notes explain that the local TF-IDF stack keeps the system lightweight and reproducible",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "leadership_faq.txt",
+      "technical_retrieval_notes.txt"
+    ]
+  },
+  {
+    "id": "q25",
+    "question": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?",
+    "gold_answer": "because the central enablement team owns the canonical policy and shared FAQ, teams can rely on the same guidance instead of maintaining duplicate onboarding documents",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "governance_update.txt",
+      "support_metrics.txt"
+    ]
+  },
+  {
+    "id": "q26",
+    "question": "If the rollout begins on May 5, when must managers publish team schedules?",
+    "gold_answer": "managers must publish team schedules two weeks in advance, so for a May 5 rollout they would need to publish them by April 21, 2025",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md",
+      "ops_rollout_plan.md"
+    ]
+  },
+  {
+    "id": "q27",
+    "question": "Which product priorities and tool choices make the assistant useful for schedule questions?",
+    "gold_answer": "the assistant is designed for short evidence-backed answers and clear escalation, and the FAQ says date calculations should be used for schedule questions",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "product_assistant_overview.md",
+      "leadership_faq.txt"
+    ]
+  },
+  {
+    "id": "q28",
+    "question": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+    "gold_answer": "teams are expected to maintain a single canonical knowledge base page and rely on the centrally owned canonical policy and shared FAQ",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md",
+      "governance_update.txt",
+      "support_metrics.txt"
+    ]
+  },
+  {
+    "id": "q29",
+    "question": "Summarize the rollout plan in a few points.",
+    "gold_answer": "the plan runs a pilot from March 10 to April 4, 2025, begins organization-wide rollout on May 5 if targets are met, trains policy leads and office managers in Phase 1, launches the scheduling template and escalation form in Phase 2, and warns about inconsistent communication and duplicate FAQ updates",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
+  },
+  {
+    "id": "q30",
+    "question": "Summarize what the governance update and support metrics memo say together.",
+    "gold_answer": "together they explain that regional operations leads handle local training, the central enablement team owns the canonical policy and shared FAQ, and this shared ownership model reduces duplicate onboarding documents while improving consistency",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "governance_update.txt",
+      "support_metrics.txt"
+    ]
+  },
+  {
+    "id": "q31",
+    "question": "Summarize the product assistant overview and the technical retrieval notes together.",
+    "gold_answer": "the project centers on an internal assistant that gives searchable, evidence-backed help with escalation to humans, and it uses a lightweight local TF-IDF retriever with small chunks so the system is reproducible and easy to inspect",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "product_assistant_overview.md",
+      "technical_retrieval_notes.txt"
+    ]
+  },
+  {
+    "id": "q32",
+    "question": "Summarize the operational consistency story across the policy, governance, and support documents.",
+    "gold_answer": "the documents describe a consistent operating model built on standardized hybrid-work guidance, a centrally owned canonical policy and FAQ, and shared knowledge-base practices that reduce duplicate onboarding work and support requests",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md",
+      "governance_update.txt",
+      "support_metrics.txt"
+    ]
+  },
+  {
+    "id": "q33",
+    "question": "Summarize how the documents describe when tools should be used and what the product is trying to deliver.",
+    "gold_answer": "the documents say tools like keyword extraction and date calculations should support broad summaries and schedule questions, and the product is trying to deliver short evidence-backed answers with clear escalation paths",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "leadership_faq.txt",
+      "product_assistant_overview.md"
+    ]
+  },
+  {
+    "id": "q34",
+    "question": "What is today's NVIDIA stock price?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "leadership_faq.txt"
+    ]
+  },
+  {
+    "id": "q35",
+    "question": "Which vendor will replace the current scheduling system next quarter?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
+  },
+  {
+    "id": "q36",
+    "question": "What is the company's 2026 headcount target?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "workspace_policy_refresh.md",
+      "leadership_faq.txt"
+    ]
+  },
+  {
+    "id": "q37",
+    "question": "Is the rollout plan a good idea for company culture?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "ops_rollout_plan.md",
+      "workspace_policy_refresh.md"
+    ]
+  },
+  {
+    "id": "q38",
+    "question": "What is the exact Slack workspace URL for policy questions?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "product_assistant_overview.md"
+    ]
+  },
+  {
+    "id": "q39",
+    "question": "Will the pilot definitely meet its adoption and support targets?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "ops_rollout_plan.md"
+    ]
+  },
+  {
+    "id": "q40",
+    "question": "What security vulnerabilities exist in the production deployment of this assistant?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": [
+      "technical_retrieval_notes.txt",
+      "product_assistant_overview.md"
+    ]
   }
 ]

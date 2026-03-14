@@ -23,6 +23,8 @@ def test_pyproject_defines_uv_project_metadata() -> None:
     assert data["project"]["name"] == "agentic-research-workflow"
     assert data["project"]["requires-python"] == ">=3.11"
     assert "jupyterlab" in " ".join(data["project"]["dependencies"])
+    assert "cpu" in data["project"]["optional-dependencies"]
+    assert "gpu" in data["project"]["optional-dependencies"]
     assert "ipykernel" in " ".join(data["dependency-groups"]["dev"])
     assert "pytest" in " ".join(data["dependency-groups"]["dev"])
 
@@ -87,7 +89,7 @@ def test_notebooks_are_structured_as_tutorials() -> None:
 
 def test_eval_dataset_has_learning_scale_examples() -> None:
     dataset = read_json(PROJECT_ROOT / "data" / "eval" / "eval_dataset.json")
-    assert 15 <= len(dataset) <= 20
+    assert len(dataset) == 40
 
 
 def test_trace_visualization_returns_learning_friendly_table() -> None:
@@ -100,10 +102,22 @@ def test_trace_visualization_returns_learning_friendly_table() -> None:
     frame = display_trace(state["trace"], render=False)
 
     assert isinstance(frame, pd.DataFrame)
-    assert list(frame.columns) == ["step", "node", "inputs", "outputs", "timestamp"]
+    assert list(frame.columns) == ["step", "node", "latency", "inputs", "outputs", "timestamp"]
     assert "retrieve_docs" in set(frame["node"])
+    assert frame["latency"].notna().all()
     assert all(isinstance(value, str) for value in frame["inputs"])
     assert all(isinstance(value, str) for value in frame["outputs"])
+
+
+def test_runtime_config_and_faiss_module_import_safely() -> None:
+    from src.config import RuntimeConfig
+    from src.retriever_faiss import FAISSRetriever
+
+    config = RuntimeConfig.auto_detect()
+
+    assert config.device in {"cpu", "mps", "cuda"}
+    assert isinstance(config.use_gpu_faiss, bool)
+    assert FAISSRetriever.__name__ == "FAISSRetriever"
 
 
 def test_evaluator_script_runs_as_direct_python_entrypoint() -> None:

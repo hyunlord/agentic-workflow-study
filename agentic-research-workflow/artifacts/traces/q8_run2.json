@@ -1,10 +1,10 @@
 {
-  "session_id": "338a776f-f5d5-41d8-b4b6-982e23e596d5",
+  "session_id": "d5d484f1-af64-45d3-9994-4c88444dd0e2",
   "user_query": "What risk could slow a consistent rollout?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "What risk could slow a consistent rollout?"
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "What risk could slow a consistent rollout?"
         },
-        "latency": 2e-06
+        "latency": 4e-06
       },
       "inputs": {
         "user_query": "What risk could slow a consistent rollout?"
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "What risk could slow a consistent rollout?"
       },
-      "latency": 2e-06
+      "latency": 4e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "What risk could slow a consistent rollout?"
@@ -33,7 +33,7 @@
           "query_type": "multi_hop",
           "requires_tools": true
         },
-        "latency": 5e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "What risk could slow a consistent rollout?"
@@ -42,11 +42,11 @@
         "query_type": "multi_hop",
         "requires_tools": true
       },
-      "latency": 5e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -60,7 +60,7 @@
             "verify grounding before final answer"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "multi_hop"
@@ -74,11 +74,11 @@
           "verify grounding before final answer"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "What risk could slow a consistent rollout?",
@@ -94,7 +94,7 @@
             "ops_rollout_plan.md"
           ]
         },
-        "latency": 0.000543
+        "latency": 0.000663
       },
       "inputs": {
         "normalized_query": "What risk could slow a consistent rollout?",
@@ -110,11 +110,11 @@
           "ops_rollout_plan.md"
         ]
       },
-      "latency": 0.000543
+      "latency": 0.000663
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "What risk could slow a consistent rollout?",
@@ -140,7 +140,7 @@
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -160,7 +160,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -190,7 +190,7 @@
             }
           ]
         },
-        "latency": 0.00012
+        "latency": 0.000121
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -220,11 +220,11 @@
           }
         ]
       },
-      "latency": 0.00012
+      "latency": 0.000121
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "The biggest rollout risks are inconsistent local communication and duplicate FAQ updates. Sources: ops_rollout_plan.md, governance_update.txt, leadership_faq.txt."
@@ -235,7 +235,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 6.6e-05
+        "latency": 5.9e-05
       },
       "inputs": {
         "draft_answer": "The biggest rollout risks are inconsistent local communication and duplicate FAQ updates. Sources: ops_rollout_plan.md, governance_update.txt, leadership_faq.txt."
@@ -246,11 +246,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 6.6e-05
+      "latency": 5.9e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:32Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",

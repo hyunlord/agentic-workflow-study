@@ -5,8 +5,9 @@ from typing import Any
 
 import numpy as np
 
-from src.config import DEFAULT_CHUNK_OVERLAP, DEFAULT_CHUNK_SIZE, get_paths
+from src.config import DEFAULT_CHUNK_OVERLAP, DEFAULT_CHUNK_SIZE, RuntimeConfig, get_paths
 from src.retriever import HybridRetriever
+from src.retriever_faiss import FAISSRetriever, OptionalDependencyError
 from src.utils import ensure_directory, sentence_split, write_jsonl
 
 
@@ -82,10 +83,18 @@ def build_demo_index(
     raw_dir: Path | None = None,
     processed_dir: Path | None = None,
     persist: bool = True,
-) -> HybridRetriever:
+    backend: str = "tfidf",
+) -> HybridRetriever | FAISSRetriever:
     paths = get_paths()
     chunks = ingest_documents(raw_dir=raw_dir, processed_dir=processed_dir, persist=persist)
-    retriever = HybridRetriever.from_chunks(chunks)
+    if backend == "faiss":
+        config = RuntimeConfig.auto_detect()
+        try:
+            retriever: HybridRetriever | FAISSRetriever = FAISSRetriever.from_chunks(chunks, config=config)
+        except OptionalDependencyError:
+            retriever = HybridRetriever.from_chunks(chunks)
+    else:
+        retriever = HybridRetriever.from_chunks(chunks)
 
     if persist:
         output_dir = processed_dir or paths.processed_dir

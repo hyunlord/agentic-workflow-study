@@ -1,0 +1,333 @@
+{
+  "session_id": "999f512c-d625-464e-8b1f-7c26adfed9ca",
+  "user_query": "Which note says the chunks are intentionally small?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Which note says the chunks are intentionally small?"
+        },
+        "outputs": {
+          "normalized_query": "Which note says the chunks are intentionally small?"
+        },
+        "latency": 3e-06
+      },
+      "inputs": {
+        "user_query": "Which note says the chunks are intentionally small?"
+      },
+      "outputs": {
+        "normalized_query": "Which note says the chunks are intentionally small?"
+      },
+      "latency": 3e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Which note says the chunks are intentionally small?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 6e-06
+      },
+      "inputs": {
+        "normalized_query": "Which note says the chunks are intentionally small?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 6e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Which note says the chunks are intentionally small?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "technical_retrieval_notes.txt",
+            "technical_retrieval_notes.txt",
+            "technical_retrieval_notes.txt",
+            "workspace_policy_refresh.md",
+            "ops_rollout_plan.md"
+          ]
+        },
+        "latency": 0.000556
+      },
+      "inputs": {
+        "normalized_query": "Which note says the chunks are intentionally small?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "technical_retrieval_notes.txt",
+          "technical_retrieval_notes.txt",
+          "technical_retrieval_notes.txt",
+          "workspace_policy_refresh.md",
+          "ops_rollout_plan.md"
+        ]
+      },
+      "latency": 0.000556
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Which note says the chunks are intentionally small?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.5e-05
+      },
+      "inputs": {
+        "normalized_query": "Which note says the chunks are intentionally small?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.5e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 1e-06
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt.",
+          "citations": [
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_3",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.4531
+            },
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_2",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.3323
+            }
+          ]
+        },
+        "latency": 0.000161
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt.",
+        "citations": [
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_3",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.4531
+          },
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_2",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.3323
+          }
+        ]
+      },
+      "latency": 0.000161
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.95,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 8.5e-05
+      },
+      "inputs": {
+        "draft_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.95,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 8.5e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.95,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.95,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Which note says the chunks are intentionally small?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "text": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.4531
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_2",
+      "text": "The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.3323
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_1",
+      "text": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.04
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_6",
+      "text": "The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_4",
+      "text": "Phase 1 trains policy leads and office managers. Phase 2 launches the scheduling template and escalation form.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt.",
+  "citations": [
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.4531
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_2",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.3323
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.95,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt.",
+  "final_status": "answered"
+}

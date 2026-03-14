@@ -1,0 +1,333 @@
+{
+  "session_id": "727e7cb1-df86-41aa-b766-5998a82245b6",
+  "user_query": "What must each team maintain under the refreshed policy?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "What must each team maintain under the refreshed policy?"
+        },
+        "outputs": {
+          "normalized_query": "What must each team maintain under the refreshed policy?"
+        },
+        "latency": 2e-06
+      },
+      "inputs": {
+        "user_query": "What must each team maintain under the refreshed policy?"
+      },
+      "outputs": {
+        "normalized_query": "What must each team maintain under the refreshed policy?"
+      },
+      "latency": 2e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What must each team maintain under the refreshed policy?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 5e-06
+      },
+      "inputs": {
+        "normalized_query": "What must each team maintain under the refreshed policy?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 5e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What must each team maintain under the refreshed policy?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "workspace_policy_refresh.md",
+            "workspace_policy_refresh.md",
+            "workspace_policy_refresh.md",
+            "governance_update.txt",
+            "governance_update.txt"
+          ]
+        },
+        "latency": 0.000533
+      },
+      "inputs": {
+        "normalized_query": "What must each team maintain under the refreshed policy?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "workspace_policy_refresh.md",
+          "workspace_policy_refresh.md",
+          "workspace_policy_refresh.md",
+          "governance_update.txt",
+          "governance_update.txt"
+        ]
+      },
+      "latency": 0.000533
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What must each team maintain under the refreshed policy?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.4e-05
+      },
+      "inputs": {
+        "normalized_query": "What must each team maintain under the refreshed policy?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.4e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+          "citations": [
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_4",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.4168
+            },
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_5",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.3735
+            }
+          ]
+        },
+        "latency": 0.000153
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+        "citations": [
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_4",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.4168
+          },
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_5",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.3735
+          }
+        ]
+      },
+      "latency": 0.000153
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.929,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 7e-05
+      },
+      "inputs": {
+        "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.929,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 7e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.929,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.929,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "What must each team maintain under the refreshed policy?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_4",
+      "text": "Managers must publish team schedules two weeks in advance. Each team must maintain a single canonical knowledge base page.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.4168
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_5",
+      "text": "Each team must maintain a single canonical knowledge base page. The refresh reduces discretionary travel and duplicated onboarding sessions.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.3735
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "text": "The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Managers must publish team schedules two weeks in advance.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.1456
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.1453
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "text": "Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.",
+      "source": "governance_update.txt",
+      "score": 0.134
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+  "citations": [
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_4",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.4168
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_5",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.3735
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.929,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+  "final_status": "answered"
+}

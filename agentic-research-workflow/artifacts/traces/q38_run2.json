@@ -1,0 +1,351 @@
+{
+  "session_id": "3b0b14f0-14d2-4019-b6e1-30e7bfb24ad2",
+  "user_query": "What is the exact Slack workspace URL for policy questions?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "What is the exact Slack workspace URL for policy questions?"
+        },
+        "outputs": {
+          "normalized_query": "What is the exact Slack workspace URL for policy questions?"
+        },
+        "latency": 3e-06
+      },
+      "inputs": {
+        "user_query": "What is the exact Slack workspace URL for policy questions?"
+      },
+      "outputs": {
+        "normalized_query": "What is the exact Slack workspace URL for policy questions?"
+      },
+      "latency": 3e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What is the exact Slack workspace URL for policy questions?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 7e-06
+      },
+      "inputs": {
+        "normalized_query": "What is the exact Slack workspace URL for policy questions?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 7e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 1e-06
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What is the exact Slack workspace URL for policy questions?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "product_assistant_overview.md",
+            "workspace_policy_refresh.md",
+            "product_assistant_overview.md",
+            "workspace_policy_refresh.md",
+            "workspace_policy_refresh.md"
+          ]
+        },
+        "latency": 0.000571
+      },
+      "inputs": {
+        "normalized_query": "What is the exact Slack workspace URL for policy questions?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "product_assistant_overview.md",
+          "workspace_policy_refresh.md",
+          "product_assistant_overview.md",
+          "workspace_policy_refresh.md",
+          "workspace_policy_refresh.md"
+        ]
+      },
+      "latency": 0.000571
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What is the exact Slack workspace URL for policy questions?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.2e-05
+      },
+      "inputs": {
+        "normalized_query": "What is the exact Slack workspace URL for policy questions?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.2e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md.",
+          "citations": [
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_1",
+              "source": "product_assistant_overview.md",
+              "score": 0.2481
+            },
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_1",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.2245
+            },
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_2",
+              "source": "product_assistant_overview.md",
+              "score": 0.2123
+            }
+          ]
+        },
+        "latency": 0.000122
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md.",
+        "citations": [
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_1",
+            "source": "product_assistant_overview.md",
+            "score": 0.2481
+          },
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_1",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.2245
+          },
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_2",
+            "source": "product_assistant_overview.md",
+            "score": 0.2123
+          }
+        ]
+      },
+      "latency": 0.000122
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.875,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 6.7e-05
+      },
+      "inputs": {
+        "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.875,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 6.7e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.875,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md.",
+          "final_status": "answered"
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.875,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md.",
+        "final_status": "answered"
+      },
+      "latency": 0.0
+    }
+  ],
+  "errors": [],
+  "normalized_query": "What is the exact Slack workspace URL for policy questions?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees.",
+      "source": "product_assistant_overview.md",
+      "score": 0.2481
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_1",
+      "text": "# Workspace Policy Refresh Published: January 15, 2025",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.2245
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "text": "The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support.",
+      "source": "product_assistant_overview.md",
+      "score": 0.2123
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_2",
+      "text": "Published: January 15, 2025 The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.1492
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "text": "The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Managers must publish team schedules two weeks in advance.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.1456
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md.",
+  "citations": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "source": "product_assistant_overview.md",
+      "score": 0.2481
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_1",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.2245
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "source": "product_assistant_overview.md",
+      "score": 0.2123
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.875,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, workspace_policy_refresh.md, product_assistant_overview.md.",
+  "final_status": "answered"
+}

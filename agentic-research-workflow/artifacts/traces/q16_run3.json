@@ -1,10 +1,10 @@
 {
-  "session_id": "d105480a-27b2-4acc-b173-c7d16d9e639e",
+  "session_id": "17e0bcf5-dea1-4420-9131-13efdeaa87f8",
   "user_query": "What are the first release priorities for the product assistant?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "What are the first release priorities for the product assistant?"
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "What are the first release priorities for the product assistant?"
         },
-        "latency": 3e-06
+        "latency": 2e-06
       },
       "inputs": {
         "user_query": "What are the first release priorities for the product assistant?"
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "What are the first release priorities for the product assistant?"
       },
-      "latency": 3e-06
+      "latency": 2e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "What are the first release priorities for the product assistant?"
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "What are the first release priorities for the product assistant?",
@@ -90,7 +90,7 @@
             "governance_update.txt"
           ]
         },
-        "latency": 0.000549
+        "latency": 0.00056
       },
       "inputs": {
         "normalized_query": "What are the first release priorities for the product assistant?",
@@ -106,11 +106,11 @@
           "governance_update.txt"
         ]
       },
-      "latency": 0.000549
+      "latency": 0.00056
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "What are the first release priorities for the product assistant?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.5e-05
       },
       "inputs": {
         "normalized_query": "What are the first release priorities for the product assistant?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.5e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -180,7 +180,7 @@
             }
           ]
         },
-        "latency": 0.000163
+        "latency": 0.000147
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -204,11 +204,11 @@
           }
         ]
       },
-      "latency": 0.000163
+      "latency": 0.000147
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md."
@@ -219,7 +219,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 7.9e-05
+        "latency": 7.5e-05
       },
       "inputs": {
         "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md."
@@ -230,11 +230,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 7.9e-05
+      "latency": 7.5e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",

@@ -1,0 +1,351 @@
+{
+  "session_id": "ee18d876-c9e3-4135-888b-3390a6bafd51",
+  "user_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
+        },
+        "outputs": {
+          "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
+        },
+        "latency": 3e-06
+      },
+      "inputs": {
+        "user_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
+      },
+      "outputs": {
+        "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
+      },
+      "latency": 3e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 6e-06
+      },
+      "inputs": {
+        "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 6e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "governance_update.txt",
+            "support_metrics.txt",
+            "governance_update.txt",
+            "support_metrics.txt",
+            "workspace_policy_refresh.md"
+          ]
+        },
+        "latency": 0.000598
+      },
+      "inputs": {
+        "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "governance_update.txt",
+          "support_metrics.txt",
+          "governance_update.txt",
+          "support_metrics.txt",
+          "workspace_policy_refresh.md"
+        ]
+      },
+      "latency": 0.000598
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.6e-05
+      },
+      "inputs": {
+        "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.6e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt.",
+          "citations": [
+            {
+              "doc_id": "governance_update",
+              "chunk_id": "governance_update_chunk_3",
+              "source": "governance_update.txt",
+              "score": 0.2443
+            },
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_3",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.1409
+            },
+            {
+              "doc_id": "support_metrics",
+              "chunk_id": "support_metrics_chunk_3",
+              "source": "support_metrics.txt",
+              "score": 0.1971
+            }
+          ]
+        },
+        "latency": 0.000165
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt.",
+        "citations": [
+          {
+            "doc_id": "governance_update",
+            "chunk_id": "governance_update_chunk_3",
+            "source": "governance_update.txt",
+            "score": 0.2443
+          },
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_3",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.1409
+          },
+          {
+            "doc_id": "support_metrics",
+            "chunk_id": "support_metrics_chunk_3",
+            "source": "support_metrics.txt",
+            "score": 0.1971
+          }
+        ]
+      },
+      "latency": 0.000165
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.972,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 8.6e-05
+      },
+      "inputs": {
+        "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.972,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 8.6e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.972,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.972,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "text": "Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.",
+      "source": "governance_update.txt",
+      "score": 0.2443
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "text": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ.",
+      "source": "support_metrics.txt",
+      "score": 0.1971
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_1",
+      "text": "Governance Update The governance memo explains how the policy refresh will be maintained after launch.",
+      "source": "governance_update.txt",
+      "score": 0.1767
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_2",
+      "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find.",
+      "source": "support_metrics.txt",
+      "score": 0.1765
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "text": "The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Managers must publish team schedules two weeks in advance.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.1409
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt.",
+  "citations": [
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "source": "governance_update.txt",
+      "score": 0.2443
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.1409
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "source": "support_metrics.txt",
+      "score": 0.1971
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.972,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt.",
+  "final_status": "answered"
+}

@@ -1,10 +1,10 @@
 {
-  "session_id": "723a57c3-4ba5-4056-94b0-dc3f3283816f",
+  "session_id": "ff76c2cd-80d1-4aa2-b5c0-90495dd6cfac",
   "user_query": "When should tools be used?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "When should tools be used?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "When should tools be used?"
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "When should tools be used?",
@@ -110,7 +110,7 @@
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "When should tools be used?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2e-05
+        "latency": 1.9e-05
       },
       "inputs": {
         "normalized_query": "When should tools be used?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2e-05
+      "latency": 1.9e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -144,7 +144,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
@@ -152,11 +152,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -220,7 +220,7 @@
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md."
@@ -231,7 +231,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 6.5e-05
+        "latency": 6.8e-05
       },
       "inputs": {
         "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md."
@@ -242,11 +242,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 6.5e-05
+      "latency": 6.8e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",

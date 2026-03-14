@@ -1,0 +1,351 @@
+{
+  "session_id": "39b8eae8-ec65-4ed6-b95f-f3c5991c0f9a",
+  "user_query": "Is the rollout plan a good idea for company culture?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Is the rollout plan a good idea for company culture?"
+        },
+        "outputs": {
+          "normalized_query": "Is the rollout plan a good idea for company culture?"
+        },
+        "latency": 2e-06
+      },
+      "inputs": {
+        "user_query": "Is the rollout plan a good idea for company culture?"
+      },
+      "outputs": {
+        "normalized_query": "Is the rollout plan a good idea for company culture?"
+      },
+      "latency": 2e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Is the rollout plan a good idea for company culture?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 5e-06
+      },
+      "inputs": {
+        "normalized_query": "Is the rollout plan a good idea for company culture?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 5e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Is the rollout plan a good idea for company culture?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "leadership_faq.txt",
+            "leadership_faq.txt",
+            "ops_rollout_plan.md",
+            "leadership_faq.txt",
+            "ops_rollout_plan.md"
+          ]
+        },
+        "latency": 0.000528
+      },
+      "inputs": {
+        "normalized_query": "Is the rollout plan a good idea for company culture?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "leadership_faq.txt",
+          "leadership_faq.txt",
+          "ops_rollout_plan.md",
+          "leadership_faq.txt",
+          "ops_rollout_plan.md"
+        ]
+      },
+      "latency": 0.000528
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Is the rollout plan a good idea for company culture?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 1.8e-05
+      },
+      "inputs": {
+        "normalized_query": "Is the rollout plan a good idea for company culture?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 1.8e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt.",
+          "citations": [
+            {
+              "doc_id": "leadership_faq",
+              "chunk_id": "leadership_faq_chunk_2",
+              "source": "leadership_faq.txt",
+              "score": 0.3845
+            },
+            {
+              "doc_id": "ops_rollout_plan",
+              "chunk_id": "ops_rollout_plan_chunk_1",
+              "source": "ops_rollout_plan.md",
+              "score": 0.276
+            },
+            {
+              "doc_id": "leadership_faq",
+              "chunk_id": "leadership_faq_chunk_3",
+              "source": "leadership_faq.txt",
+              "score": 0.2398
+            }
+          ]
+        },
+        "latency": 0.00012
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt.",
+        "citations": [
+          {
+            "doc_id": "leadership_faq",
+            "chunk_id": "leadership_faq_chunk_2",
+            "source": "leadership_faq.txt",
+            "score": 0.3845
+          },
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_1",
+            "source": "ops_rollout_plan.md",
+            "score": 0.276
+          },
+          {
+            "doc_id": "leadership_faq",
+            "chunk_id": "leadership_faq_chunk_3",
+            "source": "leadership_faq.txt",
+            "score": 0.2398
+          }
+        ]
+      },
+      "latency": 0.00012
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.875,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 6.4e-05
+      },
+      "inputs": {
+        "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.875,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 6.4e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.875,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.875,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Is the rollout plan a good idea for company culture?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_2",
+      "text": "Q: How is the rollout plan different from the policy refresh? A: The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps.",
+      "source": "leadership_faq.txt",
+      "score": 0.3845
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_1",
+      "text": "Leadership FAQ Q: How is the rollout plan different from the policy refresh?",
+      "source": "leadership_faq.txt",
+      "score": 0.3468
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_1",
+      "text": "# Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.276
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_3",
+      "text": "A: The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Q: What savings assumption supports the refresh?",
+      "source": "leadership_faq.txt",
+      "score": 0.2398
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.1937
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt.",
+  "citations": [
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_2",
+      "source": "leadership_faq.txt",
+      "score": 0.3845
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_1",
+      "source": "ops_rollout_plan.md",
+      "score": 0.276
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_3",
+      "source": "leadership_faq.txt",
+      "score": 0.2398
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.875,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt.",
+  "final_status": "answered"
+}

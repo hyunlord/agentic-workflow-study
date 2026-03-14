@@ -1,10 +1,10 @@
 {
-  "session_id": "33cec9a0-6cf8-432d-bac1-27923116a294",
+  "session_id": "8c973216-e4c2-495a-86a9-c3db9ae978e4",
   "user_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
         },
-        "latency": 4e-06
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
       },
-      "latency": 4e-06
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
@@ -33,7 +33,7 @@
           "query_type": "multi_hop",
           "requires_tools": true
         },
-        "latency": 8e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
@@ -42,11 +42,11 @@
         "query_type": "multi_hop",
         "requires_tools": true
       },
-      "latency": 8e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -78,7 +78,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
@@ -94,7 +94,7 @@
             "workspace_policy_refresh.md"
           ]
         },
-        "latency": 0.000761
+        "latency": 0.000616
       },
       "inputs": {
         "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
@@ -110,11 +110,11 @@
           "workspace_policy_refresh.md"
         ]
       },
-      "latency": 0.000761
+      "latency": 0.000616
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
@@ -125,7 +125,7 @@
           "requires_tools": true,
           "tool_requests": []
         },
-        "latency": 3.6e-05
+        "latency": 2.9e-05
       },
       "inputs": {
         "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
@@ -136,11 +136,11 @@
         "requires_tools": true,
         "tool_requests": []
       },
-      "latency": 3.6e-05
+      "latency": 2.9e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -160,7 +160,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -190,7 +190,7 @@
             }
           ]
         },
-        "latency": 0.000205
+        "latency": 0.000184
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -220,11 +220,11 @@
           }
         ]
       },
-      "latency": 0.000205
+      "latency": 0.000184
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt."
@@ -235,7 +235,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 0.000127
+        "latency": 0.000105
       },
       "inputs": {
         "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt."
@@ -246,11 +246,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 0.000127
+      "latency": 0.000105
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",

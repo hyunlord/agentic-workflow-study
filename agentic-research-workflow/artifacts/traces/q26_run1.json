@@ -1,0 +1,351 @@
+{
+  "session_id": "473074be-045f-4948-a0d7-c1be47fabc87",
+  "user_query": "If the rollout begins on May 5, when must managers publish team schedules?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "If the rollout begins on May 5, when must managers publish team schedules?"
+        },
+        "outputs": {
+          "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?"
+        },
+        "latency": 3e-06
+      },
+      "inputs": {
+        "user_query": "If the rollout begins on May 5, when must managers publish team schedules?"
+      },
+      "outputs": {
+        "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?"
+      },
+      "latency": 3e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 5e-06
+      },
+      "inputs": {
+        "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 5e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "workspace_policy_refresh.md",
+            "workspace_policy_refresh.md",
+            "ops_rollout_plan.md",
+            "ops_rollout_plan.md",
+            "workspace_policy_refresh.md"
+          ]
+        },
+        "latency": 0.000661
+      },
+      "inputs": {
+        "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "workspace_policy_refresh.md",
+          "workspace_policy_refresh.md",
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "workspace_policy_refresh.md"
+        ]
+      },
+      "latency": 0.000661
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.9e-05
+      },
+      "inputs": {
+        "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.9e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 1e-06
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md.",
+          "citations": [
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_4",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.5287
+            },
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_3",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.3969
+            },
+            {
+              "doc_id": "ops_rollout_plan",
+              "chunk_id": "ops_rollout_plan_chunk_3",
+              "source": "ops_rollout_plan.md",
+              "score": 0.1876
+            }
+          ]
+        },
+        "latency": 0.000164
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md.",
+        "citations": [
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_4",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.5287
+          },
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_3",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.3969
+          },
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_3",
+            "source": "ops_rollout_plan.md",
+            "score": 0.1876
+          }
+        ]
+      },
+      "latency": 0.000164
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 1.0,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 8.3e-05
+      },
+      "inputs": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 1.0,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 8.3e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 1.0,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 1.0,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "If the rollout begins on May 5, when must managers publish team schedules?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_4",
+      "text": "Managers must publish team schedules two weeks in advance. Each team must maintain a single canonical knowledge base page.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.5287
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "text": "The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Managers must publish team schedules two weeks in advance.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.3969
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.1876
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "text": "Pilot window: March 10, 2025 to April 4, 2025. If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.1246
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_5",
+      "text": "Each team must maintain a single canonical knowledge base page. The refresh reduces discretionary travel and duplicated onboarding sessions.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0762
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md.",
+  "citations": [
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_4",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.5287
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.3969
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "source": "ops_rollout_plan.md",
+      "score": 0.1876
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 1.0,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, ops_rollout_plan.md.",
+  "final_status": "answered"
+}

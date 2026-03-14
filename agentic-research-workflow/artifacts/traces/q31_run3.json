@@ -1,0 +1,433 @@
+{
+  "session_id": "62a98916-2e8e-4e83-be4a-b9bba7543a58",
+  "user_query": "Summarize the product assistant overview and the technical retrieval notes together.",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Summarize the product assistant overview and the technical retrieval notes together."
+        },
+        "outputs": {
+          "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
+        },
+        "latency": 4e-06
+      },
+      "inputs": {
+        "user_query": "Summarize the product assistant overview and the technical retrieval notes together."
+      },
+      "outputs": {
+        "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
+      },
+      "latency": 4e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
+        },
+        "outputs": {
+          "query_type": "summary",
+          "requires_tools": false
+        },
+        "latency": 5e-06
+      },
+      "inputs": {
+        "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
+      },
+      "outputs": {
+        "query_type": "summary",
+        "requires_tools": false
+      },
+      "latency": 5e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "summary"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve major sections",
+            "compress key points",
+            "verify key claims are grounded"
+          ]
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "summary"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve major sections",
+          "compress key points",
+          "verify key claims are grounded"
+        ]
+      },
+      "latency": 1e-06
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "product_assistant_overview.md",
+            "technical_retrieval_notes.txt",
+            "product_assistant_overview.md",
+            "technical_retrieval_notes.txt",
+            "product_assistant_overview.md"
+          ]
+        },
+        "latency": 0.000633
+      },
+      "inputs": {
+        "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "product_assistant_overview.md",
+          "technical_retrieval_notes.txt",
+          "product_assistant_overview.md",
+          "technical_retrieval_notes.txt",
+          "product_assistant_overview.md"
+        ]
+      },
+      "latency": 0.000633
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
+          "query_type": "summary",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": [
+            {
+              "tool_name": "keyword_extractor",
+              "args": {
+                "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+                "limit": 5
+              }
+            }
+          ]
+        },
+        "latency": 2.7e-05
+      },
+      "inputs": {
+        "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
+        "query_type": "summary",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": [
+          {
+            "tool_name": "keyword_extractor",
+            "args": {
+              "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "latency": 2.7e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": [
+            {
+              "tool_name": "keyword_extractor",
+              "args": {
+                "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+                "limit": 5
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "tool_outputs": [
+            {
+              "tool_name": "keyword_extractor",
+              "output": {
+                "ok": true,
+                "keywords": [
+                  "product",
+                  "assistant",
+                  "fictional",
+                  "internal",
+                  "helper"
+                ]
+              }
+            }
+          ]
+        },
+        "latency": 5.8e-05
+      },
+      "inputs": {
+        "tool_requests": [
+          {
+            "tool_name": "keyword_extractor",
+            "args": {
+              "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "outputs": {
+        "tool_outputs": [
+          {
+            "tool_name": "keyword_extractor",
+            "output": {
+              "ok": true,
+              "keywords": [
+                "product",
+                "assistant",
+                "fictional",
+                "internal",
+                "helper"
+              ]
+            }
+          }
+        ]
+      },
+      "latency": 5.8e-05
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "summary",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 1
+        },
+        "outputs": {
+          "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md.",
+          "citations": [
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_1",
+              "source": "product_assistant_overview.md",
+              "score": 0.4384
+            },
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_1",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.3405
+            },
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_2",
+              "source": "product_assistant_overview.md",
+              "score": 0.1509
+            }
+          ]
+        },
+        "latency": 0.000154
+      },
+      "inputs": {
+        "query_type": "summary",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 1
+      },
+      "outputs": {
+        "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md.",
+        "citations": [
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_1",
+            "source": "product_assistant_overview.md",
+            "score": 0.4384
+          },
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_1",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.3405
+          },
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_2",
+            "source": "product_assistant_overview.md",
+            "score": 0.1509
+          }
+        ]
+      },
+      "latency": 0.000154
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.866,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 0.000114
+      },
+      "inputs": {
+        "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.866,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 0.000114
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "summary",
+          "coverage_score": 0.866,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "summary",
+        "coverage_score": 0.866,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
+  "query_type": "summary",
+  "requires_tools": false,
+  "plan": [
+    "retrieve major sections",
+    "compress key points",
+    "verify key claims are grounded"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees.",
+      "source": "product_assistant_overview.md",
+      "score": 0.4384
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_1",
+      "text": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.3405
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "text": "The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support.",
+      "source": "product_assistant_overview.md",
+      "score": 0.1509
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "text": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0851
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_3",
+      "text": "Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+      "source": "product_assistant_overview.md",
+      "score": 0.0827
+    }
+  ],
+  "tool_requests": [
+    {
+      "tool_name": "keyword_extractor",
+      "args": {
+        "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+        "limit": 5
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "tool_name": "keyword_extractor",
+      "output": {
+        "ok": true,
+        "keywords": [
+          "product",
+          "assistant",
+          "fictional",
+          "internal",
+          "helper"
+        ]
+      }
+    }
+  ],
+  "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md.",
+  "citations": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "source": "product_assistant_overview.md",
+      "score": 0.4384
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_1",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.3405
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "source": "product_assistant_overview.md",
+      "score": 0.1509
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.866,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md.",
+  "final_status": "answered"
+}

@@ -1,0 +1,354 @@
+{
+  "session_id": "dc847da2-b84d-49c3-9de5-f8b4f708c464",
+  "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
+        },
+        "outputs": {
+          "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
+        },
+        "latency": 3e-06
+      },
+      "inputs": {
+        "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
+      },
+      "outputs": {
+        "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
+      },
+      "latency": 3e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
+        },
+        "outputs": {
+          "query_type": "comparison",
+          "requires_tools": false
+        },
+        "latency": 6e-06
+      },
+      "inputs": {
+        "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
+      },
+      "outputs": {
+        "query_type": "comparison",
+        "requires_tools": false
+      },
+      "latency": 6e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "comparison"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve evidence for each target",
+            "compare aligned facts",
+            "draft structured comparison answer",
+            "verify grounding"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "comparison"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve evidence for each target",
+          "compare aligned facts",
+          "draft structured comparison answer",
+          "verify grounding"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "technical_retrieval_notes.txt",
+            "leadership_faq.txt",
+            "leadership_faq.txt",
+            "technical_retrieval_notes.txt",
+            "technical_retrieval_notes.txt"
+          ]
+        },
+        "latency": 0.00061
+      },
+      "inputs": {
+        "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "technical_retrieval_notes.txt",
+          "leadership_faq.txt",
+          "leadership_faq.txt",
+          "technical_retrieval_notes.txt",
+          "technical_retrieval_notes.txt"
+        ]
+      },
+      "latency": 0.00061
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+          "query_type": "comparison",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.5e-05
+      },
+      "inputs": {
+        "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+        "query_type": "comparison",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.5e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "comparison",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt.",
+          "citations": [
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_1",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.1697
+            },
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_2",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.0832
+            },
+            {
+              "doc_id": "leadership_faq",
+              "chunk_id": "leadership_faq_chunk_6",
+              "source": "leadership_faq.txt",
+              "score": 0.1248
+            }
+          ]
+        },
+        "latency": 0.00014
+      },
+      "inputs": {
+        "query_type": "comparison",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt.",
+        "citations": [
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_1",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.1697
+          },
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_2",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.0832
+          },
+          {
+            "doc_id": "leadership_faq",
+            "chunk_id": "leadership_faq_chunk_6",
+            "source": "leadership_faq.txt",
+            "score": 0.1248
+          }
+        ]
+      },
+      "latency": 0.00014
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.864,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 8.3e-05
+      },
+      "inputs": {
+        "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.864,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 8.3e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "comparison",
+          "coverage_score": 0.864,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "comparison",
+        "coverage_score": 0.864,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
+  "query_type": "comparison",
+  "requires_tools": false,
+  "plan": [
+    "retrieve evidence for each target",
+    "compare aligned facts",
+    "draft structured comparison answer",
+    "verify grounding"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_1",
+      "text": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.1697
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_6",
+      "text": "Q: When should tools be used? A: Use keyword extraction for broad summaries and date calculations for schedule questions.",
+      "source": "leadership_faq.txt",
+      "score": 0.1248
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_1",
+      "text": "Leadership FAQ Q: How is the rollout plan different from the policy refresh?",
+      "source": "leadership_faq.txt",
+      "score": 0.0867
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "text": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0833
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_2",
+      "text": "The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0832
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt.",
+  "citations": [
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_1",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.1697
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_2",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0832
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_6",
+      "source": "leadership_faq.txt",
+      "score": 0.1248
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.864,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt.",
+  "final_status": "answered"
+}

@@ -1,0 +1,351 @@
+{
+  "session_id": "174d6710-b69c-4f16-847d-0c67af2475f1",
+  "user_query": "What security vulnerabilities exist in the production deployment of this assistant?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "user_query": "What security vulnerabilities exist in the production deployment of this assistant?"
+        },
+        "outputs": {
+          "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?"
+        },
+        "latency": 3e-06
+      },
+      "inputs": {
+        "user_query": "What security vulnerabilities exist in the production deployment of this assistant?"
+      },
+      "outputs": {
+        "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?"
+      },
+      "latency": 3e-06
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        },
+        "latency": 6e-06
+      },
+      "inputs": {
+        "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      },
+      "latency": 6e-06
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "product_assistant_overview.md",
+            "product_assistant_overview.md",
+            "technical_retrieval_notes.txt",
+            "governance_update.txt",
+            "product_assistant_overview.md"
+          ]
+        },
+        "latency": 0.000553
+      },
+      "inputs": {
+        "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "product_assistant_overview.md",
+          "product_assistant_overview.md",
+          "technical_retrieval_notes.txt",
+          "governance_update.txt",
+          "product_assistant_overview.md"
+        ]
+      },
+      "latency": 0.000553
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        },
+        "latency": 2.7e-05
+      },
+      "inputs": {
+        "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      },
+      "latency": 2.7e-05
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        },
+        "latency": 0.0
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      },
+      "latency": 0.0
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md.",
+          "citations": [
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_3",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.0571
+            },
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_1",
+              "source": "product_assistant_overview.md",
+              "score": 0.3248
+            },
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_2",
+              "source": "product_assistant_overview.md",
+              "score": 0.1474
+            }
+          ]
+        },
+        "latency": 0.00017
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md.",
+        "citations": [
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_3",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.0571
+          },
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_1",
+            "source": "product_assistant_overview.md",
+            "score": 0.3248
+          },
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_2",
+            "source": "product_assistant_overview.md",
+            "score": 0.1474
+          }
+        ]
+      },
+      "latency": 0.00017
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.857,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        },
+        "latency": 7.7e-05
+      },
+      "inputs": {
+        "draft_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.857,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      },
+      "latency": 7.7e-05
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T05:37:49Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.857,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md.",
+          "final_status": "answered"
+        },
+        "latency": 1e-06
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.857,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md.",
+        "final_status": "answered"
+      },
+      "latency": 1e-06
+    }
+  ],
+  "errors": [],
+  "normalized_query": "What security vulnerabilities exist in the production deployment of this assistant?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees.",
+      "source": "product_assistant_overview.md",
+      "score": 0.3248
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "text": "The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support.",
+      "source": "product_assistant_overview.md",
+      "score": 0.1474
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "text": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0571
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "text": "Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.",
+      "source": "governance_update.txt",
+      "score": 0.0286
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_3",
+      "text": "Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+      "source": "product_assistant_overview.md",
+      "score": 0.0286
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md.",
+  "citations": [
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0571
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "source": "product_assistant_overview.md",
+      "score": 0.3248
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "source": "product_assistant_overview.md",
+      "score": 0.1474
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.857,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "This note exists to represent a simple technical document in the sample corpus. Sources: technical_retrieval_notes.txt, product_assistant_overview.md, product_assistant_overview.md.",
+  "final_status": "answered"
+}

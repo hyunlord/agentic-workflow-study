@@ -14,6 +14,8 @@ from typing import Any, Literal
 import pandas as pd
 
 from src.config import get_paths
+from src.failure_analyzer import classify_failure as classify_failure_types
+from src.failure_taxonomy import failure_mitigation
 from src.ingestion import build_demo_index
 from src.schemas import EvaluationRecord
 from src.utils import read_json, token_f1, write_json
@@ -45,21 +47,8 @@ def retrieval_hit_rate(retrieved_docs: list[dict[str, Any]], expected_sources: l
 
 
 def classify_failure(record: dict[str, Any]) -> str:
-    if record["expected_status"] == "abstained" and record["predicted_status"] != "abstained":
-        return "insufficient_evidence_not_detected"
-    if record["expected_status"] == "answered" and record["predicted_status"] == "abstained":
-        return "over_abstention"
-    if record["retrieval_hit_rate"] == 0.0:
-        return "retrieval_miss"
-    if record["predicted_question_type"] and record["predicted_question_type"] != record["expected_question_type"]:
-        return "query_misclassification"
-    if record["system"] == "agent_workflow" and not record["grounding_pass"] and record["predicted_status"] == "answered":
-        return "ungrounded_synthesis"
-    if record["answer_correctness"] < 0.45:
-        if record["retrieval_hit_rate"] >= 1.0 and record["predicted_status"] == "answered":
-            return "synthesis_quality_gap"
-        return "bad_plan"
-    return "none"
+    failure_types = classify_failure_types(record)
+    return failure_types[0] if failure_types else "none"
 
 
 def evaluate_system(
@@ -112,6 +101,14 @@ def evaluate_system(
                 average_steps=float(len(result.get("trace", []))),
                 failure_type="",
             ).to_dict()
+            record["expected_sources"] = sample.get("expected_sources", [])
+            record["trace"] = result.get("trace", [])
+            record["errors"] = result.get("errors", [])
+            record["citations"] = [
+                citation.get("source", "")
+                for citation in result.get("citations", [])
+                if isinstance(citation, dict) and citation.get("source")
+            ]
             record["failure_type"] = classify_failure(record)
             record["abstain_precision"] = 1.0 if (
                 record["abstained"] and record["expected_status"] == "abstained"
@@ -155,20 +152,11 @@ def extract_failure_cases(results: pd.DataFrame) -> pd.DataFrame:
 
 
 def attach_failure_improvements(failures: pd.DataFrame) -> pd.DataFrame:
-    fixes = {
-        "retrieval_miss": "Tune chunking or add richer retrieval features.",
-        "query_misclassification": "Expand classifier rules or add a learned classifier.",
-        "bad_plan": "Add better query-type-specific decomposition templates.",
-        "synthesis_quality_gap": "Tighten answer templates or add a post-synthesis rewrite step.",
-        "ungrounded_synthesis": "Tighten unsupported claim checks before finalization.",
-        "insufficient_evidence_not_detected": "Raise verifier thresholds and abstain earlier.",
-        "over_abstention": "Relax fallback thresholds when evidence is sufficient.",
-    }
     if failures.empty:
         failures["improvement_idea"] = []
         return failures
     failures = failures.copy()
-    failures["improvement_idea"] = failures["failure_type"].map(fixes).fillna("Inspect trace manually.")
+    failures["improvement_idea"] = failures["failure_type"].map(failure_mitigation).fillna("Inspect trace manually.")
     return failures
 
 

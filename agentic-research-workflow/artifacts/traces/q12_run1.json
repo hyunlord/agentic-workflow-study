@@ -1,10 +1,10 @@
 {
-  "session_id": "9bf1774f-7c7c-4811-a8ba-77a65f617744",
+  "session_id": "160212db-09d4-433b-b69e-b2c58f8c1dac",
   "user_query": "Compare local training ownership with canonical policy ownership.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "Compare local training ownership with canonical policy ownership."
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership."
         },
-        "latency": 5e-06
+        "latency": 2e-06
       },
       "inputs": {
         "user_query": "Compare local training ownership with canonical policy ownership."
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership."
       },
-      "latency": 5e-06
+      "latency": 2e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership."
@@ -33,7 +33,7 @@
           "query_type": "comparison",
           "requires_tools": false
         },
-        "latency": 8e-06
+        "latency": 5e-06
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership."
@@ -42,11 +42,11 @@
         "query_type": "comparison",
         "requires_tools": false
       },
-      "latency": 8e-06
+      "latency": 5e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -59,7 +59,7 @@
             "verify grounding"
           ]
         },
-        "latency": 1e-06
+        "latency": 0.0
       },
       "inputs": {
         "query_type": "comparison"
@@ -72,11 +72,11 @@
           "verify grounding"
         ]
       },
-      "latency": 1e-06
+      "latency": 0.0
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -92,7 +92,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000833
+        "latency": 0.00054
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -108,11 +108,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000833
+      "latency": 0.00054
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 3.1e-05
+        "latency": 2.7e-05
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 3.1e-05
+      "latency": 2.7e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -146,7 +146,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 1e-06
+        "latency": 0.0
       },
       "inputs": {
         "tool_requests": []
@@ -154,11 +154,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 1e-06
+      "latency": 0.0
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 0.000177
+        "latency": 0.000184
       },
       "inputs": {
         "query_type": "comparison",
@@ -206,11 +206,11 @@
           }
         ]
       },
-      "latency": 0.000177
+      "latency": 0.000184
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, governance_update.txt."
@@ -221,7 +221,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 9.4e-05
+        "latency": 8.9e-05
       },
       "inputs": {
         "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, governance_update.txt."
@@ -232,11 +232,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 9.4e-05
+      "latency": 8.9e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

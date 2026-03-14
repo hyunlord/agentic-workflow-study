@@ -1,10 +1,10 @@
 {
-  "session_id": "898d383b-fa6b-4898-ab73-72e75c81b7bd",
+  "session_id": "65431dbe-2b14-4d34-9dc7-58e5cc1fc059",
   "user_query": "How many days are in the pilot window?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "How many days are in the pilot window?"
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "How many days are in the pilot window?"
         },
-        "latency": 3e-06
+        "latency": 2e-06
       },
       "inputs": {
         "user_query": "How many days are in the pilot window?"
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "How many days are in the pilot window?"
       },
-      "latency": 3e-06
+      "latency": 2e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "How many days are in the pilot window?"
@@ -33,7 +33,7 @@
           "query_type": "multi_hop",
           "requires_tools": true
         },
-        "latency": 8e-06
+        "latency": 5e-06
       },
       "inputs": {
         "normalized_query": "How many days are in the pilot window?"
@@ -42,11 +42,11 @@
         "query_type": "multi_hop",
         "requires_tools": true
       },
-      "latency": 8e-06
+      "latency": 5e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -60,7 +60,7 @@
             "verify grounding before final answer"
           ]
         },
-        "latency": 1e-06
+        "latency": 0.0
       },
       "inputs": {
         "query_type": "multi_hop"
@@ -74,11 +74,11 @@
           "verify grounding before final answer"
         ]
       },
-      "latency": 1e-06
+      "latency": 0.0
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "How many days are in the pilot window?",
@@ -94,7 +94,7 @@
             "ops_rollout_plan.md"
           ]
         },
-        "latency": 0.000749
+        "latency": 0.000526
       },
       "inputs": {
         "normalized_query": "How many days are in the pilot window?",
@@ -110,11 +110,11 @@
           "ops_rollout_plan.md"
         ]
       },
-      "latency": 0.000749
+      "latency": 0.000526
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "How many days are in the pilot window?",
@@ -144,7 +144,7 @@
             }
           ]
         },
-        "latency": 3.3e-05
+        "latency": 2.6e-05
       },
       "inputs": {
         "normalized_query": "How many days are in the pilot window?",
@@ -174,11 +174,11 @@
           }
         ]
       },
-      "latency": 3.3e-05
+      "latency": 2.6e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -227,7 +227,7 @@
             }
           ]
         },
-        "latency": 0.000123
+        "latency": 0.000114
       },
       "inputs": {
         "tool_requests": [
@@ -276,11 +276,11 @@
           }
         ]
       },
-      "latency": 0.000123
+      "latency": 0.000114
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -304,7 +304,7 @@
             }
           ]
         },
-        "latency": 0.000153
+        "latency": 0.000133
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -328,11 +328,11 @@
           }
         ]
       },
-      "latency": 0.000153
+      "latency": 0.000133
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -343,7 +343,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 8.7e-05
+        "latency": 7.4e-05
       },
       "inputs": {
         "draft_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -354,11 +354,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 8.7e-05
+      "latency": 7.4e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:52Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",

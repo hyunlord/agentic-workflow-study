@@ -1,10 +1,10 @@
 {
-  "session_id": "451d7c23-8a4d-4bad-b72a-d6932aba0d13",
+  "session_id": "9b4f131e-df69-4e38-b3e7-373b9a09488a",
   "user_query": "Summarize the loaded documents.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "user_query": "Summarize the loaded documents."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the loaded documents."
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "summary"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the loaded documents.",
@@ -90,7 +90,7 @@
             "workspace_policy_refresh.md"
           ]
         },
-        "latency": 0.000493
+        "latency": 0.000514
       },
       "inputs": {
         "normalized_query": "Summarize the loaded documents.",
@@ -106,11 +106,11 @@
           "workspace_policy_refresh.md"
         ]
       },
-      "latency": 0.000493
+      "latency": 0.000514
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the loaded documents.",
@@ -129,7 +129,7 @@
             }
           ]
         },
-        "latency": 2.9e-05
+        "latency": 3e-05
       },
       "inputs": {
         "normalized_query": "Summarize the loaded documents.",
@@ -148,11 +148,11 @@
           }
         ]
       },
-      "latency": 2.9e-05
+      "latency": 3e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 7.2e-05
+        "latency": 7.9e-05
       },
       "inputs": {
         "tool_requests": [
@@ -212,11 +212,11 @@
           }
         ]
       },
-      "latency": 7.2e-05
+      "latency": 7.9e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -246,7 +246,7 @@
             }
           ]
         },
-        "latency": 0.000171
+        "latency": 0.000195
       },
       "inputs": {
         "query_type": "summary",
@@ -276,11 +276,11 @@
           }
         ]
       },
-      "latency": 0.000171
+      "latency": 0.000195
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt."
@@ -293,7 +293,7 @@
             "Evidence only covers part of the request."
           ]
         },
-        "latency": 0.000117
+        "latency": 0.000127
       },
       "inputs": {
         "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt."
@@ -306,11 +306,11 @@
           "Evidence only covers part of the request."
         ]
       },
-      "latency": 0.000117
+      "latency": 0.000127
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T04:03:15Z",
+      "timestamp": "2026-03-14T05:37:49Z",
       "payload": {
         "inputs": {
           "query_type": "summary",

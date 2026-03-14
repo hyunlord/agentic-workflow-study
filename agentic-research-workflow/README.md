@@ -21,7 +21,7 @@ The learning environment demonstrates:
 
 The core logic lives in `src/`. The notebooks import that logic and explain it in tutorial form instead of duplicating it.
 
-## Agent Architecture
+## Architecture
 
 ```mermaid
 flowchart TD
@@ -39,6 +39,24 @@ flowchart TD
 
 The workflow stays deterministic on purpose. That makes every step easier to study, trace, test, and discuss.
 
+Node roles:
+
+| Node | Role |
+|------|------|
+| `normalize_query` | Clean and normalize the raw user request before downstream logic. |
+| `classify_query` | Map the query to one of the supported workflow types and decide whether tools are likely needed. |
+| `make_plan` | Build an explicit ordered plan template the learner can inspect. |
+| `retrieve_docs` | Pull the most relevant chunks from the local corpus. |
+| `decide_tools` | Choose local-only tool requests when arithmetic, date logic, or keyword extraction would help. |
+| `run_tools` | Execute local tools and attach structured outputs to state. |
+| `synthesize_answer` | Draft an answer grounded in retrieved evidence and tool results. |
+| `verify_grounding` | Check coverage and unsupported claims before finalization. |
+| `fallback_or_finalize` | Finalize a cautious answer or abstain when evidence is weak. |
+
+The memory workflow adds `retrieve_memories` after document retrieval and `update_memory` at the end so learners can inspect how memory-augmented runs differ from stateless runs.
+
+For the full set of workflow, memory, and state lifecycle diagrams, see [docs/architecture.md](docs/architecture.md).
+
 ## Notebook Guide
 
 The notebooks are meant to be read and run in order:
@@ -53,6 +71,12 @@ The notebooks are meant to be read and run in order:
    Extract failure cases, inspect traces, and turn failure modes into improvement ideas.
 5. `notebooks/05_agent_memory.ipynb`
    Study short-term, long-term, vector, and episodic-style memory patterns, then connect memory retrieval to the agent workflow.
+6. `notebooks/06_agent_planning.ipynb`
+   Compare planner styles such as ReAct-inspired decomposition and planner-executor execution.
+7. `notebooks/07_tool_use.ipynb`
+   Learn how structured tool calls flow through a local tool registry and deterministic tools.
+8. `notebooks/08_agent_debugging.ipynb`
+   Inspect traces, node-level inputs and outputs, and per-node latency during debugging.
 
 Every code cell has a Markdown explanation directly above it, and every notebook starts with `sys.executable` so you can verify the active environment.
 
@@ -97,12 +121,13 @@ The corpus intentionally mixes small, readable document types so the retrieval b
 - product overview notes
 - technical retrieval notes
 
-The evaluation dataset lives in `data/eval/eval_dataset.json` and contains 16 questions spanning lookups, comparisons, summaries, multi-hop reasoning, and insufficient-evidence cases.
+The evaluation dataset lives in `data/eval/eval_dataset.json` and contains 40 questions balanced across lookups, comparisons, summaries, multi-hop reasoning, and insufficient-evidence cases.
 
 ## Core Modules
 
 - `src/ingestion.py`: load documents, split them into chunks, and optionally persist processed artifacts
 - `src/retriever.py`: local TF-IDF plus lexical-overlap retrieval
+- `src/retriever_faiss.py`: optional FAISS plus sentence-transformers retrieval with device autodetection
 - `src/classifier.py`: query classification and tool-need heuristics
 - `src/planner.py`: query-type-specific plan templates
 - `src/tools.py`: calculator, date parser, and keyword extractor
@@ -112,6 +137,8 @@ The evaluation dataset lives in `data/eval/eval_dataset.json` and contains 16 qu
 - `src/fallback.py`: abstain-versus-finalize decision policy
 - `src/workflow.py`: baseline RAG, public workflow nodes, and the end-to-end agent run
 - `src/evaluator.py`: repeated evaluation, summaries, failure extraction, and persisted reports
+- `src/failure_taxonomy.py`: structured failure metadata with stage, severity, and mitigation guidance
+- `src/failure_analyzer.py`: richer failure classification, aggregation, and markdown report generation
 - `src/utils.py`: text helpers, JSON helpers, and trace visualization
 
 ## How To Run Locally
@@ -173,6 +200,8 @@ uv run python -c "import torch; print(torch.cuda.is_available())"
 
 Expected result on DGX: `True`
 
+For a fuller CPU-versus-GPU setup matrix and FAISS notes, see [docs/setup_guide.md](docs/setup_guide.md).
+
 ## Development Flow
 
 Local machine:
@@ -212,13 +241,18 @@ uv run python src/evaluator.py --persist-outputs
 
 ## Failure Analysis Explanation
 
-The failure analysis notebook groups weak runs into simple categories such as:
+The failure analysis notebook groups weak runs into a reusable taxonomy that now covers retrieval, planning, synthesis, grounding, and fallback issues such as:
 
 - `retrieval_miss`
+- `retrieval_noise`
 - `query_misclassification`
 - `bad_plan`
+- `missing_decomposition`
 - `synthesis_quality_gap`
+- `incomplete_synthesis`
 - `ungrounded_synthesis`
+- `citation_mismatch`
+- `tool_execution_error`
 - `insufficient_evidence_not_detected`
 - `over_abstention`
 
@@ -239,12 +273,14 @@ The notebook is designed for experimentation, so learners can store memories, re
 
 ## Why TF-IDF Instead of Remote Embeddings
 
-The original design calls for embeddings and vector retrieval. This repository implements that idea with a local TF-IDF vectorizer because it is:
+The original design calls for embeddings and vector retrieval. This repository keeps TF-IDF as the default because it is:
 
 - offline and reproducible
 - fast enough for notebooks and tests
 - easy to run on laptops and DGX machines alike
 - straightforward to explain in interviews
+
+Dense retrieval is now available as an optional path through `FAISSRetriever`, but the default remains the lightweight retriever so the learning environment stays dependable out of the box.
 
 ## Verification Commands
 
@@ -263,8 +299,8 @@ done
 
 ## Future Improvements
 
-- add optional dense embedding backends
-- expand the evaluation set with harder multi-hop questions
+- add retriever benchmarking across more corpora and chunking settings
 - add threshold-sweep experiments for the verifier
-- compare multiple retrieval settings in the notebooks
+- compare multiple embedding models in the notebooks
 - add notebook exercises for modifying planner templates
+- add more report-generation utilities for longer experiment runs
