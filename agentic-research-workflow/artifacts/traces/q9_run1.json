@@ -1,28 +1,30 @@
 {
-  "session_id": "4bd3005d-a1a9-466a-a1b0-4a81514ef7d4",
+  "session_id": "2128aba0-5fa1-477e-8a83-175dde00439c",
   "user_query": "What savings assumption supports the refresh?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "user_query": "What savings assumption supports the refresh?"
         },
         "outputs": {
           "normalized_query": "What savings assumption supports the refresh?"
-        }
+        },
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "What savings assumption supports the refresh?"
       },
       "outputs": {
         "normalized_query": "What savings assumption supports the refresh?"
-      }
+      },
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "normalized_query": "What savings assumption supports the refresh?"
@@ -30,7 +32,8 @@
         "outputs": {
           "query_type": "simple_lookup",
           "requires_tools": false
-        }
+        },
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "What savings assumption supports the refresh?"
@@ -38,11 +41,12 @@
       "outputs": {
         "query_type": "simple_lookup",
         "requires_tools": false
-      }
+      },
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -53,7 +57,8 @@
             "draft concise grounded answer",
             "verify citation support"
           ]
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "simple_lookup"
@@ -64,11 +69,12 @@
           "draft concise grounded answer",
           "verify citation support"
         ]
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "normalized_query": "What savings assumption supports the refresh?",
@@ -83,7 +89,8 @@
             "workspace_policy_refresh.md",
             "leadership_faq.txt"
           ]
-        }
+        },
+        "latency": 0.00069
       },
       "inputs": {
         "normalized_query": "What savings assumption supports the refresh?",
@@ -98,11 +105,12 @@
           "workspace_policy_refresh.md",
           "leadership_faq.txt"
         ]
-      }
+      },
+      "latency": 0.00069
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "normalized_query": "What savings assumption supports the refresh?",
@@ -112,7 +120,8 @@
         "outputs": {
           "requires_tools": false,
           "tool_requests": []
-        }
+        },
+        "latency": 2.4e-05
       },
       "inputs": {
         "normalized_query": "What savings assumption supports the refresh?",
@@ -122,29 +131,32 @@
       "outputs": {
         "requires_tools": false,
         "tool_requests": []
-      }
+      },
+      "latency": 2.4e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "tool_requests": []
         },
         "outputs": {
           "tool_outputs": []
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
       },
       "outputs": {
         "tool_outputs": []
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -173,7 +185,8 @@
               "score": 0.5985
             }
           ]
-        }
+        },
+        "latency": 0.00013
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -202,11 +215,12 @@
             "score": 0.5985
           }
         ]
-      }
+      },
+      "latency": 0.00013
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "draft_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, leadership_faq.txt, leadership_faq.txt."
@@ -216,7 +230,8 @@
           "coverage_score": 1.0,
           "unsupported_claims": [],
           "missing_aspects": []
-        }
+        },
+        "latency": 7.5e-05
       },
       "inputs": {
         "draft_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, leadership_faq.txt, leadership_faq.txt."
@@ -226,11 +241,12 @@
         "coverage_score": 1.0,
         "unsupported_claims": [],
         "missing_aspects": []
-      }
+      },
+      "latency": 7.5e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -240,7 +256,8 @@
         "outputs": {
           "final_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, leadership_faq.txt, leadership_faq.txt.",
           "final_status": "answered"
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -250,7 +267,8 @@
       "outputs": {
         "final_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, leadership_faq.txt, leadership_faq.txt.",
         "final_status": "answered"
-      }
+      },
+      "latency": 1e-06
     }
   ],
   "errors": [],

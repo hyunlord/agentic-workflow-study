@@ -29,21 +29,21 @@ def trace_to_debug_frame(trace: list[dict[str, Any]]) -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     for index, entry in enumerate(trace, start=1):
         current_timestamp = _parse_timestamp(str(entry.get("timestamp", "")))
-        latency_ms = None
-        if previous_timestamp is not None and current_timestamp is not None:
-            latency_ms = round((current_timestamp - previous_timestamp).total_seconds() * 1000, 3)
+        latency = entry.get("latency")
+        if not isinstance(latency, (int, float)) and previous_timestamp is not None and current_timestamp is not None:
+            latency = round((current_timestamp - previous_timestamp).total_seconds(), 6)
         previous_timestamp = current_timestamp or previous_timestamp
         rows.append(
             {
                 "step": index,
                 "node": str(entry.get("node", "")),
+                "latency": round(float(latency), 6) if isinstance(latency, (int, float)) else None,
                 "inputs": _serialize(entry.get("inputs", {})),
                 "outputs": _serialize(entry.get("outputs", entry.get("payload", {}))),
-                "latency_ms": latency_ms,
                 "timestamp": str(entry.get("timestamp", "")),
             }
         )
-    return pd.DataFrame(rows, columns=["step", "node", "inputs", "outputs", "latency_ms", "timestamp"])
+    return pd.DataFrame(rows, columns=["step", "node", "latency", "inputs", "outputs", "timestamp"])
 
 
 def display_trace(trace: list[dict[str, Any]], render: bool = True) -> pd.DataFrame:

@@ -1,28 +1,30 @@
 {
-  "session_id": "c0f9ddd4-2b20-4417-863d-f57c08fd96eb",
+  "session_id": "ae7b85ce-85aa-4c82-965f-7842fd94d904",
   "user_query": "Summarize the loaded documents.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "user_query": "Summarize the loaded documents."
         },
         "outputs": {
           "normalized_query": "Summarize the loaded documents."
-        }
+        },
+        "latency": 2e-06
       },
       "inputs": {
         "user_query": "Summarize the loaded documents."
       },
       "outputs": {
         "normalized_query": "Summarize the loaded documents."
-      }
+      },
+      "latency": 2e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the loaded documents."
@@ -30,7 +32,8 @@
         "outputs": {
           "query_type": "summary",
           "requires_tools": false
-        }
+        },
+        "latency": 4e-06
       },
       "inputs": {
         "normalized_query": "Summarize the loaded documents."
@@ -38,11 +41,12 @@
       "outputs": {
         "query_type": "summary",
         "requires_tools": false
-      }
+      },
+      "latency": 4e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "summary"
@@ -53,7 +57,8 @@
             "compress key points",
             "verify key claims are grounded"
           ]
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "summary"
@@ -64,11 +69,12 @@
           "compress key points",
           "verify key claims are grounded"
         ]
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the loaded documents.",
@@ -83,7 +89,8 @@
             "product_assistant_overview.md",
             "workspace_policy_refresh.md"
           ]
-        }
+        },
+        "latency": 0.000618
       },
       "inputs": {
         "normalized_query": "Summarize the loaded documents.",
@@ -98,11 +105,12 @@
           "product_assistant_overview.md",
           "workspace_policy_refresh.md"
         ]
-      }
+      },
+      "latency": 0.000618
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the loaded documents.",
@@ -120,7 +128,8 @@
               }
             }
           ]
-        }
+        },
+        "latency": 3.8e-05
       },
       "inputs": {
         "normalized_query": "Summarize the loaded documents.",
@@ -138,11 +147,12 @@
             }
           }
         ]
-      }
+      },
+      "latency": 3.8e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -171,7 +181,8 @@
               }
             }
           ]
-        }
+        },
+        "latency": 8.4e-05
       },
       "inputs": {
         "tool_requests": [
@@ -200,11 +211,12 @@
             }
           }
         ]
-      }
+      },
+      "latency": 8.4e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -233,7 +245,8 @@
               "score": 0.0667
             }
           ]
-        }
+        },
+        "latency": 0.00018
       },
       "inputs": {
         "query_type": "summary",
@@ -262,11 +275,12 @@
             "score": 0.0667
           }
         ]
-      }
+      },
+      "latency": 0.00018
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt."
@@ -278,7 +292,8 @@
           "missing_aspects": [
             "Evidence only covers part of the request."
           ]
-        }
+        },
+        "latency": 0.000124
       },
       "inputs": {
         "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt."
@@ -290,11 +305,12 @@
         "missing_aspects": [
           "Evidence only covers part of the request."
         ]
-      }
+      },
+      "latency": 0.000124
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -304,7 +320,8 @@
         "outputs": {
           "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
           "final_status": "answered"
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "summary",
@@ -314,7 +331,8 @@
       "outputs": {
         "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
         "final_status": "answered"
-      }
+      },
+      "latency": 1e-06
     }
   ],
   "errors": [],

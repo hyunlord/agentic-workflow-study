@@ -1,28 +1,30 @@
 {
-  "session_id": "306a749d-d78a-4541-a58c-668274668859",
+  "session_id": "d9cd8ac1-6ada-4972-ab2b-d3bf67823b24",
   "user_query": "What risk could slow a consistent rollout?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "user_query": "What risk could slow a consistent rollout?"
         },
         "outputs": {
           "normalized_query": "What risk could slow a consistent rollout?"
-        }
+        },
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "What risk could slow a consistent rollout?"
       },
       "outputs": {
         "normalized_query": "What risk could slow a consistent rollout?"
-      }
+      },
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "normalized_query": "What risk could slow a consistent rollout?"
@@ -30,7 +32,8 @@
         "outputs": {
           "query_type": "multi_hop",
           "requires_tools": true
-        }
+        },
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "What risk could slow a consistent rollout?"
@@ -38,11 +41,12 @@
       "outputs": {
         "query_type": "multi_hop",
         "requires_tools": true
-      }
+      },
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -55,7 +59,8 @@
             "synthesize reasoning chain",
             "verify grounding before final answer"
           ]
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "multi_hop"
@@ -68,11 +73,12 @@
           "synthesize reasoning chain",
           "verify grounding before final answer"
         ]
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "normalized_query": "What risk could slow a consistent rollout?",
@@ -87,7 +93,8 @@
             "leadership_faq.txt",
             "ops_rollout_plan.md"
           ]
-        }
+        },
+        "latency": 0.000657
       },
       "inputs": {
         "normalized_query": "What risk could slow a consistent rollout?",
@@ -102,11 +109,12 @@
           "leadership_faq.txt",
           "ops_rollout_plan.md"
         ]
-      }
+      },
+      "latency": 0.000657
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "normalized_query": "What risk could slow a consistent rollout?",
@@ -116,7 +124,8 @@
         "outputs": {
           "requires_tools": true,
           "tool_requests": []
-        }
+        },
+        "latency": 2.4e-05
       },
       "inputs": {
         "normalized_query": "What risk could slow a consistent rollout?",
@@ -126,29 +135,32 @@
       "outputs": {
         "requires_tools": true,
         "tool_requests": []
-      }
+      },
+      "latency": 2.4e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "tool_requests": []
         },
         "outputs": {
           "tool_outputs": []
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
       },
       "outputs": {
         "tool_outputs": []
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -177,7 +189,8 @@
               "score": 0.1454
             }
           ]
-        }
+        },
+        "latency": 0.000131
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -206,11 +219,12 @@
             "score": 0.1454
           }
         ]
-      }
+      },
+      "latency": 0.000131
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "draft_answer": "The biggest rollout risks are inconsistent local communication and duplicate FAQ updates. Sources: ops_rollout_plan.md, governance_update.txt, leadership_faq.txt."
@@ -220,7 +234,8 @@
           "coverage_score": 0.9,
           "unsupported_claims": [],
           "missing_aspects": []
-        }
+        },
+        "latency": 7.4e-05
       },
       "inputs": {
         "draft_answer": "The biggest rollout risks are inconsistent local communication and duplicate FAQ updates. Sources: ops_rollout_plan.md, governance_update.txt, leadership_faq.txt."
@@ -230,11 +245,12 @@
         "coverage_score": 0.9,
         "unsupported_claims": [],
         "missing_aspects": []
-      }
+      },
+      "latency": 7.4e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T03:32:37Z",
+      "timestamp": "2026-03-14T04:03:52Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -244,7 +260,8 @@
         "outputs": {
           "final_answer": "The biggest rollout risks are inconsistent local communication and duplicate FAQ updates. Sources: ops_rollout_plan.md, governance_update.txt, leadership_faq.txt.",
           "final_status": "answered"
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -254,7 +271,8 @@
       "outputs": {
         "final_answer": "The biggest rollout risks are inconsistent local communication and duplicate FAQ updates. Sources: ops_rollout_plan.md, governance_update.txt, leadership_faq.txt.",
         "final_status": "answered"
-      }
+      },
+      "latency": 1e-06
     }
   ],
   "errors": [],

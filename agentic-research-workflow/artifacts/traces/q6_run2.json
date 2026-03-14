@@ -1,28 +1,30 @@
 {
-  "session_id": "ce3e6a5e-d732-4a49-a318-0fb8d05124df",
+  "session_id": "44d41573-5740-47fd-a9a2-4f16abd67271",
   "user_query": "When does the organization-wide rollout begin?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "user_query": "When does the organization-wide rollout begin?"
         },
         "outputs": {
           "normalized_query": "When does the organization-wide rollout begin?"
-        }
+        },
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "When does the organization-wide rollout begin?"
       },
       "outputs": {
         "normalized_query": "When does the organization-wide rollout begin?"
-      }
+      },
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "When does the organization-wide rollout begin?"
@@ -30,7 +32,8 @@
         "outputs": {
           "query_type": "simple_lookup",
           "requires_tools": false
-        }
+        },
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "When does the organization-wide rollout begin?"
@@ -38,11 +41,12 @@
       "outputs": {
         "query_type": "simple_lookup",
         "requires_tools": false
-      }
+      },
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -53,7 +57,8 @@
             "draft concise grounded answer",
             "verify citation support"
           ]
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "simple_lookup"
@@ -64,11 +69,12 @@
           "draft concise grounded answer",
           "verify citation support"
         ]
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "When does the organization-wide rollout begin?",
@@ -83,7 +89,8 @@
             "leadership_faq.txt",
             "ops_rollout_plan.md"
           ]
-        }
+        },
+        "latency": 0.000723
       },
       "inputs": {
         "normalized_query": "When does the organization-wide rollout begin?",
@@ -98,11 +105,12 @@
           "leadership_faq.txt",
           "ops_rollout_plan.md"
         ]
-      }
+      },
+      "latency": 0.000723
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "When does the organization-wide rollout begin?",
@@ -112,7 +120,8 @@
         "outputs": {
           "requires_tools": false,
           "tool_requests": []
-        }
+        },
+        "latency": 2.2e-05
       },
       "inputs": {
         "normalized_query": "When does the organization-wide rollout begin?",
@@ -122,29 +131,32 @@
       "outputs": {
         "requires_tools": false,
         "tool_requests": []
-      }
+      },
+      "latency": 2.2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "tool_requests": []
         },
         "outputs": {
           "tool_outputs": []
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
       },
       "outputs": {
         "tool_outputs": []
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -173,7 +185,8 @@
               "score": 0.0996
             }
           ]
-        }
+        },
+        "latency": 0.000119
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -202,11 +215,12 @@
             "score": 0.0996
           }
         ]
-      }
+      },
+      "latency": 0.000119
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt."
@@ -216,7 +230,8 @@
           "coverage_score": 0.95,
           "unsupported_claims": [],
           "missing_aspects": []
-        }
+        },
+        "latency": 7.3e-05
       },
       "inputs": {
         "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt."
@@ -226,11 +241,12 @@
         "coverage_score": 0.95,
         "unsupported_claims": [],
         "missing_aspects": []
-      }
+      },
+      "latency": 7.3e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -240,7 +256,8 @@
         "outputs": {
           "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
           "final_status": "answered"
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -250,7 +267,8 @@
       "outputs": {
         "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
         "final_status": "answered"
-      }
+      },
+      "latency": 1e-06
     }
   ],
   "errors": [],

@@ -45,7 +45,8 @@ def test_trace_debug_adds_latency_and_node_specific_views() -> None:
     input_frame = display_node_inputs(state["trace"], "retrieve_docs", render=False)
     output_frame = display_node_outputs(state["trace"], "retrieve_docs", render=False)
 
-    assert list(trace_frame.columns) == ["step", "node", "inputs", "outputs", "latency_ms", "timestamp"]
+    assert list(trace_frame.columns) == ["step", "node", "latency", "inputs", "outputs", "timestamp"]
     assert "retrieve_docs" in set(trace_frame["node"])
+    assert trace_frame["latency"].notna().all()
     assert not input_frame.empty
     assert not output_frame.empty

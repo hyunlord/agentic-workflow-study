@@ -12,3 +12,4 @@ def test_workflow_records_error_in_trace() -> None:
     assert state["final_status"] == "failed"
     assert state["errors"] == ["retriever exploded"]
     assert state["trace"][-1]["node"] == "workflow_error"
+    assert isinstance(state["trace"][-1]["latency"], float)

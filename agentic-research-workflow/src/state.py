@@ -40,6 +40,7 @@ def create_initial_state(user_query: str) -> AgentState:
 def append_trace(state: AgentState, node: str, payload: dict[str, Any]) -> None:
     inputs = payload.get("inputs", {}) if isinstance(payload, dict) else {}
     outputs = payload.get("outputs", payload) if isinstance(payload, dict) else payload
+    latency = payload.get("latency") if isinstance(payload, dict) else None
     state.setdefault("trace", []).append(
         {
             "node": node,
@@ -47,6 +48,7 @@ def append_trace(state: AgentState, node: str, payload: dict[str, Any]) -> None:
             "payload": json_ready(payload),
             "inputs": json_ready(inputs),
             "outputs": json_ready(outputs),
+            "latency": round(float(latency), 6) if isinstance(latency, (int, float)) else None,
         }
     )
 

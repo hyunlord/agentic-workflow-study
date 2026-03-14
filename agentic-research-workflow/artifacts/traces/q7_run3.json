@@ -1,28 +1,30 @@
 {
-  "session_id": "76d98964-7d49-4853-9c39-f087134c5428",
+  "session_id": "29acf401-6e7d-48cf-9d7f-17dfc1ca772b",
   "user_query": "Who is the current CEO of the company?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "user_query": "Who is the current CEO of the company?"
         },
         "outputs": {
           "normalized_query": "Who is the current CEO of the company?"
-        }
+        },
+        "latency": 2e-06
       },
       "inputs": {
         "user_query": "Who is the current CEO of the company?"
       },
       "outputs": {
         "normalized_query": "Who is the current CEO of the company?"
-      }
+      },
+      "latency": 2e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "normalized_query": "Who is the current CEO of the company?"
@@ -30,7 +32,8 @@
         "outputs": {
           "query_type": "insufficient_evidence_risk",
           "requires_tools": false
-        }
+        },
+        "latency": 3e-06
       },
       "inputs": {
         "normalized_query": "Who is the current CEO of the company?"
@@ -38,11 +41,12 @@
       "outputs": {
         "query_type": "insufficient_evidence_risk",
         "requires_tools": false
-      }
+      },
+      "latency": 3e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk"
@@ -53,7 +57,8 @@
             "check whether the request exceeds document scope",
             "abstain if grounding is weak"
           ]
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk"
@@ -64,11 +69,12 @@
           "check whether the request exceeds document scope",
           "abstain if grounding is weak"
         ]
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "normalized_query": "Who is the current CEO of the company?",
@@ -83,7 +89,8 @@
             "ops_rollout_plan.md",
             "governance_update.txt"
           ]
-        }
+        },
+        "latency": 0.00059
       },
       "inputs": {
         "normalized_query": "Who is the current CEO of the company?",
@@ -98,11 +105,12 @@
           "ops_rollout_plan.md",
           "governance_update.txt"
         ]
-      }
+      },
+      "latency": 0.00059
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "normalized_query": "Who is the current CEO of the company?",
@@ -112,7 +120,8 @@
         "outputs": {
           "requires_tools": false,
           "tool_requests": []
-        }
+        },
+        "latency": 2.4e-05
       },
       "inputs": {
         "normalized_query": "Who is the current CEO of the company?",
@@ -122,29 +131,32 @@
       "outputs": {
         "requires_tools": false,
         "tool_requests": []
-      }
+      },
+      "latency": 2.4e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "tool_requests": []
         },
         "outputs": {
           "tool_outputs": []
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
       },
       "outputs": {
         "tool_outputs": []
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",
@@ -167,7 +179,8 @@
               "score": 0.196
             }
           ]
-        }
+        },
+        "latency": 0.000157
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk",
@@ -190,11 +203,12 @@
             "score": 0.196
           }
         ]
-      }
+      },
+      "latency": 0.000157
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -206,7 +220,8 @@
           "missing_aspects": [
             "Evidence only covers part of the request."
           ]
-        }
+        },
+        "latency": 7.6e-05
       },
       "inputs": {
         "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -218,11 +233,12 @@
         "missing_aspects": [
           "Evidence only covers part of the request."
         ]
-      }
+      },
+      "latency": 7.6e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T03:32:09Z",
+      "timestamp": "2026-03-14T04:03:15Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",
@@ -232,7 +248,8 @@
         "outputs": {
           "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
           "final_status": "abstained"
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk",
@@ -242,7 +259,8 @@
       "outputs": {
         "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
         "final_status": "abstained"
-      }
+      },
+      "latency": 1e-06
     }
   ],
   "errors": [],

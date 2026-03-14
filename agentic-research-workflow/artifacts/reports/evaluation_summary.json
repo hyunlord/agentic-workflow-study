@@ -5,7 +5,7 @@
     "retrieval_hit_rate": 1.0,
     "grounding_pass_rate": 1.0,
     "abstain_precision": 1.0,
-    "latency": 0.001,
+    "latency": 0.002,
     "average_steps": 9.0
   },
   {

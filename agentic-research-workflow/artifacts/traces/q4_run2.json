@@ -1,28 +1,30 @@
 {
-  "session_id": "775cad5d-4c09-4b83-a708-8960bf8deebf",
+  "session_id": "f41a6e9e-4393-4327-83e8-ef6fedb84b32",
   "user_query": "How many days are in the pilot window?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "user_query": "How many days are in the pilot window?"
         },
         "outputs": {
           "normalized_query": "How many days are in the pilot window?"
-        }
+        },
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "How many days are in the pilot window?"
       },
       "outputs": {
         "normalized_query": "How many days are in the pilot window?"
-      }
+      },
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "How many days are in the pilot window?"
@@ -30,7 +32,8 @@
         "outputs": {
           "query_type": "multi_hop",
           "requires_tools": true
-        }
+        },
+        "latency": 5e-06
       },
       "inputs": {
         "normalized_query": "How many days are in the pilot window?"
@@ -38,11 +41,12 @@
       "outputs": {
         "query_type": "multi_hop",
         "requires_tools": true
-      }
+      },
+      "latency": 5e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -55,7 +59,8 @@
             "synthesize reasoning chain",
             "verify grounding before final answer"
           ]
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "multi_hop"
@@ -68,11 +73,12 @@
           "synthesize reasoning chain",
           "verify grounding before final answer"
         ]
-      }
+      },
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "How many days are in the pilot window?",
@@ -87,7 +93,8 @@
             "workspace_policy_refresh.md",
             "ops_rollout_plan.md"
           ]
-        }
+        },
+        "latency": 0.000678
       },
       "inputs": {
         "normalized_query": "How many days are in the pilot window?",
@@ -102,11 +109,12 @@
           "workspace_policy_refresh.md",
           "ops_rollout_plan.md"
         ]
-      }
+      },
+      "latency": 0.000678
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "normalized_query": "How many days are in the pilot window?",
@@ -135,7 +143,8 @@
               }
             }
           ]
-        }
+        },
+        "latency": 2.9e-05
       },
       "inputs": {
         "normalized_query": "How many days are in the pilot window?",
@@ -164,11 +173,12 @@
             }
           }
         ]
-      }
+      },
+      "latency": 2.9e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -216,7 +226,8 @@
               }
             }
           ]
-        }
+        },
+        "latency": 9.1e-05
       },
       "inputs": {
         "tool_requests": [
@@ -264,11 +275,12 @@
             }
           }
         ]
-      }
+      },
+      "latency": 9.1e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -291,7 +303,8 @@
               "score": 0.3817
             }
           ]
-        }
+        },
+        "latency": 0.000138
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -314,11 +327,12 @@
             "score": 0.3817
           }
         ]
-      }
+      },
+      "latency": 0.000138
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "draft_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -328,7 +342,8 @@
           "coverage_score": 0.762,
           "unsupported_claims": [],
           "missing_aspects": []
-        }
+        },
+        "latency": 7.8e-05
       },
       "inputs": {
         "draft_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -338,11 +353,12 @@
         "coverage_score": 0.762,
         "unsupported_claims": [],
         "missing_aspects": []
-      }
+      },
+      "latency": 7.8e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T03:32:24Z",
+      "timestamp": "2026-03-14T04:03:32Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -352,7 +368,8 @@
         "outputs": {
           "final_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
           "final_status": "answered"
-        }
+        },
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -362,7 +379,8 @@
       "outputs": {
         "final_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
         "final_status": "answered"
-      }
+      },
+      "latency": 1e-06
     }
   ],
   "errors": [],
