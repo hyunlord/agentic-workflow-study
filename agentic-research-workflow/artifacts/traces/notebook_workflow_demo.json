@@ -1,0 +1,258 @@
+{
+  "session_id": "dbbcef90-bafc-4c95-ac9f-12e8582219f5",
+  "user_query": "How many days are in the pilot window?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "normalized_query": "How many days are in the pilot window?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "query_type": "multi_hop",
+        "requires_tools": true
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "plan": [
+          "decompose question into sub-parts",
+          "retrieve multi-source evidence",
+          "optionally call helper tools",
+          "synthesize reasoning chain",
+          "verify grounding before final answer"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "top_k": 5,
+        "results": 5,
+        "sources": [
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "governance_update.txt",
+          "governance_update.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "requires_tools": true,
+        "tool_requests": [
+          {
+            "tool_name": "date_parser",
+            "args": {
+              "text": "March 10, 2025"
+            }
+          },
+          {
+            "tool_name": "date_parser",
+            "args": {
+              "text": "April 4, 2025"
+            }
+          },
+          {
+            "tool_name": "calculator",
+            "args": {
+              "expression": "DATE_DIFF_DAYS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "tool_outputs": [
+          {
+            "tool_name": "date_parser",
+            "output": {
+              "ok": true,
+              "normalized": "2025-03-10"
+            }
+          },
+          {
+            "tool_name": "date_parser",
+            "output": {
+              "ok": true,
+              "normalized": "2025-04-04"
+            }
+          },
+          {
+            "tool_name": "calculator",
+            "output": {
+              "ok": true,
+              "result": 25
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "draft_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+        "citations": [
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_1",
+            "source": "ops_rollout_plan.md",
+            "score": 0.4138
+          },
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_2",
+            "source": "ops_rollout_plan.md",
+            "score": 0.381
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "is_grounded": true,
+        "coverage_score": 0.762,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T01:00:55Z",
+      "payload": {
+        "final_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "How many days are in the pilot window?",
+  "query_type": "multi_hop",
+  "requires_tools": true,
+  "plan": [
+    "decompose question into sub-parts",
+    "retrieve multi-source evidence",
+    "optionally call helper tools",
+    "synthesize reasoning chain",
+    "verify grounding before final answer"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_1",
+      "text": "# Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.4138
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "text": "Pilot window: March 10, 2025 to April 4, 2025. If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.381
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.121
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "text": "Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [
+    {
+      "tool_name": "date_parser",
+      "args": {
+        "text": "March 10, 2025"
+      }
+    },
+    {
+      "tool_name": "date_parser",
+      "args": {
+        "text": "April 4, 2025"
+      }
+    },
+    {
+      "tool_name": "calculator",
+      "args": {
+        "expression": "DATE_DIFF_DAYS"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "tool_name": "date_parser",
+      "output": {
+        "ok": true,
+        "normalized": "2025-03-10"
+      }
+    },
+    {
+      "tool_name": "date_parser",
+      "output": {
+        "ok": true,
+        "normalized": "2025-04-04"
+      }
+    },
+    {
+      "tool_name": "calculator",
+      "output": {
+        "ok": true,
+        "result": 25
+      }
+    }
+  ],
+  "draft_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+  "citations": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_1",
+      "source": "ops_rollout_plan.md",
+      "score": 0.4138
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "source": "ops_rollout_plan.md",
+      "score": 0.381
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.762,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "The pilot window spans 25 days, from March 10, 2025 to April 4, 2025. Computed value: 25. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+  "final_status": "answered"
+}

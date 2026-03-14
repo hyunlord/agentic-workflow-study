@@ -1,0 +1,176 @@
+{
+  "session_id": "693b1e0c-33c9-4cde-9852-f801ffe19086",
+  "user_query": "Who is the current CEO of the company?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "normalized_query": "Who is the current CEO of the company?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "query_type": "insufficient_evidence_risk",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "plan": [
+          "retrieve the closest available evidence",
+          "check whether the request exceeds document scope",
+          "abstain if grounding is weak"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "top_k": 5,
+        "results": 5,
+        "sources": [
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "governance_update.txt",
+          "governance_update.txt",
+          "leadership_faq.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "requires_tools": false,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+        "citations": [
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_3",
+            "source": "ops_rollout_plan.md",
+            "score": 0.2119
+          },
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_2",
+            "source": "ops_rollout_plan.md",
+            "score": 0.1962
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "is_grounded": true,
+        "coverage_score": 0.833,
+        "unsupported_claims": [],
+        "missing_aspects": [
+          "Evidence only covers part of the request."
+        ]
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
+        "final_status": "abstained"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Who is the current CEO of the company?",
+  "query_type": "insufficient_evidence_risk",
+  "requires_tools": false,
+  "plan": [
+    "retrieve the closest available evidence",
+    "check whether the request exceeds document scope",
+    "abstain if grounding is weak"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.2119
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "text": "Pilot window: March 10, 2025 to April 4, 2025. If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.1962
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "text": "Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_1",
+      "text": "Leadership FAQ Q: How is the rollout plan different from the policy refresh?",
+      "source": "leadership_faq.txt",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+  "citations": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "source": "ops_rollout_plan.md",
+      "score": 0.2119
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "source": "ops_rollout_plan.md",
+      "score": 0.1962
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.833,
+    "unsupported_claims": [],
+    "missing_aspects": [
+      "Evidence only covers part of the request."
+    ]
+  },
+  "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
+  "final_status": "abstained"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "system": "agent_workflow",
+    "answer_correctness": 0.419,
+    "retrieval_hit_rate": 1.0,
+    "grounding_pass_rate": 1.0,
+    "abstain_precision": 1.0,
+    "latency": 0.001,
+    "average_steps": 9.0
+  },
+  {
+    "system": "baseline",
+    "answer_correctness": 0.478,
+    "retrieval_hit_rate": 1.0,
+    "grounding_pass_rate": 0.0,
+    "abstain_precision": 0.0,
+    "latency": 0.001,
+    "average_steps": 3.0
+  }
+]

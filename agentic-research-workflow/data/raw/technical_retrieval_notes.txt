@@ -1,0 +1,7 @@
+Technical Retrieval Notes
+
+The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups.
+
+Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes.
+
+This note exists to represent a simple technical document in the sample corpus.

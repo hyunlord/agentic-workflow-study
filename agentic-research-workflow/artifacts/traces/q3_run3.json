@@ -1,0 +1,421 @@
+{
+  "session_id": "9e95aeef-74c1-446b-9597-ea3e0b145ac4",
+  "user_query": "Summarize the loaded documents.",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Summarize the loaded documents."
+        },
+        "outputs": {
+          "normalized_query": "Summarize the loaded documents."
+        }
+      },
+      "inputs": {
+        "user_query": "Summarize the loaded documents."
+      },
+      "outputs": {
+        "normalized_query": "Summarize the loaded documents."
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Summarize the loaded documents."
+        },
+        "outputs": {
+          "query_type": "summary",
+          "requires_tools": false
+        }
+      },
+      "inputs": {
+        "normalized_query": "Summarize the loaded documents."
+      },
+      "outputs": {
+        "query_type": "summary",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "summary"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve major sections",
+            "compress key points",
+            "verify key claims are grounded"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "summary"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve major sections",
+          "compress key points",
+          "verify key claims are grounded"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Summarize the loaded documents.",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "support_metrics.txt",
+            "support_metrics.txt",
+            "technical_retrieval_notes.txt",
+            "product_assistant_overview.md",
+            "workspace_policy_refresh.md"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "Summarize the loaded documents.",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "support_metrics.txt",
+          "support_metrics.txt",
+          "technical_retrieval_notes.txt",
+          "product_assistant_overview.md",
+          "workspace_policy_refresh.md"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Summarize the loaded documents.",
+          "query_type": "summary",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": [
+            {
+              "tool_name": "keyword_extractor",
+              "args": {
+                "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+                "limit": 5
+              }
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "Summarize the loaded documents.",
+        "query_type": "summary",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": [
+          {
+            "tool_name": "keyword_extractor",
+            "args": {
+              "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+              "limit": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": [
+            {
+              "tool_name": "keyword_extractor",
+              "args": {
+                "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+                "limit": 5
+              }
+            }
+          ]
+        },
+        "outputs": {
+          "tool_outputs": [
+            {
+              "tool_name": "keyword_extractor",
+              "output": {
+                "ok": true,
+                "keywords": [
+                  "onboarding",
+                  "duplicated",
+                  "document",
+                  "reduce",
+                  "refresh"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "tool_requests": [
+          {
+            "tool_name": "keyword_extractor",
+            "args": {
+              "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+              "limit": 5
+            }
+          }
+        ]
+      },
+      "outputs": {
+        "tool_outputs": [
+          {
+            "tool_name": "keyword_extractor",
+            "output": {
+              "ok": true,
+              "keywords": [
+                "onboarding",
+                "duplicated",
+                "document",
+                "reduce",
+                "refresh"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "summary",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 1
+        },
+        "outputs": {
+          "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
+          "citations": [
+            {
+              "doc_id": "support_metrics",
+              "chunk_id": "support_metrics_chunk_2",
+              "source": "support_metrics.txt",
+              "score": 0.2098
+            },
+            {
+              "doc_id": "support_metrics",
+              "chunk_id": "support_metrics_chunk_3",
+              "source": "support_metrics.txt",
+              "score": 0.1929
+            },
+            {
+              "doc_id": "technical_retrieval_notes",
+              "chunk_id": "technical_retrieval_notes_chunk_3",
+              "source": "technical_retrieval_notes.txt",
+              "score": 0.0667
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "summary",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 1
+      },
+      "outputs": {
+        "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
+        "citations": [
+          {
+            "doc_id": "support_metrics",
+            "chunk_id": "support_metrics_chunk_2",
+            "source": "support_metrics.txt",
+            "score": 0.2098
+          },
+          {
+            "doc_id": "support_metrics",
+            "chunk_id": "support_metrics_chunk_3",
+            "source": "support_metrics.txt",
+            "score": 0.1929
+          },
+          {
+            "doc_id": "technical_retrieval_notes",
+            "chunk_id": "technical_retrieval_notes_chunk_3",
+            "source": "technical_retrieval_notes.txt",
+            "score": 0.0667
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.78,
+          "unsupported_claims": [],
+          "missing_aspects": [
+            "Evidence only covers part of the request."
+          ]
+        }
+      },
+      "inputs": {
+        "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.78,
+        "unsupported_claims": [],
+        "missing_aspects": [
+          "Evidence only covers part of the request."
+        ]
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "summary",
+          "coverage_score": 0.78,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
+          "final_status": "answered"
+        }
+      },
+      "inputs": {
+        "query_type": "summary",
+        "coverage_score": 0.78,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Summarize the loaded documents.",
+  "query_type": "summary",
+  "requires_tools": false,
+  "plan": [
+    "retrieve major sections",
+    "compress key points",
+    "verify key claims are grounded"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_2",
+      "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find.",
+      "source": "support_metrics.txt",
+      "score": 0.2098
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "text": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ.",
+      "source": "support_metrics.txt",
+      "score": 0.1929
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "text": "Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus.",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0667
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_3",
+      "text": "Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+      "source": "product_assistant_overview.md",
+      "score": 0.0667
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_6",
+      "text": "The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [
+    {
+      "tool_name": "keyword_extractor",
+      "args": {
+        "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Chunks are intentionally small, and the ranker mixes cosine similarity with lexical overlap so learners can inspect how search quality changes. This note exists to represent a simple technical document in the sample corpus. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+        "limit": 5
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "tool_name": "keyword_extractor",
+      "output": {
+        "ok": true,
+        "keywords": [
+          "onboarding",
+          "duplicated",
+          "document",
+          "reduce",
+          "refresh"
+        ]
+      }
+    }
+  ],
+  "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
+  "citations": [
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_2",
+      "source": "support_metrics.txt",
+      "score": 0.2098
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "source": "support_metrics.txt",
+      "score": 0.1929
+    },
+    {
+      "doc_id": "technical_retrieval_notes",
+      "chunk_id": "technical_retrieval_notes_chunk_3",
+      "source": "technical_retrieval_notes.txt",
+      "score": 0.0667
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.78,
+    "unsupported_claims": [],
+    "missing_aspects": [
+      "Evidence only covers part of the request."
+    ]
+  },
+  "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. This note exists to represent a simple technical document in the sample corpus. The product team uses this document in the notebooks as an example of a concise product brief. Key themes: onboarding, duplicated, document, reduce, refresh. Sources: support_metrics.txt, support_metrics.txt, technical_retrieval_notes.txt.",
+  "final_status": "answered"
+}

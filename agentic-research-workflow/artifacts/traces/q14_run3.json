@@ -1,0 +1,333 @@
+{
+  "session_id": "8ffd5b2b-d351-4a83-acfb-c1df332341b5",
+  "user_query": "When should tools be used?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "user_query": "When should tools be used?"
+        },
+        "outputs": {
+          "normalized_query": "When should tools be used?"
+        }
+      },
+      "inputs": {
+        "user_query": "When should tools be used?"
+      },
+      "outputs": {
+        "normalized_query": "When should tools be used?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "When should tools be used?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        }
+      },
+      "inputs": {
+        "normalized_query": "When should tools be used?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "When should tools be used?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "leadership_faq.txt",
+            "leadership_faq.txt",
+            "workspace_policy_refresh.md",
+            "ops_rollout_plan.md",
+            "governance_update.txt"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "When should tools be used?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "leadership_faq.txt",
+          "leadership_faq.txt",
+          "workspace_policy_refresh.md",
+          "ops_rollout_plan.md",
+          "governance_update.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "When should tools be used?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        }
+      },
+      "inputs": {
+        "normalized_query": "When should tools be used?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        }
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md.",
+          "citations": [
+            {
+              "doc_id": "leadership_faq",
+              "chunk_id": "leadership_faq_chunk_5",
+              "source": "leadership_faq.txt",
+              "score": 0.509
+            },
+            {
+              "doc_id": "leadership_faq",
+              "chunk_id": "leadership_faq_chunk_6",
+              "source": "leadership_faq.txt",
+              "score": 0.4757
+            },
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_6",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.0
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md.",
+        "citations": [
+          {
+            "doc_id": "leadership_faq",
+            "chunk_id": "leadership_faq_chunk_5",
+            "source": "leadership_faq.txt",
+            "score": 0.509
+          },
+          {
+            "doc_id": "leadership_faq",
+            "chunk_id": "leadership_faq_chunk_6",
+            "source": "leadership_faq.txt",
+            "score": 0.4757
+          },
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_6",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 1.0,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        }
+      },
+      "inputs": {
+        "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 1.0,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 1.0,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md.",
+          "final_status": "answered"
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 1.0,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "When should tools be used?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_5",
+      "text": "A: Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Q: When should tools be used?",
+      "source": "leadership_faq.txt",
+      "score": 0.509
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_6",
+      "text": "Q: When should tools be used? A: Use keyword extraction for broad summaries and date calculations for schedule questions.",
+      "source": "leadership_faq.txt",
+      "score": 0.4757
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_6",
+      "text": "The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_5",
+      "text": "Phase 2 launches the scheduling template and escalation form. The biggest rollout risks are inconsistent local communication and duplicate FAQ updates.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md.",
+  "citations": [
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_5",
+      "source": "leadership_faq.txt",
+      "score": 0.509
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_6",
+      "source": "leadership_faq.txt",
+      "score": 0.4757
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_6",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 1.0,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Sources: leadership_faq.txt, leadership_faq.txt, workspace_policy_refresh.md.",
+  "final_status": "answered"
+}

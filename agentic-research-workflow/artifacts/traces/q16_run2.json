@@ -1,0 +1,315 @@
+{
+  "session_id": "62708260-dda2-4151-98c2-237df2cd3968",
+  "user_query": "What are the first release priorities for the product assistant?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "user_query": "What are the first release priorities for the product assistant?"
+        },
+        "outputs": {
+          "normalized_query": "What are the first release priorities for the product assistant?"
+        }
+      },
+      "inputs": {
+        "user_query": "What are the first release priorities for the product assistant?"
+      },
+      "outputs": {
+        "normalized_query": "What are the first release priorities for the product assistant?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What are the first release priorities for the product assistant?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        }
+      },
+      "inputs": {
+        "normalized_query": "What are the first release priorities for the product assistant?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What are the first release priorities for the product assistant?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "product_assistant_overview.md",
+            "product_assistant_overview.md",
+            "product_assistant_overview.md",
+            "ops_rollout_plan.md",
+            "governance_update.txt"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "What are the first release priorities for the product assistant?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "product_assistant_overview.md",
+          "product_assistant_overview.md",
+          "product_assistant_overview.md",
+          "ops_rollout_plan.md",
+          "governance_update.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What are the first release priorities for the product assistant?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        }
+      },
+      "inputs": {
+        "normalized_query": "What are the first release priorities for the product assistant?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        }
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md.",
+          "citations": [
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_1",
+              "source": "product_assistant_overview.md",
+              "score": 0.5087
+            },
+            {
+              "doc_id": "product_assistant_overview",
+              "chunk_id": "product_assistant_overview_chunk_2",
+              "source": "product_assistant_overview.md",
+              "score": 0.3927
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md.",
+        "citations": [
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_1",
+            "source": "product_assistant_overview.md",
+            "score": 0.5087
+          },
+          {
+            "doc_id": "product_assistant_overview",
+            "chunk_id": "product_assistant_overview_chunk_2",
+            "source": "product_assistant_overview.md",
+            "score": 0.3927
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.95,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        }
+      },
+      "inputs": {
+        "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.95,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.95,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md.",
+          "final_status": "answered"
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.95,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "What are the first release priorities for the product assistant?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "text": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees.",
+      "source": "product_assistant_overview.md",
+      "score": 0.5087
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "text": "The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support.",
+      "source": "product_assistant_overview.md",
+      "score": 0.3927
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_3",
+      "text": "Its first release focuses on searchable help content, short evidence-backed answers, and clear escalation paths to human support. The product team uses this document in the notebooks as an example of a concise product brief.",
+      "source": "product_assistant_overview.md",
+      "score": 0.2773
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_4",
+      "text": "Phase 1 trains policy leads and office managers. Phase 2 launches the scheduling template and escalation form.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md.",
+  "citations": [
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_1",
+      "source": "product_assistant_overview.md",
+      "score": 0.5087
+    },
+    {
+      "doc_id": "product_assistant_overview",
+      "chunk_id": "product_assistant_overview_chunk_2",
+      "source": "product_assistant_overview.md",
+      "score": 0.3927
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.95,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Sources: product_assistant_overview.md, product_assistant_overview.md.",
+  "final_status": "answered"
+}

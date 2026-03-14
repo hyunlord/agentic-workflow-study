@@ -1,0 +1,6 @@
+Governance Update
+
+The governance memo explains how the policy refresh will be maintained after launch.
+Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.
+
+This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.

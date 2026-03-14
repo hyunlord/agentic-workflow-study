@@ -1,0 +1,339 @@
+{
+  "session_id": "475ca624-939f-4ffa-ac04-015630a6e91d",
+  "user_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
+        },
+        "outputs": {
+          "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
+        }
+      },
+      "inputs": {
+        "user_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
+      },
+      "outputs": {
+        "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
+        },
+        "outputs": {
+          "query_type": "multi_hop",
+          "requires_tools": true
+        }
+      },
+      "inputs": {
+        "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?"
+      },
+      "outputs": {
+        "query_type": "multi_hop",
+        "requires_tools": true
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "multi_hop"
+        },
+        "outputs": {
+          "plan": [
+            "decompose question into sub-parts",
+            "retrieve multi-source evidence",
+            "optionally call helper tools",
+            "synthesize reasoning chain",
+            "verify grounding before final answer"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "multi_hop"
+      },
+      "outputs": {
+        "plan": [
+          "decompose question into sub-parts",
+          "retrieve multi-source evidence",
+          "optionally call helper tools",
+          "synthesize reasoning chain",
+          "verify grounding before final answer"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "governance_update.txt",
+            "governance_update.txt",
+            "support_metrics.txt",
+            "workspace_policy_refresh.md",
+            "workspace_policy_refresh.md"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "governance_update.txt",
+          "governance_update.txt",
+          "support_metrics.txt",
+          "workspace_policy_refresh.md",
+          "workspace_policy_refresh.md"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
+          "query_type": "multi_hop",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": true,
+          "tool_requests": []
+        }
+      },
+      "inputs": {
+        "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
+        "query_type": "multi_hop",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": true,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        }
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "multi_hop",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt.",
+          "citations": [
+            {
+              "doc_id": "support_metrics",
+              "chunk_id": "support_metrics_chunk_3",
+              "source": "support_metrics.txt",
+              "score": 0.3031
+            },
+            {
+              "doc_id": "governance_update",
+              "chunk_id": "governance_update_chunk_2",
+              "source": "governance_update.txt",
+              "score": 0.364
+            },
+            {
+              "doc_id": "governance_update",
+              "chunk_id": "governance_update_chunk_3",
+              "source": "governance_update.txt",
+              "score": 0.3301
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "multi_hop",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt.",
+        "citations": [
+          {
+            "doc_id": "support_metrics",
+            "chunk_id": "support_metrics_chunk_3",
+            "source": "support_metrics.txt",
+            "score": 0.3031
+          },
+          {
+            "doc_id": "governance_update",
+            "chunk_id": "governance_update_chunk_2",
+            "source": "governance_update.txt",
+            "score": 0.364
+          },
+          {
+            "doc_id": "governance_update",
+            "chunk_id": "governance_update_chunk_3",
+            "source": "governance_update.txt",
+            "score": 0.3301
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.938,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        }
+      },
+      "inputs": {
+        "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.938,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "multi_hop",
+          "coverage_score": 0.938,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt.",
+          "final_status": "answered"
+        }
+      },
+      "inputs": {
+        "query_type": "multi_hop",
+        "coverage_score": 0.938,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Which team owns the canonical policy and why does that help onboarding consistency?",
+  "query_type": "multi_hop",
+  "requires_tools": true,
+  "plan": [
+    "decompose question into sub-parts",
+    "retrieve multi-source evidence",
+    "optionally call helper tools",
+    "synthesize reasoning chain",
+    "verify grounding before final answer"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.364
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "text": "Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams.",
+      "source": "governance_update.txt",
+      "score": 0.3301
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "text": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ.",
+      "source": "support_metrics.txt",
+      "score": 0.3031
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "text": "The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Managers must publish team schedules two weeks in advance.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.2207
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_2",
+      "text": "Published: January 15, 2025 The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.2015
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt.",
+  "citations": [
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "source": "support_metrics.txt",
+      "score": 0.3031
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "source": "governance_update.txt",
+      "score": 0.364
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_3",
+      "source": "governance_update.txt",
+      "score": 0.3301
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.938,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ. Sources: support_metrics.txt, governance_update.txt, governance_update.txt.",
+  "final_status": "answered"
+}

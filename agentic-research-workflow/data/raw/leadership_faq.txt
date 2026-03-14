@@ -1,0 +1,10 @@
+Leadership FAQ
+
+Q: How is the rollout plan different from the policy refresh?
+A: The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps.
+
+Q: What savings assumption supports the refresh?
+A: Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions.
+
+Q: When should tools be used?
+A: Use keyword extraction for broad summaries and date calculations for schedule questions.

@@ -1,0 +1,333 @@
+{
+  "session_id": "ce3e6a5e-d732-4a49-a318-0fb8d05124df",
+  "user_query": "When does the organization-wide rollout begin?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "user_query": "When does the organization-wide rollout begin?"
+        },
+        "outputs": {
+          "normalized_query": "When does the organization-wide rollout begin?"
+        }
+      },
+      "inputs": {
+        "user_query": "When does the organization-wide rollout begin?"
+      },
+      "outputs": {
+        "normalized_query": "When does the organization-wide rollout begin?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "When does the organization-wide rollout begin?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        }
+      },
+      "inputs": {
+        "normalized_query": "When does the organization-wide rollout begin?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "When does the organization-wide rollout begin?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "ops_rollout_plan.md",
+            "ops_rollout_plan.md",
+            "leadership_faq.txt",
+            "leadership_faq.txt",
+            "ops_rollout_plan.md"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "When does the organization-wide rollout begin?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "leadership_faq.txt",
+          "leadership_faq.txt",
+          "ops_rollout_plan.md"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "When does the organization-wide rollout begin?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        }
+      },
+      "inputs": {
+        "normalized_query": "When does the organization-wide rollout begin?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        }
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+          "citations": [
+            {
+              "doc_id": "ops_rollout_plan",
+              "chunk_id": "ops_rollout_plan_chunk_3",
+              "source": "ops_rollout_plan.md",
+              "score": 0.5007
+            },
+            {
+              "doc_id": "ops_rollout_plan",
+              "chunk_id": "ops_rollout_plan_chunk_2",
+              "source": "ops_rollout_plan.md",
+              "score": 0.4632
+            },
+            {
+              "doc_id": "leadership_faq",
+              "chunk_id": "leadership_faq_chunk_2",
+              "source": "leadership_faq.txt",
+              "score": 0.0996
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+        "citations": [
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_3",
+            "source": "ops_rollout_plan.md",
+            "score": 0.5007
+          },
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_2",
+            "source": "ops_rollout_plan.md",
+            "score": 0.4632
+          },
+          {
+            "doc_id": "leadership_faq",
+            "chunk_id": "leadership_faq_chunk_2",
+            "source": "leadership_faq.txt",
+            "score": 0.0996
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.95,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        }
+      },
+      "inputs": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.95,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:24Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 0.95,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+          "final_status": "answered"
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 0.95,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "When does the organization-wide rollout begin?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.5007
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "text": "Pilot window: March 10, 2025 to April 4, 2025. If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.4632
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_2",
+      "text": "Q: How is the rollout plan different from the policy refresh? A: The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps.",
+      "source": "leadership_faq.txt",
+      "score": 0.0996
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_1",
+      "text": "Leadership FAQ Q: How is the rollout plan different from the policy refresh?",
+      "source": "leadership_faq.txt",
+      "score": 0.0925
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_1",
+      "text": "# Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0792
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+  "citations": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "source": "ops_rollout_plan.md",
+      "score": 0.5007
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "source": "ops_rollout_plan.md",
+      "score": 0.4632
+    },
+    {
+      "doc_id": "leadership_faq",
+      "chunk_id": "leadership_faq_chunk_2",
+      "source": "leadership_faq.txt",
+      "score": 0.0996
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.95,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+  "final_status": "answered"
+}

@@ -1,0 +1,321 @@
+{
+  "session_id": "76d98964-7d49-4853-9c39-f087134c5428",
+  "user_query": "Who is the current CEO of the company?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "user_query": "Who is the current CEO of the company?"
+        },
+        "outputs": {
+          "normalized_query": "Who is the current CEO of the company?"
+        }
+      },
+      "inputs": {
+        "user_query": "Who is the current CEO of the company?"
+      },
+      "outputs": {
+        "normalized_query": "Who is the current CEO of the company?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Who is the current CEO of the company?"
+        },
+        "outputs": {
+          "query_type": "insufficient_evidence_risk",
+          "requires_tools": false
+        }
+      },
+      "inputs": {
+        "normalized_query": "Who is the current CEO of the company?"
+      },
+      "outputs": {
+        "query_type": "insufficient_evidence_risk",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "insufficient_evidence_risk"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve the closest available evidence",
+            "check whether the request exceeds document scope",
+            "abstain if grounding is weak"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "insufficient_evidence_risk"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve the closest available evidence",
+          "check whether the request exceeds document scope",
+          "abstain if grounding is weak"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Who is the current CEO of the company?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "ops_rollout_plan.md",
+            "ops_rollout_plan.md",
+            "workspace_policy_refresh.md",
+            "ops_rollout_plan.md",
+            "governance_update.txt"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "Who is the current CEO of the company?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "workspace_policy_refresh.md",
+          "ops_rollout_plan.md",
+          "governance_update.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "Who is the current CEO of the company?",
+          "query_type": "insufficient_evidence_risk",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        }
+      },
+      "inputs": {
+        "normalized_query": "Who is the current CEO of the company?",
+        "query_type": "insufficient_evidence_risk",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        }
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "insufficient_evidence_risk",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+          "citations": [
+            {
+              "doc_id": "ops_rollout_plan",
+              "chunk_id": "ops_rollout_plan_chunk_3",
+              "source": "ops_rollout_plan.md",
+              "score": 0.212
+            },
+            {
+              "doc_id": "ops_rollout_plan",
+              "chunk_id": "ops_rollout_plan_chunk_2",
+              "source": "ops_rollout_plan.md",
+              "score": 0.196
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "insufficient_evidence_risk",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+        "citations": [
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_3",
+            "source": "ops_rollout_plan.md",
+            "score": 0.212
+          },
+          {
+            "doc_id": "ops_rollout_plan",
+            "chunk_id": "ops_rollout_plan_chunk_2",
+            "source": "ops_rollout_plan.md",
+            "score": 0.196
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 0.833,
+          "unsupported_claims": [],
+          "missing_aspects": [
+            "Evidence only covers part of the request."
+          ]
+        }
+      },
+      "inputs": {
+        "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 0.833,
+        "unsupported_claims": [],
+        "missing_aspects": [
+          "Evidence only covers part of the request."
+        ]
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:09Z",
+      "payload": {
+        "inputs": {
+          "query_type": "insufficient_evidence_risk",
+          "coverage_score": 0.833,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
+          "final_status": "abstained"
+        }
+      },
+      "inputs": {
+        "query_type": "insufficient_evidence_risk",
+        "coverage_score": 0.833,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
+        "final_status": "abstained"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Who is the current CEO of the company?",
+  "query_type": "insufficient_evidence_risk",
+  "requires_tools": false,
+  "plan": [
+    "retrieve the closest available evidence",
+    "check whether the request exceeds document scope",
+    "abstain if grounding is weak"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.212
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "text": "Pilot window: March 10, 2025 to April 4, 2025. If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.196
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_6",
+      "text": "The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_5",
+      "text": "Phase 2 launches the scheduling template and escalation form. The biggest rollout risks are inconsistent local communication and duplicate FAQ updates.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md.",
+  "citations": [
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "source": "ops_rollout_plan.md",
+      "score": 0.212
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_2",
+      "source": "ops_rollout_plan.md",
+      "score": 0.196
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.833,
+    "unsupported_claims": [],
+    "missing_aspects": [
+      "Evidence only covers part of the request."
+    ]
+  },
+  "final_answer": "The loaded documents do not ground this request, so the workflow is abstaining instead of guessing.",
+  "final_status": "abstained"
+}

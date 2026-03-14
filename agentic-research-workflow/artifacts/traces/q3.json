@@ -1,0 +1,220 @@
+{
+  "session_id": "52633cc6-d574-4eb9-9a29-e7e12c03d9c2",
+  "user_query": "Summarize the loaded documents.",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "normalized_query": "Summarize the loaded documents."
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "query_type": "summary",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "plan": [
+          "retrieve major sections",
+          "compress key points",
+          "verify key claims are grounded"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "top_k": 5,
+        "results": 5,
+        "sources": [
+          "support_metrics.txt",
+          "support_metrics.txt",
+          "workspace_policy_refresh.md",
+          "ops_rollout_plan.md",
+          "governance_update.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "requires_tools": false,
+        "tool_requests": [
+          {
+            "tool_name": "keyword_extractor",
+            "args": {
+              "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+              "limit": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "tool_outputs": [
+          {
+            "tool_name": "keyword_extractor",
+            "output": {
+              "ok": true,
+              "keywords": [
+                "onboarding",
+                "duplicated",
+                "refresh",
+                "reduce",
+                "operation"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The refresh reduces discretionary travel and duplicated onboarding sessions. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. Key themes: onboarding, duplicated, refresh, reduce, operation. Sources: support_metrics.txt, support_metrics.txt.",
+        "citations": [
+          {
+            "doc_id": "support_metrics",
+            "chunk_id": "support_metrics_chunk_2",
+            "source": "support_metrics.txt",
+            "score": 0.209
+          },
+          {
+            "doc_id": "support_metrics",
+            "chunk_id": "support_metrics_chunk_3",
+            "source": "support_metrics.txt",
+            "score": 0.1921
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "is_grounded": true,
+        "coverage_score": 0.753,
+        "unsupported_claims": [],
+        "missing_aspects": [
+          "Evidence only covers part of the request."
+        ]
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T00:49:58Z",
+      "payload": {
+        "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The refresh reduces discretionary travel and duplicated onboarding sessions. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. Key themes: onboarding, duplicated, refresh, reduce, operation. Sources: support_metrics.txt, support_metrics.txt.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "Summarize the loaded documents.",
+  "query_type": "summary",
+  "requires_tools": false,
+  "plan": [
+    "retrieve major sections",
+    "compress key points",
+    "verify key claims are grounded"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_2",
+      "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find.",
+      "source": "support_metrics.txt",
+      "score": 0.209
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "text": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ.",
+      "source": "support_metrics.txt",
+      "score": 0.1921
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_6",
+      "text": "The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_1",
+      "text": "# Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0
+    },
+    {
+      "doc_id": "governance_update",
+      "chunk_id": "governance_update_chunk_2",
+      "text": "The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+      "source": "governance_update.txt",
+      "score": 0.0
+    }
+  ],
+  "tool_requests": [
+    {
+      "tool_name": "keyword_extractor",
+      "args": {
+        "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. The refresh reduces discretionary travel and duplicated onboarding sessions. Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. The governance memo explains how the policy refresh will be maintained after launch. Regional operations leads own local training, but the central enablement team owns the canonical policy and the shared FAQ.",
+        "limit": 5
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "tool_name": "keyword_extractor",
+      "output": {
+        "ok": true,
+        "keywords": [
+          "onboarding",
+          "duplicated",
+          "refresh",
+          "reduce",
+          "operation"
+        ]
+      }
+    }
+  ],
+  "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The refresh reduces discretionary travel and duplicated onboarding sessions. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. Key themes: onboarding, duplicated, refresh, reduce, operation. Sources: support_metrics.txt, support_metrics.txt.",
+  "citations": [
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_2",
+      "source": "support_metrics.txt",
+      "score": 0.209
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_3",
+      "source": "support_metrics.txt",
+      "score": 0.1921
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 0.753,
+    "unsupported_claims": [],
+    "missing_aspects": [
+      "Evidence only covers part of the request."
+    ]
+  },
+  "final_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The refresh reduces discretionary travel and duplicated onboarding sessions. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. Key themes: onboarding, duplicated, refresh, reduce, operation. Sources: support_metrics.txt, support_metrics.txt.",
+  "final_status": "answered"
+}

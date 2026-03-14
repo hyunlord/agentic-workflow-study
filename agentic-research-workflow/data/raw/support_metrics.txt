@@ -1,0 +1,6 @@
+Support Metrics Memo
+
+An audit found forty-two duplicate onboarding tickets per month before the refresh.
+The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find.
+
+Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ.

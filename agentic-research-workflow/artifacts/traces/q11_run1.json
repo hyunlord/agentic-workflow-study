@@ -1,0 +1,315 @@
+{
+  "session_id": "e77f453b-e22e-452a-8067-ea451e234101",
+  "user_query": "What must managers publish two weeks in advance?",
+  "trace": [
+    {
+      "node": "normalize_query",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "user_query": "What must managers publish two weeks in advance?"
+        },
+        "outputs": {
+          "normalized_query": "What must managers publish two weeks in advance?"
+        }
+      },
+      "inputs": {
+        "user_query": "What must managers publish two weeks in advance?"
+      },
+      "outputs": {
+        "normalized_query": "What must managers publish two weeks in advance?"
+      }
+    },
+    {
+      "node": "classify_query",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What must managers publish two weeks in advance?"
+        },
+        "outputs": {
+          "query_type": "simple_lookup",
+          "requires_tools": false
+        }
+      },
+      "inputs": {
+        "normalized_query": "What must managers publish two weeks in advance?"
+      },
+      "outputs": {
+        "query_type": "simple_lookup",
+        "requires_tools": false
+      }
+    },
+    {
+      "node": "make_plan",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup"
+        },
+        "outputs": {
+          "plan": [
+            "retrieve relevant evidence",
+            "draft concise grounded answer",
+            "verify citation support"
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup"
+      },
+      "outputs": {
+        "plan": [
+          "retrieve relevant evidence",
+          "draft concise grounded answer",
+          "verify citation support"
+        ]
+      }
+    },
+    {
+      "node": "retrieve_docs",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What must managers publish two weeks in advance?",
+          "top_k": 5
+        },
+        "outputs": {
+          "results": 5,
+          "sources": [
+            "workspace_policy_refresh.md",
+            "workspace_policy_refresh.md",
+            "ops_rollout_plan.md",
+            "ops_rollout_plan.md",
+            "support_metrics.txt"
+          ]
+        }
+      },
+      "inputs": {
+        "normalized_query": "What must managers publish two weeks in advance?",
+        "top_k": 5
+      },
+      "outputs": {
+        "results": 5,
+        "sources": [
+          "workspace_policy_refresh.md",
+          "workspace_policy_refresh.md",
+          "ops_rollout_plan.md",
+          "ops_rollout_plan.md",
+          "support_metrics.txt"
+        ]
+      }
+    },
+    {
+      "node": "decide_tools",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "normalized_query": "What must managers publish two weeks in advance?",
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5
+        },
+        "outputs": {
+          "requires_tools": false,
+          "tool_requests": []
+        }
+      },
+      "inputs": {
+        "normalized_query": "What must managers publish two weeks in advance?",
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5
+      },
+      "outputs": {
+        "requires_tools": false,
+        "tool_requests": []
+      }
+    },
+    {
+      "node": "run_tools",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "tool_requests": []
+        },
+        "outputs": {
+          "tool_outputs": []
+        }
+      },
+      "inputs": {
+        "tool_requests": []
+      },
+      "outputs": {
+        "tool_outputs": []
+      }
+    },
+    {
+      "node": "synthesize_answer",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "retrieved_doc_count": 5,
+          "tool_output_count": 0
+        },
+        "outputs": {
+          "draft_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+          "citations": [
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_4",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.5907
+            },
+            {
+              "doc_id": "workspace_policy_refresh",
+              "chunk_id": "workspace_policy_refresh_chunk_3",
+              "source": "workspace_policy_refresh.md",
+              "score": 0.4945
+            }
+          ]
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "retrieved_doc_count": 5,
+        "tool_output_count": 0
+      },
+      "outputs": {
+        "draft_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+        "citations": [
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_4",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.5907
+          },
+          {
+            "doc_id": "workspace_policy_refresh",
+            "chunk_id": "workspace_policy_refresh_chunk_3",
+            "source": "workspace_policy_refresh.md",
+            "score": 0.4945
+          }
+        ]
+      }
+    },
+    {
+      "node": "verify_grounding",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "draft_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md."
+        },
+        "outputs": {
+          "is_grounded": true,
+          "coverage_score": 1.0,
+          "unsupported_claims": [],
+          "missing_aspects": []
+        }
+      },
+      "inputs": {
+        "draft_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md."
+      },
+      "outputs": {
+        "is_grounded": true,
+        "coverage_score": 1.0,
+        "unsupported_claims": [],
+        "missing_aspects": []
+      }
+    },
+    {
+      "node": "fallback_or_finalize",
+      "timestamp": "2026-03-14T03:32:37Z",
+      "payload": {
+        "inputs": {
+          "query_type": "simple_lookup",
+          "coverage_score": 1.0,
+          "is_grounded": true
+        },
+        "outputs": {
+          "final_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+          "final_status": "answered"
+        }
+      },
+      "inputs": {
+        "query_type": "simple_lookup",
+        "coverage_score": 1.0,
+        "is_grounded": true
+      },
+      "outputs": {
+        "final_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+        "final_status": "answered"
+      }
+    }
+  ],
+  "errors": [],
+  "normalized_query": "What must managers publish two weeks in advance?",
+  "query_type": "simple_lookup",
+  "requires_tools": false,
+  "plan": [
+    "retrieve relevant evidence",
+    "draft concise grounded answer",
+    "verify citation support"
+  ],
+  "retrieved_docs": [
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_4",
+      "text": "Managers must publish team schedules two weeks in advance. Each team must maintain a single canonical knowledge base page.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.5907
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "text": "The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Managers must publish team schedules two weeks in advance.",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.4945
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_4",
+      "text": "Phase 1 trains policy leads and office managers. Phase 2 launches the scheduling template and escalation form.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0832
+    },
+    {
+      "doc_id": "ops_rollout_plan",
+      "chunk_id": "ops_rollout_plan_chunk_3",
+      "text": "If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Phase 1 trains policy leads and office managers.",
+      "source": "ops_rollout_plan.md",
+      "score": 0.0768
+    },
+    {
+      "doc_id": "support_metrics",
+      "chunk_id": "support_metrics_chunk_2",
+      "text": "An audit found forty-two duplicate onboarding tickets per month before the refresh. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find.",
+      "source": "support_metrics.txt",
+      "score": 0.0333
+    }
+  ],
+  "tool_requests": [],
+  "tool_outputs": [],
+  "draft_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+  "citations": [
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_4",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.5907
+    },
+    {
+      "doc_id": "workspace_policy_refresh",
+      "chunk_id": "workspace_policy_refresh_chunk_3",
+      "source": "workspace_policy_refresh.md",
+      "score": 0.4945
+    }
+  ],
+  "verification_result": {
+    "is_grounded": true,
+    "coverage_score": 1.0,
+    "unsupported_claims": [],
+    "missing_aspects": []
+  },
+  "final_answer": "Managers must publish team schedules two weeks in advance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md.",
+  "final_status": "answered"
+}

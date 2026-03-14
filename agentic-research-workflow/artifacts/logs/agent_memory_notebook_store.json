@@ -1,0 +1,36 @@
+[
+  {
+    "key": "mina_answer_style",
+    "value": "Mina prefers concise answers that lead with exact dates.",
+    "category": "preference",
+    "metadata": {},
+    "importance": null,
+    "updated_at": "2026-03-14T03:32:30Z"
+  },
+  {
+    "key": "apollo_pilot_city",
+    "value": "Team Apollo is piloting the scheduling template in Seoul.",
+    "category": "fact",
+    "metadata": {},
+    "importance": null,
+    "updated_at": "2026-03-14T03:32:30Z"
+  },
+  {
+    "key": "mina_style_rule",
+    "value": "Remember: Mina prefers concise rollout summaries with dates first.",
+    "category": "preference",
+    "metadata": {
+      "source": "user"
+    },
+    "importance": 0.7,
+    "updated_at": "2026-03-14T03:32:30Z"
+  },
+  {
+    "key": "recent_memory_summary",
+    "value": "assistant: The pilot runs from March 10, 2025 to April 4, 2025. | user: Please keep future answers concise. | assistant: Noted. I will keep answers concise when possible. | user_query: When does the organization-wide rollout begin? | assistant_answer: If the pilot meets adoption and support targets, the company will begin organization-wide rollout on May 5, 2025. Sources: ops_rollout_plan.md, ops_rollout_plan.md, leadership_faq.txt.",
+    "category": "summary",
+    "metadata": {},
+    "importance": null,
+    "updated_at": "2026-03-14T03:32:30Z"
+  }
+]

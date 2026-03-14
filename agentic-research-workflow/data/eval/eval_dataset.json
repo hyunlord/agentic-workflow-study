@@ -1,0 +1,151 @@
+[
+  {
+    "id": "q1",
+    "question": "What are the main goals of the workspace policy refresh?",
+    "gold_answer": "reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["workspace_policy_refresh.md"]
+  },
+  {
+    "id": "q2",
+    "question": "How is the rollout plan different from the policy refresh?",
+    "gold_answer": "the policy refresh defines the goals and standards while the rollout plan explains timing, training, and execution steps",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["leadership_faq.txt", "ops_rollout_plan.md"]
+  },
+  {
+    "id": "q3",
+    "question": "Summarize the loaded documents.",
+    "gold_answer": "the documents describe policy goals, rollout timing, governance ownership, retrieval notes, product priorities, and rollout risks",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "workspace_policy_refresh.md",
+      "ops_rollout_plan.md",
+      "governance_update.txt",
+      "technical_retrieval_notes.txt"
+    ]
+  },
+  {
+    "id": "q4",
+    "question": "How many days are in the pilot window?",
+    "gold_answer": "25 days",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": ["ops_rollout_plan.md"]
+  },
+  {
+    "id": "q5",
+    "question": "Which team owns the canonical policy and why does that help onboarding consistency?",
+    "gold_answer": "the central enablement team owns the canonical policy, which helps teams rely on the same guidance and reduce duplicate onboarding documents",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": ["governance_update.txt", "support_metrics.txt"]
+  },
+  {
+    "id": "q6",
+    "question": "When does the organization-wide rollout begin?",
+    "gold_answer": "May 5, 2025",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["ops_rollout_plan.md"]
+  },
+  {
+    "id": "q7",
+    "question": "Who is the current CEO of the company?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": []
+  },
+  {
+    "id": "q8",
+    "question": "What risk could slow a consistent rollout?",
+    "gold_answer": "inconsistent local communication and duplicate FAQ updates",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": ["ops_rollout_plan.md"]
+  },
+  {
+    "id": "q9",
+    "question": "What savings assumption supports the refresh?",
+    "gold_answer": "reduced discretionary travel and fewer duplicated onboarding sessions",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["leadership_faq.txt", "workspace_policy_refresh.md"]
+  },
+  {
+    "id": "q10",
+    "question": "Which rollout phase launches the scheduling template and escalation form?",
+    "gold_answer": "Phase 2",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["ops_rollout_plan.md"]
+  },
+  {
+    "id": "q11",
+    "question": "What must managers publish two weeks in advance?",
+    "gold_answer": "team schedules",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["workspace_policy_refresh.md"]
+  },
+  {
+    "id": "q12",
+    "question": "Compare local training ownership with canonical policy ownership.",
+    "gold_answer": "regional operations leads own local training while the central enablement team owns the canonical policy and shared FAQ",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["governance_update.txt"]
+  },
+  {
+    "id": "q13",
+    "question": "What success measures indicate the refresh is working?",
+    "gold_answer": "twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["workspace_policy_refresh.md"]
+  },
+  {
+    "id": "q14",
+    "question": "When should tools be used?",
+    "gold_answer": "use keyword extraction for broad summaries and date calculations for schedule questions",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["leadership_faq.txt"]
+  },
+  {
+    "id": "q15",
+    "question": "What makes the retrieval demo lightweight and reproducible?",
+    "gold_answer": "it uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": ["technical_retrieval_notes.txt"]
+  },
+  {
+    "id": "q16",
+    "question": "What are the first release priorities for the product assistant?",
+    "gold_answer": "searchable help content, short evidence-backed answers, and clear escalation paths to human support",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["product_assistant_overview.md"]
+  }
+]
