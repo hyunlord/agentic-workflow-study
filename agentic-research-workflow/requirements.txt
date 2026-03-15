@@ -1,12 +1,15 @@
 # Legacy compatibility file.
 # The uv-managed source of truth is pyproject.toml + uv.lock.
 
+beautifulsoup4>=4.12
 jupyterlab==4.5.6
+markdownify>=0.14
 matplotlib==3.10.8
 numpy==2.4.3
 pandas==3.0.1
 pydantic==2.12.0
 python-dateutil==2.9.0.post0
+requests==2.32.5
 rich==14.2.0
 scikit-learn==1.8.0
 tqdm==4.67.1

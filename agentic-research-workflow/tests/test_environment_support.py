@@ -24,6 +24,7 @@ def test_pyproject_defines_uv_project_metadata() -> None:
     assert data["project"]["requires-python"] == ">=3.11"
     assert "jupyterlab" in " ".join(data["project"]["dependencies"])
     assert "cpu" in data["project"]["optional-dependencies"]
+    assert "finetuning" in data["project"]["optional-dependencies"]
     assert "gpu" in data["project"]["optional-dependencies"]
     assert "ipykernel" in " ".join(data["dependency-groups"]["dev"])
     assert "pytest" in " ".join(data["dependency-groups"]["dev"])
@@ -55,6 +56,11 @@ def test_notebooks_are_structured_as_tutorials() -> None:
         "06_agent_planning.ipynb",
         "07_tool_use.ipynb",
         "08_agent_debugging.ipynb",
+        "09_llm_integration.ipynb",
+        "10_model_comparison.ipynb",
+        "11_real_data_tech_docs.ipynb",
+        "12_real_data_korean.ipynb",
+        "13_finetuning.ipynb",
     }
     assert {path.name for path in notebook_dir.glob("*.ipynb")} == expected_names
 

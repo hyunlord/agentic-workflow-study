@@ -1,10 +1,10 @@
 {
-  "session_id": "510c447c-a95b-4c90-a769-0d238858f6a4",
+  "session_id": "702faf48-3428-4553-88ad-0e9e935e8db6",
   "user_query": "Compare local training ownership with canonical policy ownership.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Compare local training ownership with canonical policy ownership."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership."
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -76,7 +76,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -92,7 +92,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000527
+        "latency": 0.000568
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -108,11 +108,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000527
+      "latency": 0.000568
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.3e-05
+        "latency": 2.7e-05
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.3e-05
+      "latency": 2.7e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -158,7 +158,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 0.000141
+        "latency": 0.000164
       },
       "inputs": {
         "query_type": "comparison",
@@ -206,11 +206,11 @@
           }
         ]
       },
-      "latency": 0.000141
+      "latency": 0.000164
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, governance_update.txt."
@@ -221,7 +221,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 7.3e-05
+        "latency": 8.4e-05
       },
       "inputs": {
         "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, governance_update.txt."
@@ -232,11 +232,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 7.3e-05
+      "latency": 8.4e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

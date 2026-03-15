@@ -1,0 +1,386 @@
+[
+  {
+    "id": "q1",
+    "question": "Which beta header does the MCP connector require?",
+    "gold_answer": "It requires the anthropic-beta header set to mcp-client-2025-11-20.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/agents-and-tools-mcp-connector.md"]
+  },
+  {
+    "id": "q2",
+    "question": "What two tool search variants are documented for Claude?",
+    "gold_answer": "The two variants are Regex and BM25.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/tool-use-tool-search-tool.md"]
+  },
+  {
+    "id": "q3",
+    "question": "How many examples do the prompting best practices recommend for strong few-shot results?",
+    "gold_answer": "The docs recommend using 3 to 5 examples.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/prompt-engineering-claude-prompting-best-practices.md"]
+  },
+  {
+    "id": "q4",
+    "question": "How are client tools different from server tools in Claude tool use?",
+    "gold_answer": "Client tools execute on your systems and can include your own custom tools, while server tools execute on Anthropic's servers and do not require you to implement them.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/tool-use-overview.md"]
+  },
+  {
+    "id": "q5",
+    "question": "How are Agent Skills different from prompts according to the Anthropic docs?",
+    "gold_answer": "Skills are reusable filesystem-based resources that load on demand across conversations, while prompts are conversation-level instructions for one-off tasks.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/agent-skills-overview.md"]
+  },
+  {
+    "id": "q6",
+    "question": "Compare the MCP connector and the memory tool in terms of Zero Data Retention and where they run.",
+    "gold_answer": "The MCP connector is a beta feature that is not eligible for Zero Data Retention and connects to public HTTP MCP servers, while the memory tool runs client-side and is ZDR-eligible when your organization has a ZDR arrangement.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": [
+      "anthropic/agents-and-tools-mcp-connector.md",
+      "anthropic/tool-use-memory-tool.md"
+    ]
+  },
+  {
+    "id": "q7",
+    "question": "How does tool search complement normal tool use when your agent has a very large catalog of tools?",
+    "gold_answer": "Normal tool use lets Claude decide when and how to call tools, while tool search first narrows a large deferred catalog to the most relevant tools, reducing context bloat by over 85 percent and returning 3 to 5 tool_reference blocks for selection.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "anthropic/tool-use-overview.md",
+      "anthropic/tool-use-tool-search-tool.md"
+    ]
+  },
+  {
+    "id": "q8",
+    "question": "Why is the memory tool useful for just-in-time retrieval in long-running workflows?",
+    "gold_answer": "It lets Claude persist files across sessions and check the memory directory before starting work, so the agent can retrieve only relevant context on demand instead of loading everything into the context window.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/tool-use-memory-tool.md"]
+  },
+  {
+    "id": "q9",
+    "question": "What are the three loading levels for Agent Skills and why do they help with context efficiency?",
+    "gold_answer": "Skills use progressive disclosure: metadata is always loaded, instructions load when the skill is triggered, and resources or code load only as needed, which keeps many skills available without consuming the whole context window upfront.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/agent-skills-overview.md"]
+  },
+  {
+    "id": "q10",
+    "question": "Summarize the main prompting best practices for Claude.",
+    "gold_answer": "The docs recommend being clear and direct, adding useful context, providing 3 to 5 relevant examples, structuring prompts with XML tags, giving Claude an explicit role, and formatting long-context prompts carefully.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/prompt-engineering-claude-prompting-best-practices.md"]
+  },
+  {
+    "id": "q11",
+    "question": "Summarize what the MCP connector supports and where its current limits are.",
+    "gold_answer": "The MCP connector lets Claude call tools on remote MCP servers directly from the Messages API with flexible configuration and OAuth support, but it currently supports only tool calls, requires publicly exposed HTTP servers, is unsupported on Bedrock and Vertex, and is not ZDR-eligible.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/agents-and-tools-mcp-connector.md"]
+  },
+  {
+    "id": "q12",
+    "question": "Summarize how the memory tool works for Claude agents.",
+    "gold_answer": "The memory tool is a client-side capability that lets Claude create, read, update, and delete files in a memory directory so it can retain knowledge across conversations, retrieve relevant context before tasks, and keep the active context window focused.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["anthropic/tool-use-memory-tool.md"]
+  },
+  {
+    "id": "q13",
+    "question": "What is the current per-million-token price of Claude Opus 4.6?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["anthropic/prompt-engineering-claude-prompting-best-practices.md"]
+  },
+  {
+    "id": "q14",
+    "question": "When will the MCP connector leave beta?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["anthropic/agents-and-tools-mcp-connector.md"]
+  },
+  {
+    "id": "q15",
+    "question": "Which company first adopted Agent Skills in production?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["anthropic/agent-skills-overview.md"]
+  },
+  {
+    "id": "q16",
+    "question": "What identifier must you provide when invoking a graph with a checkpointer?",
+    "gold_answer": "You must provide a thread_id in the configurable config.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-persistence.md"]
+  },
+  {
+    "id": "q17",
+    "question": "Which two workflow-building APIs does LangGraph provide?",
+    "gold_answer": "LangGraph provides the Graph API and the Functional API.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-choosing-apis.md"]
+  },
+  {
+    "id": "q18",
+    "question": "What kind of agent does the LangGraph quickstart build?",
+    "gold_answer": "It builds a calculator agent.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-quickstart.md"]
+  },
+  {
+    "id": "q19",
+    "question": "How are workflows different from agents in the LangGraph docs?",
+    "gold_answer": "Workflows follow predetermined code paths in a defined order, while agents are dynamic and decide their own process and tool usage.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-workflows-agents.md"]
+  },
+  {
+    "id": "q20",
+    "question": "When should you choose the Graph API instead of the Functional API in LangGraph?",
+    "gold_answer": "Use the Graph API for explicit shared state, branching, parallel paths, visualization, and team collaboration; use the Functional API for minimal code changes, standard control flow, rapid prototyping, and simpler linear workflows.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-choosing-apis.md"]
+  },
+  {
+    "id": "q21",
+    "question": "How is short-term memory different from long-term memory in LangGraph?",
+    "gold_answer": "Short-term memory is thread-level state for multi-turn conversations, while long-term memory stores user-specific or application-level data across sessions.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-add-memory.md"]
+  },
+  {
+    "id": "q22",
+    "question": "How do persistence and time travel work together for debugging in LangGraph?",
+    "gold_answer": "Persistence saves checkpoints at every step in a thread, and time travel uses those checkpoints to replay or fork from an earlier point so you can inspect and debug alternate execution paths.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "langgraph/langgraph-persistence.md",
+      "langgraph/langgraph-use-time-travel.md"
+    ]
+  },
+  {
+    "id": "q23",
+    "question": "If you want conversation memory in production, what do the LangGraph docs recommend combining?",
+    "gold_answer": "They recommend compiling the graph with a database-backed checkpointer such as PostgresSaver and invoking the graph with a thread_id so conversation state persists across turns.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "langgraph/langgraph-add-memory.md",
+      "langgraph/langgraph-persistence.md"
+    ]
+  },
+  {
+    "id": "q24",
+    "question": "Why is LangGraph a stronger fit than a higher-level agent abstraction when you need explicit state and durable execution?",
+    "gold_answer": "LangGraph is a low-level orchestration framework focused on long-running, stateful agents, so it exposes shared state, branching, persistence, and durable execution directly instead of hiding those concerns behind a higher-level abstraction.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "langgraph/langgraph-overview.md",
+      "langgraph/langgraph-choosing-apis.md"
+    ]
+  },
+  {
+    "id": "q25",
+    "question": "Summarize LangGraph's main benefits for agent orchestration.",
+    "gold_answer": "LangGraph focuses on low-level orchestration for long-running stateful agents and highlights durable execution, streaming, human-in-the-loop control, memory, debugging, and production-ready deployment.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-overview.md"]
+  },
+  {
+    "id": "q26",
+    "question": "Summarize why LangGraph persistence matters.",
+    "gold_answer": "Persistence saves graph state as checkpoints in threads so systems can support human-in-the-loop review, memory across interactions, time travel, and fault-tolerant recovery from failures.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-persistence.md"]
+  },
+  {
+    "id": "q27",
+    "question": "Summarize when to choose the Graph API versus the Functional API.",
+    "gold_answer": "Choose the Graph API when you need explicit state, branching, parallel paths, and visualization; choose the Functional API when you want simpler procedural code, faster prototyping, and mostly linear control flow.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["langgraph/langgraph-choosing-apis.md"]
+  },
+  {
+    "id": "q28",
+    "question": "Which hosted LangGraph pricing tier includes the most concurrency?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["langgraph/langgraph-overview.md"]
+  },
+  {
+    "id": "q29",
+    "question": "Who is the current CEO of LangChain?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["langgraph/langgraph-overview.md"]
+  },
+  {
+    "id": "q30",
+    "question": "What exact date will the next major LangGraph release ship?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["langgraph/langgraph-workflows-agents.md"]
+  },
+  {
+    "id": "q31",
+    "question": "Which pretrained model does the Sentence Transformers quickstart use in its first example?",
+    "gold_answer": "It uses all-MiniLM-L6-v2.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["sentence_transformers/docs-quickstart.md"]
+  },
+  {
+    "id": "q32",
+    "question": "Which benchmark suite covers retrieval, classification, clustering, reranking, and semantic similarity?",
+    "gold_answer": "The benchmark suite is MTEB, the Massive Text Embedding Benchmark.",
+    "question_type": "simple_lookup",
+    "type": "simple_lookup",
+    "expected_status": "answered",
+    "expected_sources": ["sentence_transformers/usage-mteb_evaluation.md"]
+  },
+  {
+    "id": "q33",
+    "question": "How do Sentence Transformer bi-encoders and Cross Encoders differ in speed and role?",
+    "gold_answer": "Bi-encoders create fixed-size embeddings efficiently and are used for fast first-stage retrieval, while Cross Encoders score text pairs more accurately but more slowly and are commonly used to rerank the top-k results.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["sentence_transformers/docs-quickstart.md"]
+  },
+  {
+    "id": "q34",
+    "question": "Compare all-mpnet-base-v2 with all-MiniLM-L6-v2.",
+    "gold_answer": "all-mpnet-base-v2 is described as the best-quality general all-* model, while all-MiniLM-L6-v2 is about five times faster and still offers good quality.",
+    "question_type": "comparison",
+    "type": "comparison",
+    "expected_status": "answered",
+    "expected_sources": ["sentence_transformers/sentence_transformer-pretrained_models.md"]
+  },
+  {
+    "id": "q35",
+    "question": "If you want a fast first-stage retrieval stack with better final ranking, what pairing do the Sentence Transformers docs suggest and why?",
+    "gold_answer": "Use a SentenceTransformer bi-encoder such as all-MiniLM-L6-v2 for fast embedding retrieval, then use a Cross Encoder to rerank the top-k results because rerankers are slower but usually more accurate.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "sentence_transformers/docs-quickstart.md",
+      "sentence_transformers/sentence_transformer-pretrained_models.md"
+    ]
+  },
+  {
+    "id": "q36",
+    "question": "For training a semantic search model from anchor-positive data, which training pieces and loss choices do the docs emphasize?",
+    "gold_answer": "The training overview highlights model, dataset, loss function, training arguments, evaluator, and trainer, and the loss overview points to MultipleNegativesRankingLoss or CachedMultipleNegativesRankingLoss as common choices for anchor-positive data.",
+    "question_type": "multi_hop",
+    "type": "multi_hop",
+    "expected_status": "answered",
+    "expected_sources": [
+      "sentence_transformers/sentence_transformer-training_overview.md",
+      "sentence_transformers/sentence_transformer-loss_overview.md"
+    ]
+  },
+  {
+    "id": "q37",
+    "question": "Summarize when Sentence Transformer models should be finetuned and what pieces are involved.",
+    "gold_answer": "The docs say finetuning helps because different tasks require different notions of similarity, and the training process typically involves a model, dataset, loss function, training arguments, evaluator, and trainer.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": ["sentence_transformers/sentence_transformer-training_overview.md"]
+  },
+  {
+    "id": "q38",
+    "question": "Summarize the main advice for choosing and evaluating pretrained Sentence Transformer models.",
+    "gold_answer": "The docs recommend experimenting with several promising models instead of trusting leaderboard rank alone, balancing model quality against hardware limits, and using MTEB for post-training evaluation rather than evaluation during training.",
+    "question_type": "summary",
+    "type": "summary",
+    "expected_status": "answered",
+    "expected_sources": [
+      "sentence_transformers/sentence_transformer-pretrained_models.md",
+      "sentence_transformers/usage-mteb_evaluation.md"
+    ]
+  },
+  {
+    "id": "q39",
+    "question": "Which sentence-transformers model is currently number one on the live MTEB leaderboard?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["sentence_transformers/usage-mteb_evaluation.md"]
+  },
+  {
+    "id": "q40",
+    "question": "What is the latest CUDA version officially required by sentence-transformers?",
+    "gold_answer": "Not in the documents.",
+    "question_type": "insufficient_evidence_risk",
+    "type": "insufficient_evidence_risk",
+    "expected_status": "abstained",
+    "expected_sources": ["sentence_transformers/docs-installation.md"]
+  }
+]

@@ -1,10 +1,10 @@
 {
-  "session_id": "8c48aea2-2341-4184-8629-a7bae0fa036f",
+  "session_id": "bb7ddc2e-02cc-479a-a5bd-3323950f559f",
   "user_query": "Compare local training ownership with canonical policy ownership.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Compare local training ownership with canonical policy ownership."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership."
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -76,7 +76,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -92,7 +92,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000527
+        "latency": 0.000562
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -108,11 +108,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000527
+      "latency": 0.000562
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.7e-05
       },
       "inputs": {
         "normalized_query": "Compare local training ownership with canonical policy ownership.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.7e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -146,7 +146,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
@@ -154,11 +154,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 0.000153
+        "latency": 0.000161
       },
       "inputs": {
         "query_type": "comparison",
@@ -206,11 +206,11 @@
           }
         ]
       },
-      "latency": 0.000153
+      "latency": 0.000161
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, governance_update.txt."
@@ -221,7 +221,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 8.8e-05
+        "latency": 8.2e-05
       },
       "inputs": {
         "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, governance_update.txt."
@@ -232,11 +232,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 8.8e-05
+      "latency": 8.2e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

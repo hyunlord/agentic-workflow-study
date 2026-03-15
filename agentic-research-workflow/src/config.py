@@ -4,6 +4,8 @@ import importlib.util
 from dataclasses import dataclass
 from pathlib import Path
 
+from src.llm_client import LLMConfig, OllamaClient
+
 
 DEFAULT_TOP_K = 5
 DEFAULT_CHUNK_SIZE = 2
@@ -36,6 +38,9 @@ class RuntimeConfig:
     faiss_nprobe: int = 10
     top_k: int = DEFAULT_TOP_K
     coverage_threshold: float = 0.65
+    llm_model: str = "qwen3.5:9b"
+    llm_base_url: str = "http://localhost:11434"
+    llm_available: bool = False
 
     @classmethod
     def auto_detect(cls) -> "RuntimeConfig":
@@ -43,6 +48,11 @@ class RuntimeConfig:
         use_gpu_faiss = False
         batch_size = 32
         faiss_nprobe = 10
+        llm_config = LLMConfig.from_env()
+        llm_available = False
+
+        if OllamaClient.is_local_base_url(llm_config.base_url):
+            llm_available = OllamaClient(llm_config).is_available()
 
         if importlib.util.find_spec("torch") is not None:
             try:
@@ -74,6 +84,9 @@ class RuntimeConfig:
             use_gpu_faiss=use_gpu_faiss,
             embedding_batch_size=batch_size,
             faiss_nprobe=faiss_nprobe,
+            llm_model=llm_config.model,
+            llm_base_url=llm_config.base_url,
+            llm_available=llm_available,
         )
 
 

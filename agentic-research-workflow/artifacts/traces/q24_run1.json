@@ -1,10 +1,10 @@
 {
-  "session_id": "58c826b3-c787-489e-9e35-88d203702e1e",
+  "session_id": "fef8a0a9-0b6c-47da-8812-96fffd39d4c1",
   "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -59,7 +59,7 @@
             "verify grounding"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "comparison"
@@ -72,11 +72,11 @@
           "verify grounding"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -92,7 +92,7 @@
             "technical_retrieval_notes.txt"
           ]
         },
-        "latency": 0.000614
+        "latency": 0.00064
       },
       "inputs": {
         "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -108,11 +108,11 @@
           "technical_retrieval_notes.txt"
         ]
       },
-      "latency": 0.000614
+      "latency": 0.00064
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.8e-05
       },
       "inputs": {
         "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.8e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -158,7 +158,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -188,7 +188,7 @@
             }
           ]
         },
-        "latency": 0.000139
+        "latency": 0.000142
       },
       "inputs": {
         "query_type": "comparison",
@@ -218,11 +218,11 @@
           }
         ]
       },
-      "latency": 0.000139
+      "latency": 0.000142
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt."
@@ -233,7 +233,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 8.7e-05
+        "latency": 8.3e-05
       },
       "inputs": {
         "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt."
@@ -244,11 +244,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 8.7e-05
+      "latency": 8.3e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

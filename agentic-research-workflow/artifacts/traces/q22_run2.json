@@ -1,10 +1,10 @@
 {
-  "session_id": "60533e08-d7cb-4258-bbf3-6928cb8416f8",
+  "session_id": "2c56738a-e934-489b-a01d-e2063f6aac51",
   "user_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Compare Phase 1 and Phase 2 of the rollout plan."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan."
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -76,7 +76,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -92,7 +92,7 @@
             "ops_rollout_plan.md"
           ]
         },
-        "latency": 0.00055
+        "latency": 0.000542
       },
       "inputs": {
         "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -108,11 +108,11 @@
           "ops_rollout_plan.md"
         ]
       },
-      "latency": 0.00055
+      "latency": 0.000542
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.1e-05
+        "latency": 2e-05
       },
       "inputs": {
         "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.1e-05
+      "latency": 2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -146,7 +146,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
@@ -154,11 +154,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 0.000116
+        "latency": 0.000112
       },
       "inputs": {
         "query_type": "comparison",
@@ -206,11 +206,11 @@
           }
         ]
       },
-      "latency": 0.000116
+      "latency": 0.000112
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: ops_rollout_plan.md, leadership_faq.txt."
@@ -221,7 +221,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 6.8e-05
+        "latency": 6.6e-05
       },
       "inputs": {
         "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: ops_rollout_plan.md, leadership_faq.txt."
@@ -232,11 +232,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 6.8e-05
+      "latency": 6.6e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

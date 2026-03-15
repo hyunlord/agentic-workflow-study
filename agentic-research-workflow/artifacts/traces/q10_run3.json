@@ -1,10 +1,10 @@
 {
-  "session_id": "ece8f4db-f4ad-4daa-85b8-456a1a2c6b6e",
+  "session_id": "562755c3-1a70-4480-966a-af66a0333431",
   "user_query": "Which rollout phase launches the scheduling template and escalation form?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Which rollout phase launches the scheduling template and escalation form?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which rollout phase launches the scheduling template and escalation form?"
@@ -33,7 +33,7 @@
           "query_type": "simple_lookup",
           "requires_tools": false
         },
-        "latency": 6e-06
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "Which rollout phase launches the scheduling template and escalation form?"
@@ -42,11 +42,11 @@
         "query_type": "simple_lookup",
         "requires_tools": false
       },
-      "latency": 6e-06
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -58,7 +58,7 @@
             "verify citation support"
           ]
         },
-        "latency": 0.0
+        "latency": 2e-06
       },
       "inputs": {
         "query_type": "simple_lookup"
@@ -70,11 +70,11 @@
           "verify citation support"
         ]
       },
-      "latency": 0.0
+      "latency": 2e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which rollout phase launches the scheduling template and escalation form?",
@@ -90,7 +90,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000532
+        "latency": 0.000656
       },
       "inputs": {
         "normalized_query": "Which rollout phase launches the scheduling template and escalation form?",
@@ -106,11 +106,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000532
+      "latency": 0.000656
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which rollout phase launches the scheduling template and escalation form?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.1e-05
       },
       "inputs": {
         "normalized_query": "Which rollout phase launches the scheduling template and escalation form?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.1e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -180,7 +180,7 @@
             }
           ]
         },
-        "latency": 0.000117
+        "latency": 0.000105
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -204,11 +204,11 @@
           }
         ]
       },
-      "latency": 0.000117
+      "latency": 0.000105
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Phase 2 launches the scheduling template and escalation form. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -219,7 +219,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 6.2e-05
+        "latency": 5.7e-05
       },
       "inputs": {
         "draft_answer": "Phase 2 launches the scheduling template and escalation form. Sources: ops_rollout_plan.md, ops_rollout_plan.md."
@@ -230,11 +230,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 6.2e-05
+      "latency": 5.7e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",

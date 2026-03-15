@@ -1,10 +1,10 @@
 {
-  "session_id": "830d8803-285b-41c4-ada8-12eadedd893c",
+  "session_id": "5b84b1e8-723a-456c-bf0d-f83658482895",
   "user_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
         },
-        "latency": 4e-06
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
       },
-      "latency": 4e-06
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?"
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
@@ -90,7 +90,7 @@
             "workspace_policy_refresh.md"
           ]
         },
-        "latency": 0.000658
+        "latency": 0.000608
       },
       "inputs": {
         "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
@@ -106,11 +106,11 @@
           "workspace_policy_refresh.md"
         ]
       },
-      "latency": 0.000658
+      "latency": 0.000608
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.7e-05
+        "latency": 2.6e-05
       },
       "inputs": {
         "normalized_query": "What two governance practices are intended to keep onboarding answers consistent across teams?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.7e-05
+      "latency": 2.6e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -186,7 +186,7 @@
             }
           ]
         },
-        "latency": 0.000172
+        "latency": 0.000169
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -216,11 +216,11 @@
           }
         ]
       },
-      "latency": 0.000172
+      "latency": 0.000169
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "This ownership model is intended to keep the policy consistent while still allowing local coaching for new teams. Sources: governance_update.txt, workspace_policy_refresh.md, support_metrics.txt."
@@ -246,7 +246,7 @@
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",

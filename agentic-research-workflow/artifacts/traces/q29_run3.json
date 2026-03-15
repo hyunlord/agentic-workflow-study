@@ -1,10 +1,10 @@
 {
-  "session_id": "933abf6c-5e25-45d6-9015-3d4ecc4c3a9d",
+  "session_id": "2fdbe930-272e-4ea1-b5ea-3f4feb33cfe3",
   "user_query": "Summarize the rollout plan in a few points.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Summarize the rollout plan in a few points."
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Summarize the rollout plan in a few points."
         },
-        "latency": 2e-06
+        "latency": 5e-06
       },
       "inputs": {
         "user_query": "Summarize the rollout plan in a few points."
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Summarize the rollout plan in a few points."
       },
-      "latency": 2e-06
+      "latency": 5e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the rollout plan in a few points."
@@ -33,7 +33,7 @@
           "query_type": "summary",
           "requires_tools": false
         },
-        "latency": 4e-06
+        "latency": 5e-06
       },
       "inputs": {
         "normalized_query": "Summarize the rollout plan in a few points."
@@ -42,11 +42,11 @@
         "query_type": "summary",
         "requires_tools": false
       },
-      "latency": 4e-06
+      "latency": 5e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary"
@@ -58,7 +58,7 @@
             "verify key claims are grounded"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "summary"
@@ -70,11 +70,11 @@
           "verify key claims are grounded"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the rollout plan in a few points.",
@@ -90,7 +90,7 @@
             "ops_rollout_plan.md"
           ]
         },
-        "latency": 0.000522
+        "latency": 0.000667
       },
       "inputs": {
         "normalized_query": "Summarize the rollout plan in a few points.",
@@ -106,11 +106,11 @@
           "ops_rollout_plan.md"
         ]
       },
-      "latency": 0.000522
+      "latency": 0.000667
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the rollout plan in a few points.",
@@ -129,7 +129,7 @@
             }
           ]
         },
-        "latency": 2.1e-05
+        "latency": 2.8e-05
       },
       "inputs": {
         "normalized_query": "Summarize the rollout plan in a few points.",
@@ -148,11 +148,11 @@
           }
         ]
       },
-      "latency": 2.1e-05
+      "latency": 2.8e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 5.1e-05
+        "latency": 6.5e-05
       },
       "inputs": {
         "tool_requests": [
@@ -212,11 +212,11 @@
           }
         ]
       },
-      "latency": 5.1e-05
+      "latency": 6.5e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -246,7 +246,7 @@
             }
           ]
         },
-        "latency": 0.000101
+        "latency": 0.000118
       },
       "inputs": {
         "query_type": "summary",
@@ -276,11 +276,11 @@
           }
         ]
       },
-      "latency": 0.000101
+      "latency": 0.000118
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. Key themes: rollout, plan, policy, refresh, q. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt."
@@ -291,7 +291,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 8.5e-05
+        "latency": 9.4e-05
       },
       "inputs": {
         "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. # Operations Rollout Plan Pilot window: March 10, 2025 to April 4, 2025. Key themes: rollout, plan, policy, refresh, q. Sources: leadership_faq.txt, ops_rollout_plan.md, leadership_faq.txt."
@@ -302,11 +302,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 8.5e-05
+      "latency": 9.4e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",

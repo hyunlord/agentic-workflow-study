@@ -1,3 +1,5 @@
+import inspect
+
 import pytest
 
 from src.ingestion import build_demo_index
@@ -83,3 +85,11 @@ def test_validate_state_raises_for_missing_required_keys() -> None:
 
     with pytest.raises(StateValidationError, match="retrieved_docs"):
         validate_state(state)
+
+
+def test_run_workflow_signature_exposes_llm_options() -> None:
+    signature = inspect.signature(run_workflow)
+
+    assert "use_llm" in signature.parameters
+    assert "llm_client" in signature.parameters
+    assert signature.parameters["use_llm"].default is False

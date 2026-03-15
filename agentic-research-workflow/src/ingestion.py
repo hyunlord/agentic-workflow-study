@@ -14,18 +14,30 @@ from src.utils import ensure_directory, sentence_split, write_jsonl
 SUPPORTED_EXTENSIONS = {".md", ".txt"}
 
 
-def load_documents(raw_dir: Path | None = None) -> list[dict[str, str]]:
+def load_documents(raw_dir: Path | None = None, recursive: bool = False) -> list[dict[str, str]]:
     paths = get_paths()
     source_dir = raw_dir or paths.raw_dir
+    if raw_dir is None and (source_dir / "demo").exists():
+        source_dir = source_dir / "demo"
     documents: list[dict[str, str]] = []
 
-    for path in sorted(source_dir.iterdir()):
+    iterator = source_dir.rglob("*") if recursive else source_dir.iterdir()
+    for path in sorted(iterator):
+        if not path.is_file():
+            continue
         if path.suffix.lower() not in SUPPORTED_EXTENSIONS:
             continue
+        if path.parent == source_dir:
+            source = path.name
+            doc_id = path.stem
+        else:
+            relative_path = path.relative_to(source_dir)
+            source = str(relative_path)
+            doc_id = "__".join(relative_path.with_suffix("").parts)
         documents.append(
             {
-                "doc_id": path.stem,
-                "source": path.name,
+                "doc_id": doc_id,
+                "source": source,
                 "text": path.read_text(),
             }
         )
@@ -66,10 +78,11 @@ def ingest_documents(
     raw_dir: Path | None = None,
     processed_dir: Path | None = None,
     persist: bool = True,
+    recursive: bool = False,
 ) -> list[dict[str, Any]]:
     paths = get_paths()
     chunks: list[dict[str, Any]] = []
-    for document in load_documents(raw_dir):
+    for document in load_documents(raw_dir, recursive=recursive):
         chunks.extend(chunk_document(document))
 
     if persist:
@@ -84,9 +97,15 @@ def build_demo_index(
     processed_dir: Path | None = None,
     persist: bool = True,
     backend: str = "tfidf",
+    recursive: bool = False,
 ) -> HybridRetriever | FAISSRetriever:
     paths = get_paths()
-    chunks = ingest_documents(raw_dir=raw_dir, processed_dir=processed_dir, persist=persist)
+    chunks = ingest_documents(
+        raw_dir=raw_dir,
+        processed_dir=processed_dir,
+        persist=persist,
+        recursive=recursive,
+    )
     if backend == "faiss":
         config = RuntimeConfig.auto_detect()
         try:

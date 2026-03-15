@@ -1,10 +1,10 @@
 {
-  "session_id": "c702ef11-651f-4e82-b9a4-a9a342e21a44",
+  "session_id": "17ffe333-7ce2-455c-bc38-aee4a9b7b77a",
   "user_query": "Summarize the operational consistency story across the policy, governance, and support documents.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Summarize the operational consistency story across the policy, governance, and support documents."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the operational consistency story across the policy, governance, and support documents."
@@ -33,7 +33,7 @@
           "query_type": "summary",
           "requires_tools": false
         },
-        "latency": 5e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "Summarize the operational consistency story across the policy, governance, and support documents."
@@ -42,11 +42,11 @@
         "query_type": "summary",
         "requires_tools": false
       },
-      "latency": 5e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary"
@@ -58,7 +58,7 @@
             "verify key claims are grounded"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "summary"
@@ -70,11 +70,11 @@
           "verify key claims are grounded"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the operational consistency story across the policy, governance, and support documents.",
@@ -90,7 +90,7 @@
             "workspace_policy_refresh.md"
           ]
         },
-        "latency": 0.000573
+        "latency": 0.000777
       },
       "inputs": {
         "normalized_query": "Summarize the operational consistency story across the policy, governance, and support documents.",
@@ -106,11 +106,11 @@
           "workspace_policy_refresh.md"
         ]
       },
-      "latency": 0.000573
+      "latency": 0.000777
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the operational consistency story across the policy, governance, and support documents.",
@@ -129,7 +129,7 @@
             }
           ]
         },
-        "latency": 2.6e-05
+        "latency": 3.2e-05
       },
       "inputs": {
         "normalized_query": "Summarize the operational consistency story across the policy, governance, and support documents.",
@@ -148,11 +148,11 @@
           }
         ]
       },
-      "latency": 2.6e-05
+      "latency": 3.2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 6.4e-05
+        "latency": 6.6e-05
       },
       "inputs": {
         "tool_requests": [
@@ -212,11 +212,11 @@
           }
         ]
       },
-      "latency": 6.4e-05
+      "latency": 6.6e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -246,7 +246,7 @@
             }
           ]
         },
-        "latency": 0.00016
+        "latency": 0.000161
       },
       "inputs": {
         "query_type": "summary",
@@ -276,11 +276,11 @@
           }
         ]
       },
-      "latency": 0.00016
+      "latency": 0.000161
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Published: January 15, 2025 The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Governance Update The governance memo explains how the policy refresh will be maintained after launch. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Key themes: policy, team, refresh, onboarding, governance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, governance_update.txt."
@@ -291,7 +291,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 0.000128
+        "latency": 0.000129
       },
       "inputs": {
         "draft_answer": "Published: January 15, 2025 The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Governance Update The governance memo explains how the policy refresh will be maintained after launch. Operations expects better onboarding consistency when teams rely on the same canonical policy and FAQ. Key themes: policy, team, refresh, onboarding, governance. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, governance_update.txt."
@@ -302,11 +302,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 0.000128
+      "latency": 0.000129
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",

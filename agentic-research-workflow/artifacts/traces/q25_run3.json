@@ -1,10 +1,10 @@
 {
-  "session_id": "da4a0348-99f3-49a3-88f1-432ff298c747",
+  "session_id": "69f7e3dc-5ec1-4168-b39d-259dccb5c4ea",
   "user_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?"
@@ -33,7 +33,7 @@
           "query_type": "multi_hop",
           "requires_tools": true
         },
-        "latency": 5e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?"
@@ -42,11 +42,11 @@
         "query_type": "multi_hop",
         "requires_tools": true
       },
-      "latency": 5e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -60,7 +60,7 @@
             "verify grounding before final answer"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "multi_hop"
@@ -74,11 +74,11 @@
           "verify grounding before final answer"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?",
@@ -94,7 +94,7 @@
             "workspace_policy_refresh.md"
           ]
         },
-        "latency": 0.000613
+        "latency": 0.000612
       },
       "inputs": {
         "normalized_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?",
@@ -110,11 +110,11 @@
           "workspace_policy_refresh.md"
         ]
       },
-      "latency": 0.000613
+      "latency": 0.000612
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Why does the canonical policy ownership model help reduce duplicate onboarding documentation?",
@@ -140,7 +140,7 @@
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -160,7 +160,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -184,7 +184,7 @@
             }
           ]
         },
-        "latency": 0.000167
+        "latency": 0.000162
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -208,11 +208,11 @@
           }
         ]
       },
-      "latency": 0.000167
+      "latency": 0.000162
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Sources: support_metrics.txt, support_metrics.txt."
@@ -223,7 +223,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 0.000103
+        "latency": 9.5e-05
       },
       "inputs": {
         "draft_answer": "The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Sources: support_metrics.txt, support_metrics.txt."
@@ -234,11 +234,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 0.000103
+      "latency": 9.5e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",

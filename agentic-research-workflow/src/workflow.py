@@ -7,6 +7,7 @@ from typing import Any
 from src.classifier import classify_query
 from src.config import DEFAULT_TOP_K
 from src.fallback import fallback_or_finalize
+from src.llm_client import OllamaClient
 from src.memory import (
     LongTermMemory,
     ShortTermMemory,
@@ -20,9 +21,11 @@ from src.schemas import ToolRequest
 from src.state import AgentState, append_trace, create_initial_state, record_error
 from src.state_validation import validate_state
 from src.synthesizer import build_baseline_answer, synthesize_answer
+from src.synthesizer_llm import synthesize_answer_llm
 from src.tools import execute_tool_requests, plan_tool_requests
 from src.utils import normalize_text, write_json
 from src.verifier import verify_grounding
+from src.verifier_llm import verify_grounding_llm
 
 
 def _record_node_trace(
@@ -165,14 +168,27 @@ def run_tools_node(state: AgentState) -> None:
     )
 
 
-def synthesize_answer_node(state: AgentState) -> None:
+def synthesize_answer_node(
+    state: AgentState,
+    use_llm: bool = False,
+    llm_client: OllamaClient | None = None,
+) -> None:
     start = time.perf_counter()
-    result = synthesize_answer(
-        query=state["normalized_query"],
-        query_type=state["query_type"],
-        retrieved_docs=state["retrieved_docs"],
-        tool_outputs=state["tool_outputs"],
-    )
+    if use_llm:
+        result = synthesize_answer_llm(
+            query=state["normalized_query"],
+            query_type=state["query_type"],
+            retrieved_docs=state["retrieved_docs"],
+            tool_outputs=state["tool_outputs"],
+            client=llm_client,
+        )
+    else:
+        result = synthesize_answer(
+            query=state["normalized_query"],
+            query_type=state["query_type"],
+            retrieved_docs=state["retrieved_docs"],
+            tool_outputs=state["tool_outputs"],
+        )
     state["draft_answer"] = result["draft_answer"]
     state["citations"] = result["citations"]
     _record_node_trace(
@@ -188,14 +204,27 @@ def synthesize_answer_node(state: AgentState) -> None:
     )
 
 
-def verify_grounding_node(state: AgentState) -> None:
+def verify_grounding_node(
+    state: AgentState,
+    use_llm: bool = False,
+    llm_client: OllamaClient | None = None,
+) -> None:
     start = time.perf_counter()
-    state["verification_result"] = verify_grounding(
-        query=state["normalized_query"],
-        draft_answer=state["draft_answer"],
-        retrieved_docs=state["retrieved_docs"],
-        tool_outputs=state["tool_outputs"],
-    )
+    if use_llm:
+        state["verification_result"] = verify_grounding_llm(
+            query=state["normalized_query"],
+            draft_answer=state["draft_answer"],
+            retrieved_docs=state["retrieved_docs"],
+            tool_outputs=state["tool_outputs"],
+            client=llm_client,
+        )
+    else:
+        state["verification_result"] = verify_grounding(
+            query=state["normalized_query"],
+            draft_answer=state["draft_answer"],
+            retrieved_docs=state["retrieved_docs"],
+            tool_outputs=state["tool_outputs"],
+        )
     _record_node_trace(
         state,
         "verify_grounding",
@@ -321,6 +350,8 @@ def _execute_workflow_steps(
     steps: tuple[Any, ...],
     retriever: Any,
     top_k: int,
+    use_llm: bool = False,
+    llm_client: OllamaClient | None = None,
     short_term_memory: ShortTermMemory | None = None,
     long_term_memory: LongTermMemory | None = None,
     vector_memory: VectorMemory | None = None,
@@ -353,6 +384,12 @@ def _execute_workflow_steps(
                     threshold=memory_threshold,
                 )
             continue
+        if step is synthesize_answer_node:
+            step(state, use_llm=use_llm, llm_client=llm_client)
+            continue
+        if step is verify_grounding_node:
+            step(state, use_llm=use_llm, llm_client=llm_client)
+            continue
         step(state)
 
 
@@ -361,11 +398,21 @@ def run_workflow(
     retriever: Any,
     top_k: int = DEFAULT_TOP_K,
     trace_path: Path | None = None,
+    use_llm: bool = False,
+    llm_client: OllamaClient | None = None,
 ) -> AgentState:
     state = create_initial_state(query)
+    effective_llm_client = llm_client or (OllamaClient() if use_llm else None)
 
     try:
-        _execute_workflow_steps(state, WORKFLOW_STEPS, retriever=retriever, top_k=top_k)
+        _execute_workflow_steps(
+            state,
+            WORKFLOW_STEPS,
+            retriever=retriever,
+            top_k=top_k,
+            use_llm=use_llm,
+            llm_client=effective_llm_client,
+        )
     except Exception as error:  # pragma: no cover - defensive path
         record_error(state, str(error))
         error_start = time.perf_counter()
@@ -399,8 +446,11 @@ def run_workflow_with_memory(
     update_memory: bool = True,
     memory_threshold: float = 0.55,
     trace_path: Path | None = None,
+    use_llm: bool = False,
+    llm_client: OllamaClient | None = None,
 ) -> AgentState:
     state = create_initial_state(query)
+    effective_llm_client = llm_client or (OllamaClient() if use_llm else None)
 
     try:
         _execute_workflow_steps(
@@ -408,6 +458,8 @@ def run_workflow_with_memory(
             MEMORY_WORKFLOW_STEPS,
             retriever=retriever,
             top_k=top_k,
+            use_llm=use_llm,
+            llm_client=effective_llm_client,
             short_term_memory=short_term_memory,
             long_term_memory=long_term_memory,
             vector_memory=vector_memory,

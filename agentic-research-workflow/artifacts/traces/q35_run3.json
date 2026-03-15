@@ -1,10 +1,10 @@
 {
-  "session_id": "9d6d955c-e672-475d-bd4a-3bc9a13fa71b",
+  "session_id": "ea21c4be-943f-4123-b8a7-b58f3b016abe",
   "user_query": "Which vendor will replace the current scheduling system next quarter?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Which vendor will replace the current scheduling system next quarter?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which vendor will replace the current scheduling system next quarter?"
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which vendor will replace the current scheduling system next quarter?",
@@ -90,7 +90,7 @@
             "ops_rollout_plan.md"
           ]
         },
-        "latency": 0.00056
+        "latency": 0.000546
       },
       "inputs": {
         "normalized_query": "Which vendor will replace the current scheduling system next quarter?",
@@ -106,11 +106,11 @@
           "ops_rollout_plan.md"
         ]
       },
-      "latency": 0.00056
+      "latency": 0.000546
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Which vendor will replace the current scheduling system next quarter?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.2e-05
+        "latency": 2e-05
       },
       "inputs": {
         "normalized_query": "Which vendor will replace the current scheduling system next quarter?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.2e-05
+      "latency": 2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -144,7 +144,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
@@ -152,11 +152,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",
@@ -186,7 +186,7 @@
             }
           ]
         },
-        "latency": 0.000125
+        "latency": 0.000121
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk",
@@ -216,11 +216,11 @@
           }
         ]
       },
-      "latency": 0.000125
+      "latency": 0.000121
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Phase 2 launches the scheduling template and escalation form. Sources: ops_rollout_plan.md, ops_rollout_plan.md, governance_update.txt."
@@ -233,7 +233,7 @@
             "Evidence only covers part of the request."
           ]
         },
-        "latency": 6.1e-05
+        "latency": 6.8e-05
       },
       "inputs": {
         "draft_answer": "Phase 2 launches the scheduling template and escalation form. Sources: ops_rollout_plan.md, ops_rollout_plan.md, governance_update.txt."
@@ -246,11 +246,11 @@
           "Evidence only covers part of the request."
         ]
       },
-      "latency": 6.1e-05
+      "latency": 6.8e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",

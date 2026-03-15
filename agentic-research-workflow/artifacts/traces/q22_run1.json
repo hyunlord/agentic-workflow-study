@@ -1,10 +1,10 @@
 {
-  "session_id": "e839af6f-82e4-4062-9319-dcdcf5a08499",
+  "session_id": "af775d3e-f09c-4360-8ce2-7a3162620bc9",
   "user_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Compare Phase 1 and Phase 2 of the rollout plan."
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan."
         },
-        "latency": 2e-06
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "Compare Phase 1 and Phase 2 of the rollout plan."
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan."
       },
-      "latency": 2e-06
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan."
@@ -33,7 +33,7 @@
           "query_type": "comparison",
           "requires_tools": false
         },
-        "latency": 4e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan."
@@ -42,11 +42,11 @@
         "query_type": "comparison",
         "requires_tools": false
       },
-      "latency": 4e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -59,7 +59,7 @@
             "verify grounding"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "comparison"
@@ -72,11 +72,11 @@
           "verify grounding"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -92,7 +92,7 @@
             "ops_rollout_plan.md"
           ]
         },
-        "latency": 0.00053
+        "latency": 0.000668
       },
       "inputs": {
         "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -108,11 +108,11 @@
           "ops_rollout_plan.md"
         ]
       },
-      "latency": 0.00053
+      "latency": 0.000668
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 1.9e-05
+        "latency": 2.2e-05
       },
       "inputs": {
         "normalized_query": "Compare Phase 1 and Phase 2 of the rollout plan.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 1.9e-05
+      "latency": 2.2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -158,7 +158,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 0.000114
+        "latency": 0.000117
       },
       "inputs": {
         "query_type": "comparison",
@@ -206,11 +206,11 @@
           }
         ]
       },
-      "latency": 0.000114
+      "latency": 0.000117
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: ops_rollout_plan.md, leadership_faq.txt."
@@ -221,7 +221,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 6.5e-05
+        "latency": 6.9e-05
       },
       "inputs": {
         "draft_answer": "The policy refresh defines the goals and standards, while the rollout plan explains timing, training, and execution steps. Sources: ops_rollout_plan.md, leadership_faq.txt."
@@ -232,11 +232,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 6.5e-05
+      "latency": 6.9e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

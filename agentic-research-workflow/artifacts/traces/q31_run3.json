@@ -1,10 +1,10 @@
 {
-  "session_id": "62a98916-2e8e-4e83-be4a-b9bba7543a58",
+  "session_id": "9a7e133d-e002-4e42-9aa6-2c25966c8ea2",
   "user_query": "Summarize the product assistant overview and the technical retrieval notes together.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Summarize the product assistant overview and the technical retrieval notes together."
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
         },
-        "latency": 4e-06
+        "latency": 3e-06
       },
       "inputs": {
         "user_query": "Summarize the product assistant overview and the technical retrieval notes together."
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
       },
-      "latency": 4e-06
+      "latency": 3e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together."
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
@@ -90,7 +90,7 @@
             "product_assistant_overview.md"
           ]
         },
-        "latency": 0.000633
+        "latency": 0.000693
       },
       "inputs": {
         "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
@@ -106,11 +106,11 @@
           "product_assistant_overview.md"
         ]
       },
-      "latency": 0.000633
+      "latency": 0.000693
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
@@ -129,7 +129,7 @@
             }
           ]
         },
-        "latency": 2.7e-05
+        "latency": 2.8e-05
       },
       "inputs": {
         "normalized_query": "Summarize the product assistant overview and the technical retrieval notes together.",
@@ -148,11 +148,11 @@
           }
         ]
       },
-      "latency": 2.7e-05
+      "latency": 2.8e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 5.8e-05
+        "latency": 6.4e-05
       },
       "inputs": {
         "tool_requests": [
@@ -212,11 +212,11 @@
           }
         ]
       },
-      "latency": 5.8e-05
+      "latency": 6.4e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -246,7 +246,7 @@
             }
           ]
         },
-        "latency": 0.000154
+        "latency": 0.00015
       },
       "inputs": {
         "query_type": "summary",
@@ -276,11 +276,11 @@
           }
         ]
       },
-      "latency": 0.000154
+      "latency": 0.00015
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md."
@@ -291,7 +291,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 0.000114
+        "latency": 0.000103
       },
       "inputs": {
         "draft_answer": "# Product Assistant Overview The product assistant is a fictional internal helper that answers onboarding and policy questions for employees. Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Key themes: product, assistant, fictional, internal, helper. Sources: product_assistant_overview.md, technical_retrieval_notes.txt, product_assistant_overview.md."
@@ -302,11 +302,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 0.000114
+      "latency": 0.000103
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",

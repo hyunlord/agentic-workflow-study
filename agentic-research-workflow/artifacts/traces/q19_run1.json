@@ -1,10 +1,10 @@
 {
-  "session_id": "799a4e66-44d5-4847-a80b-a5b7dbd609c1",
+  "session_id": "82981bf2-3f06-4ad2-bdb3-51e205ed7e88",
   "user_query": "How do the policy refresh and support metrics describe onboarding consistency differently?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "How do the policy refresh and support metrics describe onboarding consistency differently?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How do the policy refresh and support metrics describe onboarding consistency differently?"
@@ -33,7 +33,7 @@
           "query_type": "comparison",
           "requires_tools": false
         },
-        "latency": 6e-06
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "How do the policy refresh and support metrics describe onboarding consistency differently?"
@@ -42,11 +42,11 @@
         "query_type": "comparison",
         "requires_tools": false
       },
-      "latency": 6e-06
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -76,7 +76,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How do the policy refresh and support metrics describe onboarding consistency differently?",
@@ -92,7 +92,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000556
+        "latency": 0.000662
       },
       "inputs": {
         "normalized_query": "How do the policy refresh and support metrics describe onboarding consistency differently?",
@@ -108,11 +108,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000556
+      "latency": 0.000662
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How do the policy refresh and support metrics describe onboarding consistency differently?",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.5e-05
+        "latency": 2.8e-05
       },
       "inputs": {
         "normalized_query": "How do the policy refresh and support metrics describe onboarding consistency differently?",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.5e-05
+      "latency": 2.8e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -158,7 +158,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -188,7 +188,7 @@
             }
           ]
         },
-        "latency": 0.000148
+        "latency": 0.000152
       },
       "inputs": {
         "query_type": "comparison",
@@ -218,11 +218,11 @@
           }
         ]
       },
-      "latency": 0.000148
+      "latency": 0.000152
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, workspace_policy_refresh.md, workspace_policy_refresh.md."
@@ -233,7 +233,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 7.8e-05
+        "latency": 7.9e-05
       },
       "inputs": {
         "draft_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, workspace_policy_refresh.md, workspace_policy_refresh.md."
@@ -244,11 +244,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 7.8e-05
+      "latency": 7.9e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

@@ -1,10 +1,10 @@
 {
-  "session_id": "073b4ed2-dfdb-4816-aeec-0f205b3432e4",
+  "session_id": "0388bf72-0cc1-4c6b-be7c-c35c237ab9df",
   "user_query": "What is today's NVIDIA stock price?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "What is today's NVIDIA stock price?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What is today's NVIDIA stock price?"
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What is today's NVIDIA stock price?",
@@ -90,7 +90,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000527
+        "latency": 0.000599
       },
       "inputs": {
         "normalized_query": "What is today's NVIDIA stock price?",
@@ -106,11 +106,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000527
+      "latency": 0.000599
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What is today's NVIDIA stock price?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2e-05
+        "latency": 2.3e-05
       },
       "inputs": {
         "normalized_query": "What is today's NVIDIA stock price?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2e-05
+      "latency": 2.3e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",
@@ -180,7 +180,7 @@
             }
           ]
         },
-        "latency": 0.000122
+        "latency": 0.000138
       },
       "inputs": {
         "query_type": "insufficient_evidence_risk",
@@ -204,11 +204,11 @@
           }
         ]
       },
-      "latency": 0.000122
+      "latency": 0.000138
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "The refresh reduces discretionary travel and duplicated onboarding sessions. Sources: workspace_policy_refresh.md, ops_rollout_plan.md."
@@ -221,7 +221,7 @@
             "Evidence only covers part of the request."
           ]
         },
-        "latency": 6e-05
+        "latency": 6.9e-05
       },
       "inputs": {
         "draft_answer": "The refresh reduces discretionary travel and duplicated onboarding sessions. Sources: workspace_policy_refresh.md, ops_rollout_plan.md."
@@ -234,11 +234,11 @@
           "Evidence only covers part of the request."
         ]
       },
-      "latency": 6e-05
+      "latency": 6.9e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "insufficient_evidence_risk",

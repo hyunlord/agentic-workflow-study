@@ -1,10 +1,10 @@
 {
-  "session_id": "ecf458d2-fee0-4eab-af32-879418922ee7",
+  "session_id": "0bf28273-b2ca-44c8-a0d0-12c1e23c9afa",
   "user_query": "How do the policy goals differ from the success measures in the workspace refresh document?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "How do the policy goals differ from the success measures in the workspace refresh document?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How do the policy goals differ from the success measures in the workspace refresh document?"
@@ -33,7 +33,7 @@
           "query_type": "multi_hop",
           "requires_tools": true
         },
-        "latency": 6e-06
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "How do the policy goals differ from the success measures in the workspace refresh document?"
@@ -42,11 +42,11 @@
         "query_type": "multi_hop",
         "requires_tools": true
       },
-      "latency": 6e-06
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop"
@@ -78,7 +78,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How do the policy goals differ from the success measures in the workspace refresh document?",
@@ -94,7 +94,7 @@
             "leadership_faq.txt"
           ]
         },
-        "latency": 0.000601
+        "latency": 0.000634
       },
       "inputs": {
         "normalized_query": "How do the policy goals differ from the success measures in the workspace refresh document?",
@@ -110,11 +110,11 @@
           "leadership_faq.txt"
         ]
       },
-      "latency": 0.000601
+      "latency": 0.000634
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How do the policy goals differ from the success measures in the workspace refresh document?",
@@ -125,7 +125,7 @@
           "requires_tools": true,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.7e-05
       },
       "inputs": {
         "normalized_query": "How do the policy goals differ from the success measures in the workspace refresh document?",
@@ -136,11 +136,11 @@
         "requires_tools": true,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.7e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -160,7 +160,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",
@@ -190,7 +190,7 @@
             }
           ]
         },
-        "latency": 0.000137
+        "latency": 0.000198
       },
       "inputs": {
         "query_type": "multi_hop",
@@ -220,11 +220,11 @@
           }
         ]
       },
-      "latency": 0.000137
+      "latency": 0.000198
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Published: January 15, 2025 The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, workspace_policy_refresh.md."
@@ -235,7 +235,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 8.1e-05
+        "latency": 9.9e-05
       },
       "inputs": {
         "draft_answer": "Published: January 15, 2025 The workspace policy refresh has three main goals: reduce operating cost, standardize hybrid work guidance across teams, and improve onboarding consistency for new hires. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md, workspace_policy_refresh.md."
@@ -246,11 +246,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 8.1e-05
+      "latency": 9.9e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "multi_hop",

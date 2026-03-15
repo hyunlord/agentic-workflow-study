@@ -1,10 +1,10 @@
 {
-  "session_id": "d8641355-828c-4f00-92e0-7f915559b25f",
+  "session_id": "c9748cb7-72e9-4774-9f8e-73c72d349edd",
   "user_query": "How is ownership described differently in the governance update and the support metrics memo?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "How is ownership described differently in the governance update and the support metrics memo?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How is ownership described differently in the governance update and the support metrics memo?"
@@ -33,7 +33,7 @@
           "query_type": "comparison",
           "requires_tools": true
         },
-        "latency": 6e-06
+        "latency": 7e-06
       },
       "inputs": {
         "normalized_query": "How is ownership described differently in the governance update and the support metrics memo?"
@@ -42,11 +42,11 @@
         "query_type": "comparison",
         "requires_tools": true
       },
-      "latency": 6e-06
+      "latency": 7e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -76,7 +76,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How is ownership described differently in the governance update and the support metrics memo?",
@@ -92,7 +92,7 @@
             "support_metrics.txt"
           ]
         },
-        "latency": 0.000616
+        "latency": 0.001121
       },
       "inputs": {
         "normalized_query": "How is ownership described differently in the governance update and the support metrics memo?",
@@ -108,11 +108,11 @@
           "support_metrics.txt"
         ]
       },
-      "latency": 0.000616
+      "latency": 0.001121
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "How is ownership described differently in the governance update and the support metrics memo?",
@@ -123,7 +123,7 @@
           "requires_tools": true,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 3.2e-05
       },
       "inputs": {
         "normalized_query": "How is ownership described differently in the governance update and the support metrics memo?",
@@ -134,11 +134,11 @@
         "requires_tools": true,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 3.2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -146,7 +146,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "tool_requests": []
@@ -154,11 +154,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -188,7 +188,7 @@
             }
           ]
         },
-        "latency": 0.000142
+        "latency": 0.000161
       },
       "inputs": {
         "query_type": "comparison",
@@ -218,11 +218,11 @@
           }
         ]
       },
-      "latency": 0.000142
+      "latency": 0.000161
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, governance_update.txt, governance_update.txt."
@@ -233,7 +233,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 7.9e-05
+        "latency": 8.4e-05
       },
       "inputs": {
         "draft_answer": "Support Metrics Memo An audit found forty-two duplicate onboarding tickets per month before the refresh. Sources: support_metrics.txt, governance_update.txt, governance_update.txt."
@@ -244,11 +244,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 7.9e-05
+      "latency": 8.4e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

@@ -1,10 +1,10 @@
 {
-  "session_id": "923ee010-af2c-42f9-9c19-7f73dea52a25",
+  "session_id": "3c82c9e2-db4f-453c-a5b6-d89c8dfc7797",
   "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
@@ -33,7 +33,7 @@
           "query_type": "comparison",
           "requires_tools": false
         },
-        "latency": 6e-06
+        "latency": 5e-06
       },
       "inputs": {
         "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design."
@@ -42,11 +42,11 @@
         "query_type": "comparison",
         "requires_tools": false
       },
-      "latency": 6e-06
+      "latency": 5e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison"
@@ -76,7 +76,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -92,7 +92,7 @@
             "technical_retrieval_notes.txt"
           ]
         },
-        "latency": 0.000612
+        "latency": 0.000553
       },
       "inputs": {
         "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -108,11 +108,11 @@
           "technical_retrieval_notes.txt"
         ]
       },
-      "latency": 0.000612
+      "latency": 0.000553
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -123,7 +123,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.5e-05
       },
       "inputs": {
         "normalized_query": "Compare the FAQ guidance on tool use with the retrieval note's explanation of the system design.",
@@ -134,11 +134,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.5e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -146,7 +146,7 @@
         "outputs": {
           "tool_outputs": []
         },
-        "latency": 1e-06
+        "latency": 0.0
       },
       "inputs": {
         "tool_requests": []
@@ -154,11 +154,11 @@
       "outputs": {
         "tool_outputs": []
       },
-      "latency": 1e-06
+      "latency": 0.0
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",
@@ -188,7 +188,7 @@
             }
           ]
         },
-        "latency": 0.000143
+        "latency": 0.000123
       },
       "inputs": {
         "query_type": "comparison",
@@ -218,11 +218,11 @@
           }
         ]
       },
-      "latency": 0.000143
+      "latency": 0.000123
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt."
@@ -233,7 +233,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 8.4e-05
+        "latency": 8.1e-05
       },
       "inputs": {
         "draft_answer": "Technical Retrieval Notes The retrieval layer uses local TF-IDF features so the demo stays lightweight and reproducible on laptops, servers, and interview setups. Sources: technical_retrieval_notes.txt, technical_retrieval_notes.txt, leadership_faq.txt."
@@ -244,11 +244,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 8.4e-05
+      "latency": 8.1e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "comparison",

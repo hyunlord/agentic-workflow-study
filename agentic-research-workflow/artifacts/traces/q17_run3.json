@@ -1,10 +1,10 @@
 {
-  "session_id": "46fd7447-bd04-4c5c-9e74-93eab4bb20f9",
+  "session_id": "2326adb4-7e77-48b1-bdcc-1895b2b265b4",
   "user_query": "What must each team maintain under the refreshed policy?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "What must each team maintain under the refreshed policy?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What must each team maintain under the refreshed policy?"
@@ -46,7 +46,7 @@
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What must each team maintain under the refreshed policy?",
@@ -90,7 +90,7 @@
             "governance_update.txt"
           ]
         },
-        "latency": 0.000546
+        "latency": 0.000534
       },
       "inputs": {
         "normalized_query": "What must each team maintain under the refreshed policy?",
@@ -106,11 +106,11 @@
           "governance_update.txt"
         ]
       },
-      "latency": 0.000546
+      "latency": 0.000534
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What must each team maintain under the refreshed policy?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 2.4e-05
+        "latency": 2.2e-05
       },
       "inputs": {
         "normalized_query": "What must each team maintain under the refreshed policy?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 2.4e-05
+      "latency": 2.2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -180,7 +180,7 @@
             }
           ]
         },
-        "latency": 0.000155
+        "latency": 0.000157
       },
       "inputs": {
         "query_type": "simple_lookup",
@@ -204,11 +204,11 @@
           }
         ]
       },
-      "latency": 0.000155
+      "latency": 0.000157
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md."
@@ -219,7 +219,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 7.1e-05
+        "latency": 7.3e-05
       },
       "inputs": {
         "draft_answer": "Each team must maintain a single canonical knowledge base page. Sources: workspace_policy_refresh.md, workspace_policy_refresh.md."
@@ -230,11 +230,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 7.1e-05
+      "latency": 7.3e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",

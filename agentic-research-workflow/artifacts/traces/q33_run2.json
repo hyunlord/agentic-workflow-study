@@ -1,10 +1,10 @@
 {
-  "session_id": "3d572f11-7681-45ba-9a9d-8e162e5b306c",
+  "session_id": "a26c6837-d55b-43ab-bfaa-62bfe4f3edb3",
   "user_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver.",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver."
@@ -12,7 +12,7 @@
         "outputs": {
           "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver."
         },
-        "latency": 3e-06
+        "latency": 4e-06
       },
       "inputs": {
         "user_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver."
@@ -20,11 +20,11 @@
       "outputs": {
         "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver."
       },
-      "latency": 3e-06
+      "latency": 4e-06
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver."
@@ -33,7 +33,7 @@
           "query_type": "summary",
           "requires_tools": false
         },
-        "latency": 5e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver."
@@ -42,11 +42,11 @@
         "query_type": "summary",
         "requires_tools": false
       },
-      "latency": 5e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary"
@@ -58,7 +58,7 @@
             "verify key claims are grounded"
           ]
         },
-        "latency": 0.0
+        "latency": 1e-06
       },
       "inputs": {
         "query_type": "summary"
@@ -70,11 +70,11 @@
           "verify key claims are grounded"
         ]
       },
-      "latency": 0.0
+      "latency": 1e-06
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver.",
@@ -90,7 +90,7 @@
             "support_metrics.txt"
           ]
         },
-        "latency": 0.000633
+        "latency": 0.000797
       },
       "inputs": {
         "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver.",
@@ -106,11 +106,11 @@
           "support_metrics.txt"
         ]
       },
-      "latency": 0.000633
+      "latency": 0.000797
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver.",
@@ -129,7 +129,7 @@
             }
           ]
         },
-        "latency": 2.7e-05
+        "latency": 3.3e-05
       },
       "inputs": {
         "normalized_query": "Summarize how the documents describe when tools should be used and what the product is trying to deliver.",
@@ -148,11 +148,11 @@
           }
         ]
       },
-      "latency": 2.7e-05
+      "latency": 3.3e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": [
@@ -182,7 +182,7 @@
             }
           ]
         },
-        "latency": 5.5e-05
+        "latency": 6.6e-05
       },
       "inputs": {
         "tool_requests": [
@@ -212,11 +212,11 @@
           }
         ]
       },
-      "latency": 5.5e-05
+      "latency": 6.6e-05
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",
@@ -246,7 +246,7 @@
             }
           ]
         },
-        "latency": 0.000141
+        "latency": 0.000148
       },
       "inputs": {
         "query_type": "summary",
@@ -276,11 +276,11 @@
           }
         ]
       },
-      "latency": 0.000141
+      "latency": 0.000148
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "The product team uses this document in the notebooks as an example of a concise product brief. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Key themes: onboarding, product, duplicated, q, should. Sources: product_assistant_overview.md, product_assistant_overview.md, support_metrics.txt."
@@ -291,7 +291,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 0.000113
+        "latency": 0.000118
       },
       "inputs": {
         "draft_answer": "The product team uses this document in the notebooks as an example of a concise product brief. The knowledge base ownership model was chosen to reduce duplicated documents and make onboarding answers easier to find. Finance modeled savings from reduced discretionary travel and fewer duplicated onboarding sessions. Key themes: onboarding, product, duplicated, q, should. Sources: product_assistant_overview.md, product_assistant_overview.md, support_metrics.txt."
@@ -302,11 +302,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 0.000113
+      "latency": 0.000118
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "summary",

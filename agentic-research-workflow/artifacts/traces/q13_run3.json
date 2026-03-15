@@ -1,10 +1,10 @@
 {
-  "session_id": "3abe7df4-3c78-49cf-98fc-67d20569c5c1",
+  "session_id": "d048beaa-2bc4-4962-9b51-68004594a087",
   "user_query": "What success measures indicate the refresh is working?",
   "trace": [
     {
       "node": "normalize_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "user_query": "What success measures indicate the refresh is working?"
@@ -24,7 +24,7 @@
     },
     {
       "node": "classify_query",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What success measures indicate the refresh is working?"
@@ -33,7 +33,7 @@
           "query_type": "simple_lookup",
           "requires_tools": false
         },
-        "latency": 5e-06
+        "latency": 6e-06
       },
       "inputs": {
         "normalized_query": "What success measures indicate the refresh is working?"
@@ -42,11 +42,11 @@
         "query_type": "simple_lookup",
         "requires_tools": false
       },
-      "latency": 5e-06
+      "latency": 6e-06
     },
     {
       "node": "make_plan",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup"
@@ -74,7 +74,7 @@
     },
     {
       "node": "retrieve_docs",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What success measures indicate the refresh is working?",
@@ -90,7 +90,7 @@
             "workspace_policy_refresh.md"
           ]
         },
-        "latency": 0.00051
+        "latency": 0.000562
       },
       "inputs": {
         "normalized_query": "What success measures indicate the refresh is working?",
@@ -106,11 +106,11 @@
           "workspace_policy_refresh.md"
         ]
       },
-      "latency": 0.00051
+      "latency": 0.000562
     },
     {
       "node": "decide_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "normalized_query": "What success measures indicate the refresh is working?",
@@ -121,7 +121,7 @@
           "requires_tools": false,
           "tool_requests": []
         },
-        "latency": 1.9e-05
+        "latency": 2e-05
       },
       "inputs": {
         "normalized_query": "What success measures indicate the refresh is working?",
@@ -132,11 +132,11 @@
         "requires_tools": false,
         "tool_requests": []
       },
-      "latency": 1.9e-05
+      "latency": 2e-05
     },
     {
       "node": "run_tools",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "tool_requests": []
@@ -156,7 +156,7 @@
     },
     {
       "node": "synthesize_answer",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
@@ -208,7 +208,7 @@
     },
     {
       "node": "verify_grounding",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "draft_answer": "Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation. Sources: workspace_policy_refresh.md, leadership_faq.txt."
@@ -219,7 +219,7 @@
           "unsupported_claims": [],
           "missing_aspects": []
         },
-        "latency": 6.2e-05
+        "latency": 6.5e-05
       },
       "inputs": {
         "draft_answer": "Success measures include twenty percent fewer ad-hoc support requests, faster onboarding, and less duplicated documentation. Sources: workspace_policy_refresh.md, leadership_faq.txt."
@@ -230,11 +230,11 @@
         "unsupported_claims": [],
         "missing_aspects": []
       },
-      "latency": 6.2e-05
+      "latency": 6.5e-05
     },
     {
       "node": "fallback_or_finalize",
-      "timestamp": "2026-03-14T05:37:49Z",
+      "timestamp": "2026-03-15T11:25:30Z",
       "payload": {
         "inputs": {
           "query_type": "simple_lookup",
