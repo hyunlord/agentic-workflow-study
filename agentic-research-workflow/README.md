@@ -62,7 +62,7 @@ For the full set of workflow, memory, and state lifecycle diagrams, see [docs/ar
 The notebooks are meant to be read and run in order:
 
 1. `notebooks/01_rag_basics.ipynb`
-   Learn what RAG is, how chunking works, how the local vector index retrieves evidence, and where naive RAG falls short.
+   Learn what RAG is, how chunking works, how the local retriever surfaces evidence, and where naive RAG falls short.
 2. `notebooks/02_agentic_workflow.ipynb`
    Walk through `AgentState` and the workflow nodes one by one, then inspect the execution trace.
 3. `notebooks/03_evaluation.ipynb`
@@ -70,15 +70,53 @@ The notebooks are meant to be read and run in order:
 4. `notebooks/04_failure_analysis.ipynb`
    Extract failure cases, inspect traces, and turn failure modes into improvement ideas.
 5. `notebooks/05_agent_memory.ipynb`
-   Study short-term, long-term, vector, and episodic-style memory patterns, then connect memory retrieval to the agent workflow.
+   Study short-term, long-term, and vector memory patterns, then connect memory retrieval to the agent workflow.
 6. `notebooks/06_agent_planning.ipynb`
    Compare planner styles such as ReAct-inspired decomposition and planner-executor execution.
 7. `notebooks/07_tool_use.ipynb`
    Learn how structured tool calls flow through a local tool registry and deterministic tools.
 8. `notebooks/08_agent_debugging.ipynb`
    Inspect traces, node-level inputs and outputs, and per-node latency during debugging.
+9. `notebooks/09_llm_integration.ipynb`
+   Add Ollama-based LLM synthesis and verification on top of the deterministic workflow, including fallback behavior.
+10. `notebooks/10_model_comparison.ipynb`
+    Compare model sizes and the rule-based path across answer quality, latency, and GPU memory usage.
+11. `notebooks/11_real_data_tech_docs.ipynb`
+    Move from the demo corpus to real public technical documentation and observe how failure modes change.
+12. `notebooks/12_real_data_korean.ipynb`
+    Run multilingual retrieval and answer generation on Korean public data, then inspect language-specific limits.
+13. `notebooks/13_finetuning.ipynb`
+    Study a QLoRA fine-tuning path for domain adaptation, including data preparation, trainer setup, and evaluation.
 
 Every code cell has a Markdown explanation directly above it, and every notebook starts with `sys.executable` so you can verify the active environment.
+
+## Recommended Study Path
+
+If you want to use the repository like a short course instead of a code dump, this order works best:
+
+1. Start with the baseline story.
+   Read `01_rag_basics` first so the retrieval pipeline, chunking choices, and baseline answer construction are clear before any agent abstractions appear.
+2. Learn the workflow contract.
+   Read `02_agentic_workflow`, then move directly to `03_evaluation` and `04_failure_analysis`. This gives you the main architecture, the success metrics, and the debugging lens in one pass.
+3. Add the agent extensions.
+   Read `05_agent_memory`, `06_agent_planning`, `07_tool_use`, and `08_agent_debugging` as a bundle. Together they explain how the agent stores context, decomposes work, calls tools, and is debugged in practice.
+4. Move into LLM-backed execution.
+   Read `09_llm_integration` next. It shows how the existing deterministic workflow is extended with Ollama without throwing away traceability or fallback safety.
+5. Validate on realistic data.
+   Read `11_real_data_tech_docs` and `12_real_data_korean` after the LLM notebook. These two notebooks answer the most practical question in an interview: what changed when the system left toy data and met real English and Korean corpora?
+6. Compare deployment choices and advanced training.
+   Finish with `10_model_comparison` and `13_finetuning`. The first helps explain model-size tradeoffs on DGX, and the second shows how domain adaptation could be explored with QLoRA.
+
+That sequence supports a clean interview narrative:
+
+- build a baseline
+- evolve it into an agent workflow
+- measure it
+- debug it
+- extend it with memory, planning, and tools
+- integrate LLMs safely
+- validate on real English and Korean data
+- compare models and explore fine-tuning
 
 ## Repository Layout
 
@@ -103,7 +141,15 @@ agentic-research-workflow/
 │  ├─ 02_agentic_workflow.ipynb
 │  ├─ 03_evaluation.ipynb
 │  ├─ 04_failure_analysis.ipynb
-│  └─ 05_agent_memory.ipynb
+│  ├─ 05_agent_memory.ipynb
+│  ├─ 06_agent_planning.ipynb
+│  ├─ 07_tool_use.ipynb
+│  ├─ 08_agent_debugging.ipynb
+│  ├─ 09_llm_integration.ipynb
+│  ├─ 10_model_comparison.ipynb
+│  ├─ 11_real_data_tech_docs.ipynb
+│  ├─ 12_real_data_korean.ipynb
+│  └─ 13_finetuning.ipynb
 ├─ src/
 ├─ artifacts/
 │  ├─ traces/
@@ -116,10 +162,9 @@ agentic-research-workflow/
 
 The corpus intentionally mixes small, readable document types so the retrieval behavior is easy to follow:
 
-- policy documents
-- rollout and governance notes
-- product overview notes
-- technical retrieval notes
+- demo policy and rollout documents
+- public English technical documentation
+- Korean public-policy and legal documents
 
 The evaluation dataset lives in `data/eval/eval_dataset.json` and contains 40 questions balanced across lookups, comparisons, summaries, multi-hop reasoning, and insufficient-evidence cases.
 
